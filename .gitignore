@@ -1,0 +1,35 @@
+# 캐시 파일 제외
+cache/
+renpy/cache/
+renpy/common/
+**/*.pyc
+
+# 저장 파일 제외
+saves/
+saves/persistent
+
+# 빌드 파일 제외
+build/
+
+# 개인 설정 파일 제외
+options.rpyc
+
+# 컴파일된 파일 제외
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.rpyc
+*.rpymc
+
+# 로그 및 기타 파일 제외
+log.txt
+errors.txt
+traceback.txt
+files.txt
+
+# 백업 및 임시 파일 제외
+*.bak
+*.tmp
