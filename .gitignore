@@ -13,6 +13,7 @@ build/
 
 # 개인 설정 파일 제외
 options.rpyc
+.vscode/
 
 # 컴파일된 파일 제외
 *.com
