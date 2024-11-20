@@ -5,7 +5,7 @@ define s2 = Character("학생 2")
 define s3 = Character("학생 3")
 define prof = Character("김봉재 교수님")
 
-label start:
+label chapter1:
 
     # 강의실에 들어서며 시나리오 시작
     scene classroom with fade

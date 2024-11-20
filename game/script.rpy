@@ -65,4 +65,6 @@ label start:
     show sena at right, vertical  # 세나의 이미지를 오른쪽에 표시합니다
     s "모두 안녕!"
 
+    jump chapter1
+    
     return
