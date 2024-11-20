@@ -1,5 +1,5 @@
 # renpy 기본 설정
-define p = Character("주인공")
+define p = Character(" ")
 define s1 = Character("학생 1")
 define s2 = Character("학생 2")
 define s3 = Character("학생 3")
@@ -9,9 +9,12 @@ label chapter1:
 
     # 강의실에 들어서며 시나리오 시작
     scene classroom with fade
-    p "강의실에 들어섰다. 앞자리에 학생 1이 앉아 있고, 뒷자리에 학생 2가 앉아 있다."
-    p "나는 중간 자리에 앉았다. 주위를 둘러보자 학생 3이 들어왔다."
-
+    "[player_name]" "벌써 방학이 끝났다니ㅠㅠ 드디어 2학기 시작이다"
+    "[player_name]" "2학기에는 연애하고 싶은데 할 수 있을까?"
+    p "설레는 마음으로 강의실에 들어간다."
+    p "앞자리에 학생 1이 앉아 있고, 뒷자리에 학생 2가 앉아 있다."
+    "[player_name]" "벌써부터 자리가 꽉 차있네 사람없는 중간 자리에 앉아야 되겠다"
+    
     # 학생 3과의 상호작용
     s3 "안녕! 여기 앉아도 돼?"
     
