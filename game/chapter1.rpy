@@ -21,8 +21,8 @@ label chapter1:
     menu:
         "인사를 받아준다":
             "[player_name]" "그래, 앉아."
-            $ s3_affection += 1 # 호감도 상승
             s3 "고마워! 방학 잘 지냈어?" 
+            $ s3_affection += 1 # 호감도 상승
             "[player_name]" "응, 잘 보냈어. 너는 어땠어?"
             s3 "나도, 나름대로 재밌게 지냈어! 다음 방학에 같이 어디 놀러 갈래?" 
             "[player_name]" "나야 좋지, 담에 같이 놀러 가자!"
