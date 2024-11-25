@@ -1,29 +1,46 @@
 # character.rpy
 
+# 먼저 각 캐릭터의 호감도를 default로 선언
+default chanmi_affection = 0
+default ari_affection = 0
+default sena_affection = 0
+
 init -2 python:
     class Character_info:
         def __init__(self, name, image, personality, description, color):
             self.name = name
             self.image = image
-            self.personality = personality
+            self.personality = personality 
             self.description = description
             self.color = color
             self.character = Character(name, color=color)
-            self.affection = 0
             renpy.image(name, image)
         
         def increase_affection(self, amount):
-            self.affection += amount
-            if self.affection > 100:
-                self.affection = 100
+            global chanmi_affection, ari_affection, sena_affection
+            if self.name == "찬미":
+                chanmi_affection = min(100, chanmi_affection + amount)
+            elif self.name == "아리":
+                ari_affection = min(100, ari_affection + amount)
+            elif self.name == "세나":
+                sena_affection = min(100, sena_affection + amount)
         
         def decrease_affection(self, amount):
-            self.affection -= amount
-            if self.affection < 0:
-                self.affection = 0
+            global chanmi_affection, ari_affection, sena_affection
+            if self.name == "찬미":
+                chanmi_affection = max(0, chanmi_affection - amount)
+            elif self.name == "아리":
+                ari_affection = max(0, ari_affection - amount)
+            elif self.name == "세나":
+                sena_affection = max(0, sena_affection - amount)
         
         def get_affection(self):
-            return self.affection
+            if self.name == "찬미":
+                return chanmi_affection
+            elif self.name == "아리":
+                return ari_affection
+            elif self.name == "세나":
+                return sena_affection
 
     # 캐릭터 인스턴스 생성
     chanmi = Character_info("찬미", "images/character/chanmi.jpg", "똑 부러지며 리더십이 강한 성격", "학생회에서 활동하며, 학과 행사와 활동에 적극적이다. 철저하게 자기관리를 하며 공부와 활동 모두 열심히 한다.", "#9A2EFE")
