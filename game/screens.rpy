@@ -356,6 +356,34 @@ screen main_menu():
     frame:
         style "main_menu_frame"
 
+    hbox:
+
+        xpos 0.5
+        yalign 1.0
+        xanchor 0.5
+        yoffset -50 
+
+        spacing 20
+
+        ## "시작하기" 버튼
+        imagebutton:
+            idle "images_start_idle.png"
+            hover "images_start_hover.png"
+            action Start()
+            
+        ## "조작방법" 버튼 (기존 "불러오기" 버튼 위치 대체)
+        imagebutton:
+            idle "images_help_idle.png"  # 조작방법 버튼 기본 이미지
+            hover "images_help_hover.png"  # 조작방법 버튼 강조 이미지
+            action ShowMenu("help")  # 클릭 시 조작방법 화면 표시
+
+        ## "게임 종료" 버튼
+        imagebutton:
+            idle "images_quit_idle.png"
+            hover "images_quit_hover.png"
+            action Quit(confirm=True)
+            
+
     ## use 명령어로 스크린 내에 다른 스크린을 불러옵니다. 메인 메뉴 스크린의 내
     ## 용물은 navigation 스크린에 있습니다.
     use navigation
@@ -378,11 +406,12 @@ style main_menu_text is gui_text
 style main_menu_title is main_menu_text
 style main_menu_version is main_menu_text
 
-style main_menu_frame:
-    xsize 420
-    yfill True
+## 메인 메뉴 화면 왼쪽 검은 바탕 삭제
+## style main_menu_frame:
+    ##xsize 420
+    ##yfill True
 
-    background "gui/overlay/main_menu.png"
+    ##background "gui/overlay/main_menu.png"
 
 style main_menu_vbox:
     xalign 1.0
