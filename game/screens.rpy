@@ -319,7 +319,7 @@ screen navigation():
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## 도움말 메뉴는 모바일 디바이스와 맞지 않아 불필요합니다.
-            textbutton _("조작방법") action ShowMenu("help")
+            textbutton _("게임 설명") action ShowMenu("game_help")
 
         if renpy.variant("pc"):
 
@@ -565,12 +565,15 @@ style return_button:
 ##캐릭터 이름 글자 크기를 키우고 색을 입히기 위함
 style character_name_text is menu_text:
     size gui.interface_text_size + 4  # 기본 크기보다 4포인트 크게 설정
-    color "#000000"
+    color "#ffffff"
+
+style character_identity_text is menu_text:
+    color "#ffffff" 
 
 ##캐릭터 설명 글자 크기를 줄이기 위함
 style character_description_text is menu_text:
     size gui.interface_text_size - 4  # 기본 크기보다 4포인트 작게 설정
-
+    color "#ffffff"
 
 ## 캐릭터 프로필 스크린 ############################################################
 screen character_profiles():
@@ -598,7 +601,7 @@ screen character_profiles():
                     add char.image size (200, 200)
                     vbox:
                         text char.name style "character_name_text" color char.color
-                        text char.personality style "menu_text"
+                        text char.personality style "character_identity_text"
                         text char.description style "character_description_text"
 
 
@@ -1022,164 +1025,249 @@ style history_label_text:
     xalign 0.5
 
 
+
+screen game_help():
+    tag menu
+    
+    use game_menu(_("게임 설명")):
+        vbox:
+            spacing 20
+            xsize 800
+            
+            vbox:
+                spacing 10
+                text "게임 진행 방법" size 30
+                null height 20
+                text "• 화면의 대화를 클릭하거나 스페이스바를 눌러 진행할 수 있습니다."
+                text "• 우클릭이나 ESC를 눌러 게임 메뉴를 열 수 있습니다."
+            
+            vbox:
+                null height 40
+                spacing 10
+                text "호감도 시스템" size 30
+                null height 20
+                text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다."
+                text "• 호감도는 0에서 100 사이의 값을 가집니다."
+                text "• 특정 선택지는 호감도에 영향을 미칩니다."
+            
+            vbox:
+                spacing 10
+                null height 40
+                if gui.about:
+                    text "[gui.about!t]\n"
+
+                text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") 
+
+                text _("                                                                                    버전 [config.version!t]\n")       
+
+style help_frame:
+    background "#000000CC"
+    padding (50, 50)
+
+style help_label_text:
+    color "#FFFFFF"
+    size 40
+    outlines [(2, "#000000")]
+
+style help_text:
+    color "#FFFFFF"
+    size 25
+    outlines [(1, "#000000")]
+
+style help_button:
+    xpadding 50
+    ypadding 10
+
+style help_button_text:
+    color "#FFFFFF"
+    hover_color "#CCCCCC"
+    size 30
+    outlines [(1, "#000000")]
+
+style help_frame:
+    background "#000000CC"
+    padding (50, 50)
+
+style help_label_text:
+    color "#FFFFFF"
+    size 40
+    outlines [(2, "#000000")]
+
+style help_text:
+    color "#FFFFFF"
+    size 25
+    outlines [(1, "#000000")]
+
+style help_button:
+    xpadding 50
+    ypadding 10
+
+style help_button_text:
+    color "#FFFFFF"
+    hover_color "#CCCCCC"
+    size 30
+    outlines [(1, "#000000")]
+
+
 ## Help 스크린 ####################################################################
 ##
 ## 입력장치의 기능을 설명합니다. 각 입력장치별 설정은 keyboard_help, mouse_help,
 ## gamepad_help 스크린을 각각 불러와서 출력합니다.
 
-screen help():
 
-    tag menu
+# screen help():
 
-    default device = "keyboard"
+#     tag menu
 
-    use game_menu(_("조작방법"), scroll="viewport"):
+#     default device = "keyboard"
 
-        style_prefix "help"
+#     use game_menu(_("조작방법"), scroll="viewport"):
 
-        vbox:
-            spacing 23
+#         style_prefix "help"
 
-            hbox:
+#         vbox:
+#             spacing 23
 
-                textbutton _("키보드") action SetScreenVariable("device", "keyboard")
-                textbutton _("마우스") action SetScreenVariable("device", "mouse")
+#             hbox:
 
-                if GamepadExists():
-                    textbutton _("게임패드") action SetScreenVariable("device", "gamepad")
+#                 textbutton _("키보드") action SetScreenVariable("device", "keyboard")
+#                 textbutton _("마우스") action SetScreenVariable("device", "mouse")
 
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+#                 if GamepadExists():
+#                     textbutton _("게임패드") action SetScreenVariable("device", "gamepad")
 
-
-screen keyboard_help():
-
-    hbox:
-        label _("엔터(Enter)")
-        text _("대사 진행 및 UI (선택지 포함) 선택.")
-
-    hbox:
-        label _("스페이스(Space)")
-        text _("대사를 진행하되 선택지는 선택하지 않음.")
-
-    hbox:
-        label _("화살표 키")
-        text _("UI 이동.")
-
-    hbox:
-        label _("이스케이프(Esc)")
-        text _("게임 메뉴 불러옴.")
-
-    hbox:
-        label _("컨트롤(Ctrl)")
-        text _("누르고 있는 동안 대사를 스킵.")
-
-    hbox:
-        label _("탭(Tab)")
-        text _("대사 스킵 토글.")
-
-    hbox:
-        label _("페이지 업(Page Up)")
-        text _("이전 대사로 롤백.")
-
-    hbox:
-        label _("페이지 다운(Page Down)")
-        text _("이후 대사로 롤포워드.")
-
-    hbox:
-        label "H"
-        text _("UI를 숨김.")
-
-    hbox:
-        label "S"
-        text _("스크린샷 저장.")
-
-    hbox:
-        label "V"
-        text _("{a=https://www.renpy.org/l/voicing}대사 읽어주기 기능{/a} 토글.")
-
-    hbox:
-        label "Shift+A"
-        text _("접근성 메뉴를 엽니다.")
+#             if device == "keyboard":
+#                 use keyboard_help
+#             elif device == "mouse":
+#                 use mouse_help
+#             elif device == "gamepad":
+#                 use gamepad_help
 
 
-screen mouse_help():
+# screen keyboard_help():
 
-    hbox:
-        label _("클릭")
-        text _("대사 진행 및 UI (선택지 포함) 선택.")
+#     hbox:
+#         label _("엔터(Enter)")
+#         text _("대사 진행 및 UI (선택지 포함) 선택.")
 
-    hbox:
-        label _("가운데 버튼이나 휠버튼 클릭")
-        text _("UI를 숨김.")
+#     hbox:
+#         label _("스페이스(Space)")
+#         text _("대사를 진행하되 선택지는 선택하지 않음.")
 
-    hbox:
-        label _("우클릭")
-        text _("게임 메뉴 불러옴.")
+#     hbox:
+#         label _("화살표 키")
+#         text _("UI 이동.")
 
-    hbox:
-        label _("휠 위로")
-        text _("이전 대사로 롤백.")
+#     hbox:
+#         label _("이스케이프(Esc)")
+#         text _("게임 메뉴 불러옴.")
 
-    hbox:
-        label _("휠 아래로")
-        text _("이후 대사로 롤포워드.")
+#     hbox:
+#         label _("컨트롤(Ctrl)")
+#         text _("누르고 있는 동안 대사를 스킵.")
+
+#     hbox:
+#         label _("탭(Tab)")
+#         text _("대사 스킵 토글.")
+
+#     hbox:
+#         label _("페이지 업(Page Up)")
+#         text _("이전 대사로 롤백.")
+
+#     hbox:
+#         label _("페이지 다운(Page Down)")
+#         text _("이후 대사로 롤포워드.")
+
+#     hbox:
+#         label "H"
+#         text _("UI를 숨김.")
+
+#     hbox:
+#         label "S"
+#         text _("스크린샷 저장.")
+
+#     hbox:
+#         label "V"
+#         text _("{a=https://www.renpy.org/l/voicing}대사 읽어주기 기능{/a} 토글.")
+
+#     hbox:
+#         label "Shift+A"
+#         text _("접근성 메뉴를 엽니다.")
 
 
-screen gamepad_help():
+# screen mouse_help():
 
-    hbox:
-        label _("오른쪽 트리거(RT)\nA버튼/아래 버튼")
-        text _("대사 진행 및 UI (선택지 포함) 선택.")
+#     hbox:
+#         label _("클릭")
+#         text _("대사 진행 및 UI (선택지 포함) 선택.")
 
-    hbox:
-        label _("왼쪽 트리거\n왼쪽 어깨")
-        text _("이전 대사로 롤백.")
+#     hbox:
+#         label _("가운데 버튼이나 휠버튼 클릭")
+#         text _("UI를 숨김.")
 
-    hbox:
-        label _("오른쪽 범퍼(RB)")
-        text _("이후 대사로 롤포워드.")
+#     hbox:
+#         label _("우클릭")
+#         text _("게임 메뉴 불러옴.")
 
-    hbox:
-        label _("D-Pad, 아날로그 스틱")
-        text _("UI 이동.")
+#     hbox:
+#         label _("휠 위로")
+#         text _("이전 대사로 롤백.")
 
-    hbox:
-        label _("Start, Guide, B/Right Button")
-        text _("게임 메뉴 불러옴.")
-
-    hbox:
-        label _("Y버튼/위 버튼")
-        text _("UI를 숨김.")
-
-    textbutton _("조정") action GamepadCalibrate()
+#     hbox:
+#         label _("휠 아래로")
+#         text _("이후 대사로 롤포워드.")
 
 
-style help_button is gui_button
-style help_button_text is gui_button_text
-style help_label is gui_label
-style help_label_text is gui_label_text
-style help_text is gui_text
+# screen gamepad_help():
 
-style help_button:
-    properties gui.button_properties("help_button")
-    xmargin 12
+#     hbox:
+#         label _("오른쪽 트리거(RT)\nA버튼/아래 버튼")
+#         text _("대사 진행 및 UI (선택지 포함) 선택.")
 
-style help_button_text:
-    properties gui.text_properties("help_button")
+#     hbox:
+#         label _("왼쪽 트리거\n왼쪽 어깨")
+#         text _("이전 대사로 롤백.")
 
-style help_label:
-    xsize 375
-    right_padding 30
+#     hbox:
+#         label _("오른쪽 범퍼(RB)")
+#         text _("이후 대사로 롤포워드.")
 
-style help_label_text:
-    size gui.text_size
-    xalign 1.0
-    textalign 1.0
+#     hbox:
+#         label _("D-Pad, 아날로그 스틱")
+#         text _("UI 이동.")
+
+#     hbox:
+#         label _("Start, Guide, B/Right Button")
+#         text _("게임 메뉴 불러옴.")
+
+#     hbox:
+#         label _("Y버튼/위 버튼")
+#         text _("UI를 숨김.")
+
+#     textbutton _("조정") action GamepadCalibrate()
+
+
+# style help_button is gui_button
+# style help_button_text is gui_button_text
+# style help_label is gui_label
+# style help_label_text is gui_label_text
+# style help_text is gui_text
+
+# style help_button:
+#     properties gui.button_properties("help_button")
+#     xmargin 12
+
+# style help_button_text:
+#     properties gui.text_properties("help_button")
+
+# style help_label:
+#     xsize 375
+#     right_padding 30
+
+# style help_label_text:
+#     size gui.text_size
+#     xalign 1.0
+#     textalign 1.0
 
 
 
