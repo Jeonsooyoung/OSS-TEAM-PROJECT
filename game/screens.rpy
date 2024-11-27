@@ -565,12 +565,15 @@ style return_button:
 ##캐릭터 이름 글자 크기를 키우고 색을 입히기 위함
 style character_name_text is menu_text:
     size gui.interface_text_size + 4  # 기본 크기보다 4포인트 크게 설정
-    color "#000000"
+    color "#ffffff"
+
+style character_identity_text is menu_text:
+    color "#ffffff" 
 
 ##캐릭터 설명 글자 크기를 줄이기 위함
 style character_description_text is menu_text:
     size gui.interface_text_size - 4  # 기본 크기보다 4포인트 작게 설정
-
+    color "#ffffff"
 
 ## 캐릭터 프로필 스크린 ############################################################
 screen character_profiles():
@@ -598,7 +601,7 @@ screen character_profiles():
                     add char.image size (200, 200)
                     vbox:
                         text char.name style "character_name_text" color char.color
-                        text char.personality style "menu_text"
+                        text char.personality style "character_identity_text"
                         text char.description style "character_description_text"
 
 
@@ -1022,20 +1025,11 @@ style history_label_text:
     xalign 0.5
 
 
-## Help 스크린 ####################################################################
-##
-## 입력장치의 기능을 설명합니다. 각 입력장치별 설정은 keyboard_help, mouse_help,
-## gamepad_help 스크린을 각각 불러와서 출력합니다.
-
 
 screen game_help():
     modal True
     
     frame:
-        style_prefix "help"
-        xfill True
-        yfill True
-        
         vbox:
             xalign 0.5
             yalign 0.5
@@ -1044,6 +1038,9 @@ screen game_help():
             label "게임 설명":
                 xalign 0.5
                 text_size 40
+                text_font "KCC-Ganpan.ttf"
+
+                
             
             vbox:
                 spacing 20
@@ -1123,6 +1120,12 @@ style help_button_text:
     hover_color "#CCCCCC"
     size 30
     outlines [(1, "#000000")]
+
+
+## Help 스크린 ####################################################################
+##
+## 입력장치의 기능을 설명합니다. 각 입력장치별 설정은 keyboard_help, mouse_help,
+## gamepad_help 스크린을 각각 불러와서 출력합니다.
 
 
 # screen help():

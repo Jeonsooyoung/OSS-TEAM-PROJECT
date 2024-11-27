@@ -52,7 +52,7 @@ define gui.muted_color = '#003d51'
 define gui.hover_muted_color = '#005b7a'
 
 ## 대사(dialogue)와 선택지(menu choice)의 글자에서 사용됩니다.
-define gui.text_color = '#000000'
+define gui.text_color = '#ffffff'
 define gui.interface_text_color = '#ffffff'
 
 
