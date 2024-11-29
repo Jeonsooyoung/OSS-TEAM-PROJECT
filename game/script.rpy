@@ -26,7 +26,7 @@
 #     a = ari.character
 #     s = sena.character
 
-define player_name = None
+
 
 # 여기에서부터 게임이 시작합니다.
 label start:
@@ -40,8 +40,6 @@ label start:
         xalign 0.85   #left랑 right의 기본값이 너무 끝에 있는 것 같아서 좀 가운데로 당김
 
     "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
-
-    $ name_entered = False
 
     # 이름 입력 루프
     while not name_entered:
