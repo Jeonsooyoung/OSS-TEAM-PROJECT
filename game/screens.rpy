@@ -302,7 +302,7 @@ screen navigation():
 
             textbutton _("저장하기") action ShowMenu("save")
 
-        textbutton _("불러오기") action ShowMenu("load")
+        textbutton _("불러오기") action ShowMenu("chapter_select")
 
         textbutton _("환경설정") action ShowMenu("preferences")
 
@@ -574,6 +574,52 @@ style character_identity_text is menu_text:
 style character_description_text is menu_text:
     size gui.interface_text_size - 4  # 기본 크기보다 4포인트 작게 설정
     color "#ffffff"
+
+default chapter1_cleared = False
+default chapter2_cleared = False
+default chapter3_cleared = False
+default chapter4_cleared = False
+
+screen chapter_select():
+    tag menu
+    modal True
+
+    vbox:
+        align (0.5, 0.5)
+        spacing 10
+
+        text "챕터 선택 화면" size 40
+
+        if not player_name:
+            text "이름을 입력하지 않았습니다. 새 게임을 시작하세요." size 20 color "#ff0000"
+
+        # Chapter 1 버튼 (이름 입력 시 활성화)
+        if player_name:
+            textbutton "Chapter 1" action Jump("chapter1")
+        else:
+            textbutton "Chapter 1 (Locked)" action NullAction()
+
+        # Chapter 2 버튼 (챕터 1 클리어 시 활성화, 아니면 텍스트 표시만)
+        if chapter1_cleared:
+            textbutton "Chapter 2" action Jump("chapter2")
+        else:
+            textbutton "Chapter 2 (Locked)" action NullAction()
+
+        # Chapter 3 버튼 (챕터 2 클리어 시 활성화)
+        if chapter2_cleared:
+            textbutton "Chapter 3" action Jump("chapter3")
+        else:
+            textbutton "Chapter 3 (Locked)" action NullAction()
+
+        # Chapter 4 버튼 (챕터 3 클리어 시 활성화)
+        if chapter3_cleared:
+            textbutton "Chapter 4" action Jump("chapter4")
+        else:
+            textbutton "Chapter 4 (Locked)" action NullAction()
+
+        # 메인 메뉴로 돌아가기
+        textbutton "돌아가기" action Return()
+
 
 ## 캐릭터 프로필 스크린 ############################################################
 screen character_profiles():
