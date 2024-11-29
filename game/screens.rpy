@@ -579,6 +579,8 @@ default chapter1_cleared = False
 default chapter2_cleared = False
 default chapter3_cleared = False
 default chapter4_cleared = False
+default player_name = None
+default name_entered = False
 
 screen chapter_select():
     tag menu
@@ -591,7 +593,7 @@ screen chapter_select():
         text "챕터 선택 화면" size 40
 
         if not player_name:
-            text "이름을 입력하지 않았습니다. 새 게임을 시작하세요." size 20 color "#ff0000"
+            text "새 게임을 시작하세요." size 20 color "#ff0000"
 
         # Chapter 1 버튼 (이름 입력 시 활성화)
         if player_name:
