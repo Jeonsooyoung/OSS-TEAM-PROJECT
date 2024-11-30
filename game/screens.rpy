@@ -422,6 +422,8 @@ style main_menu_vbox:
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
+    font "KCC-Ganpan.ttf"
+    color "#e083bc"
 
 style main_menu_title:
     properties gui.text_properties("title")

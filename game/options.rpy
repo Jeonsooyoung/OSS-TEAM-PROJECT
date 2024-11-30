@@ -11,13 +11,13 @@
 ##
 ## 문자열을 _()로 둘러 쌓으면 씌우면 번역의 대상으로 표시됩니다.
 
-define config.name = _("두근두근 충북대")
+define config.name = _("")
 
-define config.main_menu = [
-    # ... (기존 항목)
-    ( "캐릭터 프로필", "character_profiles" ),
-    # ... (기존 항목)
-]
+# define config.main_menu = [
+#     # ... (기존 항목)
+#     ( "캐릭터 프로필", "character_profiles" ),
+#     # ... (기존 항목)
+# ]
 
 ## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
 ## 을 False로 설정하십시오.
