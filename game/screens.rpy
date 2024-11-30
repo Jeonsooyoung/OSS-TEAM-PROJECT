@@ -706,6 +706,10 @@ screen load():
     use affection_status(_("불러오기"))
 
 
+style vbar:
+    bar_vertical True  # 세로 방향 바
+    bar_invert False    # 아래에서 위로 차오르도록 설정
+
 screen affection_status(title):
     use game_menu(title):
         fixed:
@@ -733,8 +737,9 @@ screen affection_status(title):
                             ysize 150
                             value chanmi_affection
                             range 100
-                            left_bar Frame("gui/heart_full.png")
-                            right_bar Frame("gui/heart_empty.png")
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"  # vertical bar 스타일 적용
                         text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
                     
                     # 아리 호감도
@@ -746,8 +751,9 @@ screen affection_status(title):
                             ysize 150
                             value ari_affection
                             range 100
-                            left_bar Frame("gui/heart_full.png")
-                            right_bar Frame("gui/heart_empty.png")
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"  # vertical bar 스타일 적용
                         text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
                     
                     # 세나 호감도
@@ -759,8 +765,9 @@ screen affection_status(title):
                             ysize 150
                             value sena_affection
                             range 100
-                            left_bar Frame("gui/heart_full.png")
-                            right_bar Frame("gui/heart_empty.png")
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"  # vertical bar 스타일 적용
                         text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
 
 
