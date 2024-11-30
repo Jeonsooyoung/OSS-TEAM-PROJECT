@@ -21,7 +21,7 @@ define gui.show_name = True
 
 ## 게임의 버전입니다.
 
-define config.version = "v1.0.63-alpha"
+define config.version = "v1.0.70-alpha"
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
