@@ -250,9 +250,9 @@ screen quick_menu():
             textbutton _("대사록") action ShowMenu('history')
             textbutton _("넘기기") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("자동진행") action Preference("auto-forward", "toggle")
-            textbutton _("저장하기") action ShowMenu('save')
-            textbutton _("Q.저장하기") action QuickSave()
-            textbutton _("Q.불러오기") action QuickLoad()
+            # textbutton _("저장하기") action ShowMenu('save')
+            # textbutton _("Q.저장하기") action QuickSave()
+            # textbutton _("Q.불러오기") action QuickLoad()
             textbutton _("설정") action ShowMenu('preferences')
 
 
@@ -300,7 +300,7 @@ screen navigation():
 
             textbutton _("대사록") action ShowMenu("history")
 
-            textbutton _("저장하기") action ShowMenu("save")
+            # textbutton _("저장하기") action ShowMenu("save")
 
         textbutton _("불러오기") action ShowMenu("chapter_select")
 
