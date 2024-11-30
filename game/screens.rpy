@@ -696,72 +696,72 @@ screen save():
 
     tag menu
 
-    use file_slots(_("저장하기"))
+    use affection_status(_(""))
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("불러오기"))
+    use affection_status(_("불러오기"))
 
 
-screen file_slots(title):
+screen affection_status(title):
     use game_menu(title):
         fixed:
             vbox:
-                spacing 40
+                spacing 20
                 xalign 0.5
                 yalign 0.5
-                xsize 800
                 
                 # 제목
                 text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
                 
-                null height 20
+                null height 40
                 
-                # 찬미 호감도
-                vbox:
-                    spacing 10
-                    text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    bar:
-                        xsize 600
-                        ysize 40
-                        value chanmi_affection
-                        range 100
-                        left_bar Frame("gui/heart_full.png")
-                        right_bar Frame("gui/heart_empty.png")
-                    text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                
-                null height 20
-                
-                # 아리 호감도
-                vbox:
-                    spacing 10
-                    text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    bar:
-                        xsize 600
-                        ysize 40
-                        value ari_affection
-                        range 100
-                        left_bar Frame("gui/heart_full.png")
-                        right_bar Frame("gui/heart_empty.png")
-                    text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                
-                null height 20
-                
-                # 세나 호감도
-                vbox:
-                    spacing 10
-                    text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    bar:
-                        xsize 600
-                        ysize 40
-                        value sena_affection
-                        range 100
-                        left_bar Frame("gui/heart_full.png")
-                        right_bar Frame("gui/heart_empty.png")
-                    text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                # 캐릭터들의 호감도를 가로로 나열
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                    
+                    # 찬미 호감도
+                    vbox:
+                        spacing 10
+                        text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value chanmi_affection
+                            range 100
+                            left_bar Frame("gui/heart_full.png")
+                            right_bar Frame("gui/heart_empty.png")
+                        text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    
+                    # 아리 호감도
+                    vbox:
+                        spacing 10
+                        text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value ari_affection
+                            range 100
+                            left_bar Frame("gui/heart_full.png")
+                            right_bar Frame("gui/heart_empty.png")
+                        text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    
+                    # 세나 호감도
+                    vbox:
+                        spacing 10
+                        text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value sena_affection
+                            range 100
+                            left_bar Frame("gui/heart_full.png")
+                            right_bar Frame("gui/heart_empty.png")
+                        text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
 
 
 ## Preferences 스크린 #############################################################
@@ -1043,8 +1043,8 @@ screen game_help():
                     text "[gui.about!t]\n" color "#ffffff"
 
                 text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") color "#ffffff"
-
-                text _("                                                                                    버전 [config.version!t]\n") color "#ffffff"       
+                null height 20
+                text _("게임 버전 [config.version!t]\n") color "#ffffff"       
 
 style help_frame:
     background "#000000CC"
