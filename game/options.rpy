@@ -13,12 +13,6 @@
 
 define config.name = _("")
 
-# define config.main_menu = [
-#     # ... (기존 항목)
-#     ( "캐릭터 프로필", "character_profiles" ),
-#     # ... (기존 항목)
-# ]
-
 ## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
 ## 을 False로 설정하십시오.
 
@@ -27,7 +21,7 @@ define gui.show_name = True
 
 ## 게임의 버전입니다.
 
-define config.version = "1.0"
+define config.version = "v1.0.63-alpha"
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
@@ -40,7 +34,7 @@ define gui.about = _p("""
 ## 배포판의 실행 파일과 디렉토리에 사용되는 게임의 약식 이름. 이것은 ASCII 전용
 ## 이어야 하며 공백, 콜론 또는 세미콜론을 포함해서는 안 됩니다.
 
-define build.name = "OSS"
+define build.name = "DokiDokiCBNU"
 
 
 ## 음악과 음향 ######################################################################
