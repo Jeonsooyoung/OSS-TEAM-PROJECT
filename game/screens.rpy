@@ -250,9 +250,9 @@ screen quick_menu():
             textbutton _("대사록") action ShowMenu('history')
             textbutton _("넘기기") action Skip() alternate Skip(fast=True, confirm=True)
             textbutton _("자동진행") action Preference("auto-forward", "toggle")
-            textbutton _("저장하기") action ShowMenu('save')
-            textbutton _("Q.저장하기") action QuickSave()
-            textbutton _("Q.불러오기") action QuickLoad()
+            # textbutton _("저장하기") action ShowMenu('save')
+            # textbutton _("Q.저장하기") action QuickSave()
+            # textbutton _("Q.불러오기") action QuickLoad()
             textbutton _("설정") action ShowMenu('preferences')
 
 
@@ -300,7 +300,7 @@ screen navigation():
 
             textbutton _("대사록") action ShowMenu("history")
 
-            textbutton _("저장하기") action ShowMenu("save")
+            # textbutton _("저장하기") action ShowMenu("save")
 
         textbutton _("불러오기") action ShowMenu("chapter_select")
 
@@ -422,6 +422,8 @@ style main_menu_vbox:
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
+    font "KCC-Ganpan.ttf"
+    color "#e083bc"
 
 style main_menu_title:
     properties gui.text_properties("title")
@@ -694,136 +696,79 @@ screen save():
 
     tag menu
 
-    use file_slots(_("저장하기"))
+    use affection_status(_(""))
 
 
 screen load():
 
     tag menu
 
-    use file_slots(_("불러오기"))
+    use affection_status(_("불러오기"))
 
 
-screen file_slots(title):
+style vbar:
+    bar_vertical True  # 세로 방향 바
+    bar_invert False    # 아래에서 위로 차오르도록 설정
 
-    default page_name_value = FilePageNameInputValue(pattern=_("{} 페이지"), auto=_("자동 세이브"), quick=_("퀵세이브"))
-
+screen affection_status(title):
     use game_menu(title):
-
         fixed:
-
-            ## input이 세이브/로드 버튼보다 먼저 엔터에 반응하도록 합니다.
-            order_reverse True
-
-            ## 페이지 제목을 플레이어가 수정할 수 있음.
-            button:
-                style "page_label"
-
-                key_events True
-                xalign 0.5
-                action page_name_value.Toggle()
-
-                input:
-                    style "page_label_text"
-                    value page_name_value
-
-            ## 파일 슬롯 그리드.
-            grid gui.file_slot_cols gui.file_slot_rows:
-                style_prefix "slot"
-
+            vbox:
+                spacing 20
                 xalign 0.5
                 yalign 0.5
-
-                spacing gui.slot_spacing
-
-                for i in range(gui.file_slot_cols * gui.file_slot_rows):
-
-                    $ slot = i + 1
-
-                    button:
-                        action FileAction(slot)
-
-                        has vbox
-
-                        add FileScreenshot(slot) xalign 0.5
-
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("빈 슬롯")):
-                            style "slot_time_text"
-
-                        text FileSaveName(slot):
-                            style "slot_name_text"
-
-                        key "save_delete" action FileDelete(slot)
-
-            ## 페이지 이동 버튼.
-            vbox:
-                style_prefix "page"
-
-                xalign 0.5
-                yalign 1.0
-
+                
+                # 제목
+                text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
+                
+                null height 40
+                
+                # 캐릭터들의 호감도를 가로로 나열
                 hbox:
+                    spacing 50
                     xalign 0.5
-
-                    spacing gui.page_spacing
-
-                    textbutton _("<") action FilePagePrevious()
-                    key "save_page_prev" action FilePagePrevious()
-
-                    if config.has_autosave:
-                        textbutton _("{#auto_page}자동") action FilePage("auto")
-
-                    if config.has_quicksave:
-                        textbutton _("{#quick_page}퀵") action FilePage("quick")
-
-                    ## 범위(1, 10)는 1부터 9까지 숫자를 제공합니다.
-                    for page in range(1, 10):
-                        textbutton "[page]" action FilePage(page)
-
-                    textbutton _(">") action FilePageNext()
-                    key "save_page_next" action FilePageNext()
-
-                if config.has_sync:
-                    if CurrentScreenName() == "save":
-                        textbutton _("동기화 업로드"):
-                            action UploadSync()
-                            xalign 0.5
-                    else:
-                        textbutton _("동기화 다운로드"):
-                            action DownloadSync()
-                            xalign 0.5
-
-
-style page_label is gui_label
-style page_label_text is gui_label_text
-style page_button is gui_button
-style page_button_text is gui_button_text
-
-style slot_button is gui_button
-style slot_button_text is gui_button_text
-style slot_time_text is slot_button_text
-style slot_name_text is slot_button_text
-
-style page_label:
-    xpadding 75
-    ypadding 5
-
-style page_label_text:
-    textalign 0.5
-    layout "subtitle"
-    hover_color gui.hover_color
-
-style page_button:
-    properties gui.button_properties("page_button")
-
-style page_button_text:
-    properties gui.text_properties("page_button")
-
-style slot_button:
-    properties gui.button_properties("slot_button")
-
-style slot_button_text:
-    properties gui.text_properties("slot_button")
+                    
+                    # 찬미 호감도
+                    vbox:
+                        spacing 10
+                        text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value chanmi_affection
+                            range 100
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"  # vertical bar 스타일 적용
+                        text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    
+                    # 아리 호감도
+                    vbox:
+                        spacing 10
+                        text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value ari_affection
+                            range 100
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"  # vertical bar 스타일 적용
+                        text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    
+                    # 세나 호감도
+                    vbox:
+                        spacing 10
+                        text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value sena_affection
+                            range 100
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"  # vertical bar 스타일 적용
+                        text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
 
 
 ## Preferences 스크린 #############################################################
@@ -1078,35 +1023,45 @@ screen game_help():
     tag menu
     
     use game_menu(_("게임 설명")):
-        vbox:
-            spacing 20
-            xsize 800
-            
-            vbox:
-                spacing 10
-                text "게임 진행 방법" size 30 color "#ffffff"
-                null height 20
-                text "• 화면의 대화를 클릭하거나 스페이스바를 눌러 진행할 수 있습니다." color "#ffffff"
-                text "• 우클릭이나 ESC를 눌러 게임 메뉴를 열 수 있습니다." color "#ffffff"
-            
-            vbox:
-                null height 40
-                spacing 10
-                text "호감도 시스템" size 30 color "#ffffff"
-                null height 20
-                text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다." color "#ffffff"
-                text "• 호감도는 0에서 100 사이의 값을 가집니다." color "#ffffff"
-                text "• 특정 선택지는 호감도에 영향을 미칩니다." color "#ffffff"
-            
-            vbox:
-                spacing 10
-                null height 40
-                if gui.about:
-                    text "[gui.about!t]\n" color "#ffffff"
+        side "c r":
+            viewport id "help_vp":
+                draggable True
+                mousewheel True
+                vbox:
+                    spacing 20
+                    xsize 800
+                    vbox:
+                        spacing 10
+                        xalign 1.0
+                        hbox:
+                            textbutton _("조작 방법") action ShowMenu('help') style "gui_button"
+                    vbox:
+                        spacing 10
+                        text "게임 진행 방법" size 30 color "#ffffff"
+                        null height 20
+                        text "• 화면의 대화를 클릭하거나 스페이스바를 눌러 진행할 수 있습니다." color "#ffffff"
+                        text "• 우클릭이나 ESC를 눌러 게임 메뉴를 열 수 있습니다." color "#ffffff"
+                    
+                    vbox:
+                        null height 40
+                        spacing 10
+                        text "호감도 시스템" size 30 color "#ffffff"
+                        null height 20
+                        text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다." color "#ffffff"
+                        text "• 호감도는 0에서 100 사이의 값을 가집니다." color "#ffffff"
+                        text "• 특정 선택지는 호감도에 영향을 미칩니다." color "#ffffff"
+                    
+                    vbox:
+                        spacing 10
+                        null height 40
+                        if gui.about:
+                            text "[gui.about!t]\n" color "#ffffff"
 
-                text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") color "#ffffff"
+                        text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") color "#ffffff"
+                        null height 20
+                        text _("게임 버전 [config.version!t]\n") color "#ffffff"
 
-                text _("                                                                                    버전 [config.version!t]\n") color "#ffffff"       
+            vbar value YScrollValue("help_vp")
 
 style help_frame:
     background "#000000CC"
@@ -1163,159 +1118,166 @@ style help_button_text:
 ## gamepad_help 스크린을 각각 불러와서 출력합니다.
 
 
-# screen help():
+screen help():
 
-#     tag menu
+    tag menu
 
-#     default device = "keyboard"
+    default device = "keyboard"
 
-#     use game_menu(_("조작방법"), scroll="viewport"):
+    use game_menu(_("조작방법"), scroll="viewport"):
 
-#         style_prefix "help"
+        style_prefix "help"
 
-#         vbox:
-#             spacing 23
+        vbox:
+            spacing 23
 
-#             hbox:
+            hbox:
 
-#                 textbutton _("키보드") action SetScreenVariable("device", "keyboard")
-#                 textbutton _("마우스") action SetScreenVariable("device", "mouse")
+                textbutton _("키보드") action SetScreenVariable("device", "keyboard")
+                textbutton _("마우스") action SetScreenVariable("device", "mouse")
 
-#                 if GamepadExists():
-#                     textbutton _("게임패드") action SetScreenVariable("device", "gamepad")
+                if GamepadExists():
+                    textbutton _("게임패드") action SetScreenVariable("device", "gamepad")
 
-#             if device == "keyboard":
-#                 use keyboard_help
-#             elif device == "mouse":
-#                 use mouse_help
-#             elif device == "gamepad":
-#                 use gamepad_help
-
-
-# screen keyboard_help():
-
-#     hbox:
-#         label _("엔터(Enter)")
-#         text _("대사 진행 및 UI (선택지 포함) 선택.")
-
-#     hbox:
-#         label _("스페이스(Space)")
-#         text _("대사를 진행하되 선택지는 선택하지 않음.")
-
-#     hbox:
-#         label _("화살표 키")
-#         text _("UI 이동.")
-
-#     hbox:
-#         label _("이스케이프(Esc)")
-#         text _("게임 메뉴 불러옴.")
-
-#     hbox:
-#         label _("컨트롤(Ctrl)")
-#         text _("누르고 있는 동안 대사를 스킵.")
-
-#     hbox:
-#         label _("탭(Tab)")
-#         text _("대사 스킵 토글.")
-
-#     hbox:
-#         label _("페이지 업(Page Up)")
-#         text _("이전 대사로 롤백.")
-
-#     hbox:
-#         label _("페이지 다운(Page Down)")
-#         text _("이후 대사로 롤포워드.")
-
-#     hbox:
-#         label "H"
-#         text _("UI를 숨김.")
-
-#     hbox:
-#         label "S"
-#         text _("스크린샷 저장.")
-
-#     hbox:
-#         label "V"
-#         text _("{a=https://www.renpy.org/l/voicing}대사 읽어주기 기능{/a} 토글.")
-
-#     hbox:
-#         label "Shift+A"
-#         text _("접근성 메뉴를 엽니다.")
+            if device == "keyboard":
+                use keyboard_help
+            elif device == "mouse":
+                use mouse_help
+            elif device == "gamepad":
+                use gamepad_help
+        
+        vbox:
+                spacing 20
+                xalign 1.0
+                hbox:
+                    textbutton _("돌아가기") action ShowMenu('game_help')
 
 
-# screen mouse_help():
 
-#     hbox:
-#         label _("클릭")
-#         text _("대사 진행 및 UI (선택지 포함) 선택.")
+screen keyboard_help():
 
-#     hbox:
-#         label _("가운데 버튼이나 휠버튼 클릭")
-#         text _("UI를 숨김.")
+    hbox:
+        label _("엔터(Enter)")
+        text _("대사 진행 및 UI (선택지 포함) 선택.")
 
-#     hbox:
-#         label _("우클릭")
-#         text _("게임 메뉴 불러옴.")
+    hbox:
+        label _("스페이스(Space)")
+        text _("대사를 진행하되 선택지는 선택하지 않음.")
 
-#     hbox:
-#         label _("휠 위로")
-#         text _("이전 대사로 롤백.")
+    hbox:
+        label _("화살표 키")
+        text _("UI 이동.")
 
-#     hbox:
-#         label _("휠 아래로")
-#         text _("이후 대사로 롤포워드.")
+    hbox:
+        label _("이스케이프(Esc)")
+        text _("게임 메뉴 불러옴.")
+
+    hbox:
+        label _("컨트롤(Ctrl)")
+        text _("누르고 있는 동안 대사를 스킵.")
+
+    hbox:
+        label _("탭(Tab)")
+        text _("대사 스킵 토글.")
+
+    hbox:
+        label _("페이지 업(Page Up)")
+        text _("이전 대사로 롤백.")
+
+    hbox:
+        label _("페이지 다운(Page Down)")
+        text _("이후 대사로 롤포워드.")
+
+    hbox:
+        label "H"
+        text _("UI를 숨김.")
+
+    hbox:
+        label "S"
+        text _("스크린샷 저장.")
+
+    hbox:
+        label "V"
+        text _("{a=https://www.renpy.org/l/voicing}대사 읽어주기 기능{/a} 토글.")
+
+    hbox:
+        label "Shift+A"
+        text _("접근성 메뉴를 엽니다.")
 
 
-# screen gamepad_help():
+screen mouse_help():
 
-#     hbox:
-#         label _("오른쪽 트리거(RT)\nA버튼/아래 버튼")
-#         text _("대사 진행 및 UI (선택지 포함) 선택.")
+    hbox:
+        label _("클릭")
+        text _("대사 진행 및 UI (선택지 포함) 선택.")
 
-#     hbox:
-#         label _("왼쪽 트리거\n왼쪽 어깨")
-#         text _("이전 대사로 롤백.")
+    hbox:
+        label _("가운데 버튼이나 휠버튼 클릭")
+        text _("UI를 숨김.")
 
-#     hbox:
-#         label _("오른쪽 범퍼(RB)")
-#         text _("이후 대사로 롤포워드.")
+    hbox:
+        label _("우클릭")
+        text _("게임 메뉴 불러옴.")
 
-#     hbox:
-#         label _("D-Pad, 아날로그 스틱")
-#         text _("UI 이동.")
+    hbox:
+        label _("휠 위로")
+        text _("이전 대사로 롤백.")
 
-#     hbox:
-#         label _("Start, Guide, B/Right Button")
-#         text _("게임 메뉴 불러옴.")
-
-#     hbox:
-#         label _("Y버튼/위 버튼")
-#         text _("UI를 숨김.")
-
-#     textbutton _("조정") action GamepadCalibrate()
+    hbox:
+        label _("휠 아래로")
+        text _("이후 대사로 롤포워드.")
 
 
-# style help_button is gui_button
-# style help_button_text is gui_button_text
-# style help_label is gui_label
-# style help_label_text is gui_label_text
-# style help_text is gui_text
+screen gamepad_help():
 
-# style help_button:
-#     properties gui.button_properties("help_button")
-#     xmargin 12
+    hbox:
+        label _("오른쪽 트리거(RT)\nA버튼/아래 버튼")
+        text _("대사 진행 및 UI (선택지 포함) 선택.")
 
-# style help_button_text:
-#     properties gui.text_properties("help_button")
+    hbox:
+        label _("왼쪽 트리거\n왼쪽 어깨")
+        text _("이전 대사로 롤백.")
 
-# style help_label:
-#     xsize 375
-#     right_padding 30
+    hbox:
+        label _("오른쪽 범퍼(RB)")
+        text _("이후 대사로 롤포워드.")
 
-# style help_label_text:
-#     size gui.text_size
-#     xalign 1.0
-#     textalign 1.0
+    hbox:
+        label _("D-Pad, 아날로그 스틱")
+        text _("UI 이동.")
+
+    hbox:
+        label _("Start, Guide, B/Right Button")
+        text _("게임 메뉴 불러옴.")
+
+    hbox:
+        label _("Y버튼/위 버튼")
+        text _("UI를 숨김.")
+
+    textbutton _("조정") action GamepadCalibrate()
+
+
+style help_button is gui_button
+style help_button_text is gui_button_text
+style help_label is gui_label
+style help_label_text is gui_label_text
+style help_text is gui_text
+
+style help_button:
+    properties gui.button_properties("help_button")
+    xmargin 12
+
+style help_button_text:
+    properties gui.text_properties("help_button")
+
+style help_label:
+    xsize 375
+    right_padding 30
+
+style help_label_text:
+    size gui.text_size
+    xalign 1.0
+    textalign 1.0
 
 
 

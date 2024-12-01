@@ -1,9 +1,9 @@
 # character.rpy
 
-# 먼저 각 캐릭터의 호감도를 default로 선언
-default chanmi_affection = 0
-default ari_affection = 0
-default sena_affection = 0
+# 먼저 각 캐릭터의 호감도를 20으로 선언
+default chanmi_affection = 20
+default ari_affection = 20
+default sena_affection = 20
 
 init -2 python:
     class Character_info:

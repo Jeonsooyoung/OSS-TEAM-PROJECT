@@ -11,13 +11,7 @@
 ##
 ## 문자열을 _()로 둘러 쌓으면 씌우면 번역의 대상으로 표시됩니다.
 
-define config.name = _("두근두근 충북대")
-
-define config.main_menu = [
-    # ... (기존 항목)
-    ( "캐릭터 프로필", "character_profiles" ),
-    # ... (기존 항목)
-]
+define config.name = _("")
 
 ## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
 ## 을 False로 설정하십시오.
@@ -27,7 +21,7 @@ define gui.show_name = True
 
 ## 게임의 버전입니다.
 
-define config.version = "1.0"
+define config.version = "v1.0.70-alpha"
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
@@ -40,7 +34,7 @@ define gui.about = _p("""
 ## 배포판의 실행 파일과 디렉토리에 사용되는 게임의 약식 이름. 이것은 ASCII 전용
 ## 이어야 하며 공백, 콜론 또는 세미콜론을 포함해서는 안 됩니다.
 
-define build.name = "OSS"
+define build.name = "DokiDokiCBNU"
 
 
 ## 음악과 음향 ######################################################################
@@ -121,13 +115,13 @@ define config.window_hide_transition = Dissolve(.2)
 ## 기본 글자 속도를 제어합니다. 기본적으로, 0은 즉시이며 다른 숫자는 초당 입력
 ## 할 문자 수입니다.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 50
 
 
 ## 기본 auto-forward 지연 시간입니다. 숫자가 클수록 대기 시간이 길어지며, 0 ~ 30
 ## 이 유효한 범위가 됩니다.
 
-default preferences.afm_time = 15
+default preferences.afm_time = 10
 
 
 ## 세이브 디렉토리 ####################################################################
