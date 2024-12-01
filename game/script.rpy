@@ -30,15 +30,23 @@
 
 # 여기에서부터 게임이 시작합니다.
 label start:
-
-    transform vertical:
-        yalign 0.5    # 이미지의 y축 위치를 미리 지정
-    
-    transform left:
+    transform center:  # center 위치 재조정
+        xalign 0.5
+        yalign 0.6
+    transform left:  # left 위치 재조정
         xalign 0.15
-    transform right:
-        xalign 0.85   #left랑 right의 기본값이 너무 끝에 있는 것 같아서 좀 가운데로 당김
-
+        yalign 0.6
+    transform right:  # right 위치 재조정
+        xalign 0.85
+        yalign 0.6
+    transform small_size:  # 사진 크기 작게
+        zoom 0.4   
+    # transform 정의
+    transform big_size():
+        zoom 1.5
+    transform normal_size():
+        zoom 1.0
+        
     "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
 
     # 이름 입력 루프
@@ -53,14 +61,14 @@ label start:
     # 이름 확인 및 스토리 진행
     "당신의 이름은 [player_name]이군요! 게임을 시작합니다!"
     
-    show chanmi at center, vertical
+    show chanmi at center
     c "안녕하세요, 저는 찬미입니다."
     $ chanmi.increase_affection(10)
     $ show_affection(chanmi)
-    show ari at left, vertical  # 아리의 이미지를 왼쪽에 표시합니다
+    show ari at left  # 아리의 이미지를 왼쪽에 표시합니다
     a "안녕하세요..."
 
-    show sena at right, vertical  # 세나의 이미지를 오른쪽에 표시합니다
+    show sena at right  # 세나의 이미지를 오른쪽에 표시합니다
     s "모두 안녕!"
 
     jump chapter1

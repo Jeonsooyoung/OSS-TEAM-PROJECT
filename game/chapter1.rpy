@@ -3,7 +3,7 @@ define p = Character(" ")
 # define s2 = Character("학생 2")
 # define s3 = Character("학생 3")
 define prof = Character("김봉재 교수님")
-
+image man = "character/man_extra.png"
 label chapter1:
 
     # 강의실에 들어서며 시나리오 시작
@@ -15,6 +15,7 @@ label chapter1:
     "[player_name]" "벌써 자리가 꽉 차 있네. 사람 없는 중간 자리에 앉아야겠다"
     
     # 학생 3과의 상호작용
+    show chanmi at left
     s "안녕! 여기 앉아도 돼?"
     
     menu:
@@ -30,18 +31,24 @@ label chapter1:
             s "아, 그래... 알겠어." 
             $ sena.decrease_affection(1) # 호감도 하락
             s "뒷자리로 가야겠다." 
-            
+    
+    hide chanmi
     # 교수님 등장
     p "강의실에 교수님이 들어온다"
+    show man at center, small_size
     prof "여러분, 방학 잘 보내셨나요? 오늘은 학기의 첫날인 만큼 간단히 앞으로의 수업 계획을 설명하고, 조별 과제를 배정하도록 하겠습니다."
     "[player_name]" "아니, 첫날부터 조별 과제라니... 너무 빡센 거 아냐? 방학 끝난 지 얼마나 됐다고.ㅠㅠ"
     prof "여러분, 조별 과제는 학기 중에 진행될 주요 프로젝트입니다. 과제의 주제는 '앱 개발'이고, 조는 제가 랜덤으로 정할게요."
     prof "물론 부담스러울 수 있다는 걸 알지만, 이번 과제를 통해 여러분이 실력을 쌓고 서로 협력하는 기회를 얻길 바랍니다."
+    hide man
     p "제비뽑기를 통해 조가 정해졌고, 같은 조원은 [c],[a],[s]이었다"
     "[player_name]" "(어떤 사람들과 한 조가 될지 걱정했는데, 조원들이 나쁘지 않아서 다행이다.)"
+    show chanmi at left
     c "안녕! 같은 조가 됐네. 난 [c]이야. 앞으로 잘 부탁해!"  
     "[player_name]" "응, 잘 부탁해. 난 [player_name]이야."  
+    show ari at center
     a "난 [a]라고 해. 조별 과제는 솔직히 부담스럽지만... 다들 화이팅 해보자.ㅎㅎ" 
+    show sena at right
     s "와, 팀 분위기 좋은데? 난 [s]! 힘든 과제라도 다 같이 하면 재밌을 거야!"  
     # 조 주제 결정
     c "우리 어떤 앱을 만들지 주제를 정해야 하는데, 다들 좋은 아이디어 있어?"
@@ -172,7 +179,7 @@ label continue_story:
     prof "정말 잘했어요! 여러분의 팀워크가 빛나는 발표였습니다."
     p "[player_name]의 팀은 좋은 점수를 받았다. 모두 환하게 웃으며 서로를 축하했다"
     p "그 미소 속에는 기쁨과 함께 조금은 떨리는 마음이 섞여 있었다."
-
+    scene classroom # 모든 캐릭터 숨기기
     p "이렇게 Chapter 1이 끝났다."
 
     jump chapter1_end 
