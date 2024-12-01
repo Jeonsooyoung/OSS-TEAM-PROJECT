@@ -1023,38 +1023,45 @@ screen game_help():
     tag menu
     
     use game_menu(_("게임 설명")):
-        vbox:
-            spacing 20
-            xsize 800
-            vbox:
-                spacing 10
-                hbox:
-                    textbutton _("조작 방법") action ShowMenu('help')
-            vbox:
-                spacing 10
-                text "게임 진행 방법" size 30 color "#ffffff"
-                null height 20
-                text "• 화면의 대화를 클릭하거나 스페이스바를 눌러 진행할 수 있습니다." color "#ffffff"
-                text "• 우클릭이나 ESC를 눌러 게임 메뉴를 열 수 있습니다." color "#ffffff"
-            
-            vbox:
-                null height 40
-                spacing 10
-                text "호감도 시스템" size 30 color "#ffffff"
-                null height 20
-                text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다." color "#ffffff"
-                text "• 호감도는 0에서 100 사이의 값을 가집니다." color "#ffffff"
-                text "• 특정 선택지는 호감도에 영향을 미칩니다." color "#ffffff"
-            
-            vbox:
-                spacing 10
-                null height 40
-                if gui.about:
-                    text "[gui.about!t]\n" color "#ffffff"
+        side "c r":
+            viewport id "help_vp":
+                draggable True
+                mousewheel True
+                vbox:
+                    spacing 20
+                    xsize 800
+                    vbox:
+                        spacing 10
+                        xalign 1.0
+                        hbox:
+                            textbutton _("조작 방법") action ShowMenu('help') style "gui_button"
+                    vbox:
+                        spacing 10
+                        text "게임 진행 방법" size 30 color "#ffffff"
+                        null height 20
+                        text "• 화면의 대화를 클릭하거나 스페이스바를 눌러 진행할 수 있습니다." color "#ffffff"
+                        text "• 우클릭이나 ESC를 눌러 게임 메뉴를 열 수 있습니다." color "#ffffff"
+                    
+                    vbox:
+                        null height 40
+                        spacing 10
+                        text "호감도 시스템" size 30 color "#ffffff"
+                        null height 20
+                        text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다." color "#ffffff"
+                        text "• 호감도는 0에서 100 사이의 값을 가집니다." color "#ffffff"
+                        text "• 특정 선택지는 호감도에 영향을 미칩니다." color "#ffffff"
+                    
+                    vbox:
+                        spacing 10
+                        null height 40
+                        if gui.about:
+                            text "[gui.about!t]\n" color "#ffffff"
 
-                text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") color "#ffffff"
-                null height 20
-                text _("게임 버전 [config.version!t]\n") color "#ffffff"       
+                        text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") color "#ffffff"
+                        null height 20
+                        text _("게임 버전 [config.version!t]\n") color "#ffffff"
+
+            vbar value YScrollValue("help_vp")
 
 style help_frame:
     background "#000000CC"
@@ -1141,6 +1148,7 @@ screen help():
         
         vbox:
                 spacing 20
+                xalign 1.0
                 hbox:
                     textbutton _("돌아가기") action ShowMenu('game_help')
 
