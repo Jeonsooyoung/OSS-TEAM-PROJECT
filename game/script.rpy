@@ -41,12 +41,9 @@ label start:
         yalign 0.6
     transform small_size:  # 사진 크기 작게
         zoom 0.4   
-    # transform 정의
-    transform big_size():
+    transform big_size:
         zoom 1.5
-    transform normal_size():
-        zoom 1.0
-        
+
     "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
 
     # 이름 입력 루프
@@ -60,16 +57,6 @@ label start:
 
     # 이름 확인 및 스토리 진행
     "당신의 이름은 [player_name]이군요! 게임을 시작합니다!"
-    
-    show chanmi at center
-    c "안녕하세요, 저는 찬미입니다."
-    $ chanmi.increase_affection(10)
-    $ show_affection(chanmi)
-    show ari at left  # 아리의 이미지를 왼쪽에 표시합니다
-    a "안녕하세요..."
-
-    show sena at right  # 세나의 이미지를 오른쪽에 표시합니다
-    s "모두 안녕!"
 
     jump chapter1
     
