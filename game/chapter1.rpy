@@ -6,6 +6,9 @@ define prof = Character("김봉재 교수님")
 image man = "character/man_extra.png"
 label chapter1:
 
+    # 충북대에 들어서며 시나리오 시작
+
+
     # 강의실에 들어서며 시나리오 시작
     scene classroom with fade
     "[player_name]" "벌써 방학이 끝났다니ㅠㅠ 2학기 시작이다"
