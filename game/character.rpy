@@ -20,19 +20,25 @@ init -2 python:
             global chanmi_affection, ari_affection, sena_affection
             if self.name == "찬미":
                 chanmi_affection = min(100, chanmi_affection + amount)
+                show_popup(f"{self.name} 호감도 + {amount}")
             elif self.name == "아리":
                 ari_affection = min(100, ari_affection + amount)
+                show_popup(f"{self.name} 호감도 + {amount}")
             elif self.name == "세나":
                 sena_affection = min(100, sena_affection + amount)
-        
+                show_popup(f"{self.name} 호감도 + {amount}")
+
         def decrease_affection(self, amount):
             global chanmi_affection, ari_affection, sena_affection
             if self.name == "찬미":
                 chanmi_affection = max(0, chanmi_affection - amount)
+                show_popup(f"{self.name} 호감도 - {amount}")
             elif self.name == "아리":
                 ari_affection = max(0, ari_affection - amount)
+                show_popup(f"{self.name} 호감도 - {amount}")
             elif self.name == "세나":
                 sena_affection = max(0, sena_affection - amount)
+                show_popup(f"{self.name} 호감도 - {amount}")
         
         def get_affection(self):
             if self.name == "찬미":
