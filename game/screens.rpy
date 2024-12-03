@@ -603,22 +603,22 @@ screen chapter_select():
             text "새 게임을 시작하세요." size 20 color "#ff0000"
 
         if persistent.player_name:
-            textbutton "Chapter 1" action Jump("chapter1")
+            textbutton "Chapter 1" action [Hide("chapter_select"), Jump("chapter1")]
         else:
             textbutton "Chapter 1 (Locked)" action NullAction()
 
         if persistent.chapter1_cleared:
-            textbutton "Chapter 2" action Jump("chapter2")
+            textbutton "Chapter 2" action [Hide("chapter_select"), jump("chapter2")]
         else:
             textbutton "Chapter 2 (Locked)" action NullAction()
 
         if persistent.chapter2_cleared:
-            textbutton "Chapter 3" action Jump("chapter3")
+            textbutton "Chapter 3" action [Hide("chapter_select"), jump("chapter3")]
         else:
             textbutton "Chapter 3 (Locked)" action NullAction()
 
         if persistent.chapter3_cleared:
-            textbutton "Chapter 4" action Jump("chapter4")
+            textbutton "Chapter 4" action [Hide("chapter_select"), jump("chapter4")]
         else:
             textbutton "Chapter 4 (Locked)" action NullAction()
 
@@ -693,82 +693,83 @@ screen character_profiles():
 ## www.renpy.org/doc/html/screen_special.html#load
 
 screen save():
-
     tag menu
-
-    use affection_status(_(""))
-
+    use game_menu(_("저장하기")):
+        use affection_status
 
 screen load():
-
     tag menu
-
-    use affection_status(_("불러오기"))
+    use game_menu(_("불러오기")):
+        use affection_status
 
 
 style vbar:
     bar_vertical True  # 세로 방향 바
     bar_invert False    # 아래에서 위로 차오르도록 설정
 
-screen affection_status(title):
-    use game_menu(title):
-        fixed:
-            vbox:
-                spacing 20
+screen affection_status():
+    modal True
+    
+    frame:
+        xalign 0.5
+        yalign 0.5
+        xsize 800
+        ysize 600
+        
+        vbox:
+            spacing 20
+            xalign 0.5
+            yalign 0.5
+            
+            text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
+            
+            null height 40
+            
+            hbox:
+                spacing 50
                 xalign 0.5
-                yalign 0.5
-                
-                # 제목
-                text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
-                
-                null height 40
-                
-                # 캐릭터들의 호감도를 가로로 나열
-                hbox:
-                    spacing 50
-                    xalign 0.5
                     
-                    # 찬미 호감도
-                    vbox:
-                        spacing 10
-                        text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                        bar:
-                            xsize 150
-                            ysize 150
-                            value chanmi_affection
-                            range 100
-                            right_bar Frame("gui/heart_full.png")
-                            left_bar Frame("gui/heart_empty.png")
-                            style "vbar"  # vertical bar 스타일 적용
-                        text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                # 찬미 호감도
+                vbox:
+                    spacing 10
+                    text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    bar:
+                        xsize 150
+                        ysize 150
+                        value chanmi_affection
+                        range 100
+                        right_bar Frame("gui/heart_full.png")
+                        left_bar Frame("gui/heart_empty.png")
+                        style "vbar"  # vertical bar 스타일 적용
+                    text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
                     
-                    # 아리 호감도
-                    vbox:
-                        spacing 10
-                        text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                        bar:
-                            xsize 150
-                            ysize 150
-                            value ari_affection
-                            range 100
-                            right_bar Frame("gui/heart_full.png")
-                            left_bar Frame("gui/heart_empty.png")
-                            style "vbar"  # vertical bar 스타일 적용
-                        text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                # 아리 호감도
+                vbox:
+                    spacing 10
+                    text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    bar:
+                        xsize 150
+                        ysize 150
+                        value ari_affection
+                        range 100
+                        right_bar Frame("gui/heart_full.png")
+                        left_bar Frame("gui/heart_empty.png")
+                        style "vbar"  # vertical bar 스타일 적용
+                    text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
                     
-                    # 세나 호감도
-                    vbox:
-                        spacing 10
-                        text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                        bar:
-                            xsize 150
-                            ysize 150
-                            value sena_affection
-                            range 100
-                            right_bar Frame("gui/heart_full.png")
-                            left_bar Frame("gui/heart_empty.png")
-                            style "vbar"  # vertical bar 스타일 적용
-                        text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                # 세나 호감도
+                vbox:
+                    spacing 10
+                    text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                    bar:
+                        xsize 150
+                        ysize 150
+                        value sena_affection
+                        range 100
+                        right_bar Frame("gui/heart_full.png")
+                        left_bar Frame("gui/heart_empty.png")
+                        style "vbar"  # vertical bar 스타일 적용
+                    text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
 
 
 ## Preferences 스크린 #############################################################
