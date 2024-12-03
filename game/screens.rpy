@@ -608,17 +608,17 @@ screen chapter_select():
             textbutton "Chapter 1 (Locked)" action NullAction()
 
         if persistent.chapter1_cleared:
-            textbutton "Chapter 2" action [Hide("chapter_select"), jump("chapter2")]
+            textbutton "Chapter 2" action [Hide("chapter_select"), Jump("chapter2")]
         else:
             textbutton "Chapter 2 (Locked)" action NullAction()
 
         if persistent.chapter2_cleared:
-            textbutton "Chapter 3" action [Hide("chapter_select"), jump("chapter3")]
+            textbutton "Chapter 3" action [Hide("chapter_select"), Jump("chapter3")]
         else:
             textbutton "Chapter 3 (Locked)" action NullAction()
 
         if persistent.chapter3_cleared:
-            textbutton "Chapter 4" action [Hide("chapter_select"), jump("chapter4")]
+            textbutton "Chapter 4" action [Hide("chapter_select"), Jump("chapter4")]
         else:
             textbutton "Chapter 4 (Locked)" action NullAction()
 
