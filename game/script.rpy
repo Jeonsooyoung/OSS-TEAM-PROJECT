@@ -25,7 +25,10 @@
 #     c = chanmi.character
 #     a = ari.character
 #     s = sena.character
-
+init python:
+    def sync_player_name():
+        global player_name
+        player_name = persistent.player_name
 
 default name_entered = False
 # 여기에서부터 게임이 시작합니다.
@@ -44,16 +47,17 @@ label start:
     transform big_size:
         zoom 1.5
 
+    $ initialize_game_variables()
+
     "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
 
     # 이름 입력 루프
-    while not name_entered:
-        $ player_name = renpy.input("당신의 이름을 입력해주세요.")
-
-        if player_name:  # 이름이 입력되었으면
-            $ name_entered = True
-        else:  # 이름이 비어 있으면 메시지 출력
-            "이름을 입력해주세요."
+    $ reset_persistent_data()
+    
+    while not persistent.player_name:
+        $ persistent.player_name = renpy.input("이름을 입력해주세요.")
+    
+    $ sync_player_name()  # player_name 변수와 동기화
 
     # 이름 확인 및 스토리 진행
     "당신의 이름은 [player_name]이군요! 게임을 시작합니다!"
