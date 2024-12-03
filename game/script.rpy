@@ -27,7 +27,7 @@
 #     s = sena.character
 
 
-
+default name_entered = False
 # 여기에서부터 게임이 시작합니다.
 label start:
     transform center:  # center 위치 재조정

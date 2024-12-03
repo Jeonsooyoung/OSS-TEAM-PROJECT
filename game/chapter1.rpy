@@ -6,6 +6,7 @@ define prof = Character("김봉재 교수님")
 image man = "character/man_extra.png"
 label chapter1:
 
+    $ load_game_state()
     # 충북대에 들어서며 시나리오 시작
     p "여름이 끝나고 선선한 가을바람이 부는 캠퍼스. 나무는 초록에서 서서히 단풍으로 물들고 있다."
     p "주인공은 충북대 정문에서 잠시 걸음을 멈춘다."
