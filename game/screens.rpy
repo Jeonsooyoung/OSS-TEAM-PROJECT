@@ -371,11 +371,6 @@ screen main_menu():
             hover "images_start_hover.png"
             action Start()
             
-        ## "조작방법" 버튼 (기존 "불러오기" 버튼 위치 대체)
-        imagebutton:
-            idle "images_help_idle.png"  # 조작방법 버튼 기본 이미지
-            hover "images_help_hover.png"  # 조작방법 버튼 강조 이미지
-            action ShowMenu("help")  # 클릭 시 조작방법 화면 표시
     
         ## "돌아가기" 버튼
         imagebutton:
