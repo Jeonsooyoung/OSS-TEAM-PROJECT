@@ -376,6 +376,13 @@ screen main_menu():
             idle "images_help_idle.png"  # 조작방법 버튼 기본 이미지
             hover "images_help_hover.png"  # 조작방법 버튼 강조 이미지
             action ShowMenu("help")  # 클릭 시 조작방법 화면 표시
+    
+        ## "돌아가기" 버튼
+        imagebutton:
+            idle "images_load_idle.png"
+            hover "images_load_hover.png"
+            action ShowMenu("load")
+
 
         ## "게임 종료" 버튼
         imagebutton:
