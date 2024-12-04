@@ -382,7 +382,12 @@ screen main_menu():
             idle "images_load_idle.png"
             hover "images_load_hover.png"
             action ShowMenu("load")
-
+            
+        ## "게임 설명" 버튼
+        imagebutton:
+            idle "images_info_idle.png"
+            hover "images_info_hover.png"
+            action ShowMenu("help")
 
         ## "게임 종료" 버튼
         imagebutton:
