@@ -395,11 +395,14 @@ screen main_menu():
 
             text "[config.name!t]":
                 style "main_menu_title"
-
+        vbox:
+            xalign 0.97
+            yalign 0.01
+            text "{size=-16}© 2024 두근두근 충북대 by 옥수수수염차 All rights reserved{/size}":
+                style "main_menu_version"
             text "[config.version]":
                 style "main_menu_version"
-
-
+    
 style main_menu_frame is empty
 style main_menu_vbox is vbox
 style main_menu_text is gui_text
@@ -423,7 +426,7 @@ style main_menu_vbox:
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
     font "KCC-Ganpan.ttf"
-    color "#e083bc"
+    color "#ffffff"
 
 style main_menu_title:
     properties gui.text_properties("title")
