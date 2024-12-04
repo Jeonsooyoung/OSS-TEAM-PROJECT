@@ -16,12 +16,12 @@ define config.name = _("")
 ## 위에 주어진 제목이 주 메뉴 화면에 표시되는지 결정합니다. 제목을 숨기려면 이것
 ## 을 False로 설정하십시오.
 
-define gui.show_name = True
+define gui.show_name = False
 
 
 ## 게임의 버전입니다.
 
-define config.version = "v1.0.70-alpha"
+define config.version = "v1.1.1204-alpha"
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
@@ -138,9 +138,9 @@ default preferences.afm_time = 10
 ## 이것은 일반적으로 변경해서는 안 되며, 항상 표현형식이 아닌 정확한 문자열이어
 ## 야 합니다.
 
-define config.save_directory = "OSS-1731510510"
+define config.save_directory = "DokiDokiCBNU"
 
-
+define config.window_title = "두근두근 충북대"
 ## Icon ########################################################################
 ##
 ## 작업 표시 줄 또는 독에 표시되는 아이콘.
