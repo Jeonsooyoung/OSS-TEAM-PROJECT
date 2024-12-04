@@ -382,12 +382,28 @@ screen main_menu():
             idle "images_load_idle.png"
             hover "images_load_hover.png"
             action ShowMenu("load")
-            
+
         ## "게임 설명" 버튼
         imagebutton:
             idle "images_info_idle.png"
             hover "images_info_hover.png"
             action ShowMenu("help")
+
+        ## 환경설정 버튼
+        imagebutton:
+            idle "images_settings_idle.png"
+            hover "images_settings_hover.png"
+            action ShowMenu("preferences")
+            xsize 10  # 이미지 크기 줄이기 (가로)
+            ysize 10  # 이미지 크기 줄이기 (세로)    
+
+        ## 프로필 버튼
+        imagebutton:
+            idle "images_profile_idle.png"
+            hover "images_profile_hover.png"
+            action ShowMenu("character_profiles") 
+            xsize 10  # 이미지 크기 줄이기 (가로)
+            ysize 10  # 이미지 크기 줄이기 (세로)
 
         ## "게임 종료" 버튼
         imagebutton:
