@@ -17,6 +17,11 @@ label chapter2:
     # 남자 주인공의 독백
     "[player_name]" "바다는 참 오랜만이네. 고등학교 때 수학여행 이후 처음인가"
     "[player_name]" "대학 생활이라... 아직도 실감이 잘 안 나. 이렇게 떠들썩한 분위기 속에 내가 어울릴 수 있을까?"
+
+    # 해수욕장에서의 상황
+    c "야, [player_name] 뭐해? 너만 안 와서 다들 기다리고 있잖아! 빨리 와!"
+    "[player_name]" "(역시 세나는 여기서도 활발하네..ㅎㅎ)"
+    "[player_name]" "알았어. 금방 갈게!"
     scene bg_bbq_evening
     with fade
 
