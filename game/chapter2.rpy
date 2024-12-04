@@ -2,8 +2,6 @@ define p = Character(" ")
 # define s1 = Character("학생 1")
 # define s2 = Character("학생 2")
 # define s3 = Character("학생 3")
-define prof = Character("김봉재 교수님")
-image man = "character/man_extra.png"
 label chapter2:
 
     $ load_game_state()
