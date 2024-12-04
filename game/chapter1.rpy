@@ -4,6 +4,7 @@ define p = Character(" ")
 # define s3 = Character("학생 3")
 define prof = Character("김봉재 교수님")
 image man = "character/man_extra.png"
+image background1 = "background/background_1_.png"
 label chapter1:
 
     $ load_game_state()
@@ -12,7 +13,7 @@ label chapter1:
     # 나머지 코드...
     # 충북대에 들어서며 시나리오 시작
     p "여름이 끝나고 선선한 가을바람이 부는 캠퍼스. 나무는 초록에서 서서히 단풍으로 물들고 있다."
-    p "주인공은 충북대 정문에서 잠시 걸음을 멈춘다."
+    p "충북대 정문에서 잠시 걸음을 멈춘다"
     "[player_name]" "익숙한 길, 익숙한 풍경이지만 뭔가 다르게 느껴지네."
     "[player_name]" "주변에 활기찬 학생들을 보니 2학기가 기대되는걸?"
     "[player_name]" "그나저나 2학기가 되니까 1학기 보다 연애하는 학생들의 수가 엄청 늘어난 것 같아... 나도 이번 학기에는 연애할 수 있을까?"
@@ -22,9 +23,8 @@ label chapter1:
 
 
     # 강의실에 들어서며 시나리오 시작
-    scene classroom with fade
+    scene background1 with fade
     p "허겁지겁 강의실에 들어간다"
-    p "앞자리에 학생 1이 앉아 있고, 뒷자리에 학생 2가 앉아 있다"
     "[player_name]" "벌써 자리가 꽉 차 있네. 사람 없는 중간 자리에 앉아야겠다"
     
     # 학생 3과의 상호작용
@@ -50,7 +50,7 @@ label chapter1:
     p "강의실에 교수님이 들어온다"
     show man at center, small_size
     prof "여러분, 방학 잘 보내셨나요? 오늘은 학기의 첫날인 만큼 간단히 앞으로의 수업 계획을 설명하고, 조별 과제를 배정하도록 하겠습니다."
-    "[player_name]" "아니, 첫날부터 조별 과제라니... 너무 빡센 거 아냐? 방학 끝난 지 얼마나 됐다고.ㅠㅠ"
+    "[player_name]" "아니, 첫날부터 조별 과제라니... 너무 빡센 거 아냐? 방학 끝난 지 얼마나 됐다고ㅠㅠ"
     prof "여러분, 조별 과제는 학기 중에 진행될 주요 프로젝트입니다. 과제의 주제는 '앱 개발'이고, 조는 제가 랜덤으로 정할게요."
     prof "물론 부담스러울 수 있다는 걸 알지만, 이번 과제를 통해 여러분이 실력을 쌓고 서로 협력하는 기회를 얻길 바랍니다."
     hide man
