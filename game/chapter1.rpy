@@ -199,6 +199,6 @@ label continue_story:
     return
 
 label chapter1_end:
-    $ chapter1_cleared = True  # 챕터 1 완료 상태 설정
+    $ persistent.chapter1_cleared = True  # 챕터 1 완료 상태 설정
     call screen chapter_select
     return
