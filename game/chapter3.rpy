@@ -217,4 +217,11 @@ label chapter3:
     # 엔딩 분기 준비
     p "이렇게 하루가 지나갔다. 앞으로 어떤 관계로 발전하게 될까?"
     
+    jump chapter3_end
+
+    return
+
+label chapter3_end:
+    $ persistent.chapter3_cleared = True  # 챕터 3 완료 상태 설정
+    call screen chapter_select
     return
