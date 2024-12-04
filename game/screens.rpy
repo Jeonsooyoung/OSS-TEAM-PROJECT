@@ -374,15 +374,21 @@ screen main_menu():
     
         ## "돌아가기" 버튼
         imagebutton:
-            idle "images_load_idle.png"
-            hover "images_load_hover.png"
-            action ShowMenu("load")
+            idle "images_chapter_idle.png"
+            hover "images_chapter_hover.png"
+            action ShowMenu("chapter_select")
 
         ## "게임 설명" 버튼
         imagebutton:
             idle "images_info_idle.png"
             hover "images_info_hover.png"
-            action ShowMenu("help")
+            action ShowMenu("game_help")
+
+        ## "호감도 확인" 버튼
+        imagebutton:
+            idle "images_favor_idle.png"
+            hover "images_favor_hover.png"
+            action ShowMenu("affection_status")    
 
         ## 환경설정 버튼
         imagebutton:
