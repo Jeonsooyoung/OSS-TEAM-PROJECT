@@ -105,6 +105,6 @@ label chapter2:
     return
 
 label chapter2_end:
-    $ chapter2_cleared = True  # 챕터 2 완료 상태 설정
+    $ persistent.chapter2_cleared = True  # 챕터 2 완료 상태 설정
     call screen chapter_select
     return
