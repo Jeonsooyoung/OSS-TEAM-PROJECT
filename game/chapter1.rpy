@@ -4,7 +4,7 @@ define p = Character(" ")
 # define s3 = Character("학생 3")
 define prof = Character("김봉재 교수님")
 image man = "character/man_extra.png"
-image background1 = "background_1_.png"
+image background1 = "background/background_1_.png"
 label chapter1:
 
     $ load_game_state()
