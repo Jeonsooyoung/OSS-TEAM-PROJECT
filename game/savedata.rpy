@@ -9,7 +9,8 @@ init python:
         persistent.game_data = {
             "chanmi_affection": 20,
             "ari_affection": 20,
-            "sena_affection": 20
+            "sena_affection": 20,
+            "chapter_selected": 0  # 추가
         }
     
     def save_game_state():
@@ -17,7 +18,8 @@ init python:
             "player_name": player_name,
             "chanmi_affection": chanmi_affection,
             "ari_affection": ari_affection,
-            "sena_affection": sena_affection
+            "sena_affection": sena_affection,
+            "chapter_selected": persistent.chapter_selected  # 추가
         }
     
     def load_game_state():
@@ -27,6 +29,7 @@ init python:
             chanmi_affection = persistent.game_data.get("chanmi_affection", 20)
             ari_affection = persistent.game_data.get("ari_affection", 20)
             sena_affection = persistent.game_data.get("sena_affection", 20)
+            persistent.chapter_selected = persistent.game_data.get("chapter_selected", 0)  # 추가
 
     def reset_persistent_data():
         persistent._clear()  # 모든 persistent 데이터 초기화
@@ -35,7 +38,8 @@ init python:
         persistent.game_data = {
             "chanmi_affection": 20,
             "ari_affection": 20,
-            "sena_affection": 20
+            "sena_affection": 20,
+            "chapter_selected": 0  # 추가
         }
         persistent.player_name = None
         persistent.chapter1_cleared = False

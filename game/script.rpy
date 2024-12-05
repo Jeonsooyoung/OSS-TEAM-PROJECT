@@ -21,17 +21,35 @@ label start:
     transform big_size:
         zoom 1.5
 
-    $ reset_persistent_data()
-
-    "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
-
-    while not persistent.player_name:
-        $ persistent.player_name = renpy.input("이름을 입력해주세요.")
+    if not persistent.game_data or persistent.chapter_selected == 0:
+        $ reset_persistent_data()
     
-    $ sync_player_name()
-
-    "당신의 이름은 [player_name]이군요! 게임을 시작합니다!"
     $ load_game_state()
-    jump chapter1
+    $ renpy.block_rollback()
+    
+    # 이름이 없을 경우 먼저 이름 입력 처리
+    if not persistent.player_name:
+        "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
+
+        while not persistent.player_name:
+            $ persistent.player_name = renpy.input("이름을 입력해주세요.")
+        
+        $ sync_player_name()
+
+        "당신의 이름은 [player_name]이군요! 게임을 시작합니다!"
+        
+        jump chapter1
+    
+    # 이름이 있는 경우 챕터 분기 처리
+    if persistent.chapter_selected == 0:
+        jump chapter1
+    elif persistent.chapter_selected == 1:
+        jump chapter1
+    elif persistent.chapter_selected == 2:
+        jump chapter2
+    elif persistent.chapter_selected == 3:
+        jump chapter3
+    elif persistent.chapter_selected == 4:
+        jump chapter4
     
     return
