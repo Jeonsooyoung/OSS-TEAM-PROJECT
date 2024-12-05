@@ -292,19 +292,16 @@ screen navigation():
 
         spacing gui.navigation_spacing
 
-        if main_menu:
+        if not main_menu:
 
-            textbutton _("시작하기") action Start()
-
-        else:
-
+            ##textbutton _("시작하기") action Start()
             textbutton _("대사록") action ShowMenu("history")
 
             # textbutton _("저장하기") action ShowMenu("save")
 
-        textbutton _("불러오기") action ShowMenu("chapter_select")
+        ##textbutton _("불러오기") action ShowMenu("chapter_select")
 
-        textbutton _("환경설정") action ShowMenu("preferences")
+        ##textbutton _("환경설정") action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -314,18 +311,18 @@ screen navigation():
 
             textbutton _("메인 메뉴") action [Function(save_game_state), MainMenu()]
 
-        textbutton _("캐릭터 프로필") action ShowMenu("character_profiles")
+        ##textbutton _("캐릭터 프로필") action ShowMenu("character_profiles")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        ##if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
             ## 도움말 메뉴는 모바일 디바이스와 맞지 않아 불필요합니다.
-            textbutton _("게임 설명") action ShowMenu("game_help")
+            ##textbutton _("게임 설명") action ShowMenu("game_help")
 
-        if main_menu and renpy.variant("pc"):
+        ##if main_menu and renpy.variant("pc"):
 
             ## iOS에서는 종료 버튼이 금지되어 있으며 Android 및 웹에서는 불필요
             ## 합니다.
-            textbutton _("종료하기") action Quit(confirm=not main_menu)
+            ##textbutton _("종료하기") action Quit(confirm=not main_menu)
 
 
 style navigation_button is gui_button
@@ -360,7 +357,7 @@ screen main_menu():
 
         # 세로로 나열
         align (0.08, 0.5)
-        spacing 70  # 버튼 간 간격 (필요에 따라 조정)
+        spacing 60  # 버튼 간 간격 (필요에 따라 조정)
 
         ## "시작하기" 버튼
         imagebutton:
