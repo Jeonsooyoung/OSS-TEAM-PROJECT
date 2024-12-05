@@ -1,45 +1,42 @@
 default name_entered = False
 default player_name = None
-default chanmi_affection = 20
-default ari_affection = 20
-default sena_affection = 20
+default persistent.chanmi_affection = 20
+default persistent.ari_affection = 20 
+default persistent.sena_affection = 20
 
 init python:
-    if persistent.game_data is None:
-        persistent.game_data = {
-            "chanmi_affection": 20,
-            "ari_affection": 20,
-            "sena_affection": 20,
-            "chapter_selected": 0  # 추가
-        }
-    
     def save_game_state():
+        # 현재 상태를 저장
+        persistent.chanmi_affection = chanmi_affection
+        persistent.ari_affection = ari_affection
+        persistent.sena_affection = sena_affection
         persistent.game_data = {
             "player_name": player_name,
-            "chanmi_affection": chanmi_affection,
-            "ari_affection": ari_affection,
-            "sena_affection": sena_affection,
-            "chapter_selected": persistent.chapter_selected  # 추가
+            "chapter_selected": persistent.chapter_selected
         }
     
     def load_game_state():
+        global player_name, chanmi_affection, ari_affection, sena_affection
+        # persistent에서 직접 호감도 불러오기
+        if hasattr(persistent, 'chanmi_affection'):
+            chanmi_affection = persistent.chanmi_affection
+        if hasattr(persistent, 'ari_affection'):
+            ari_affection = persistent.ari_affection
+        if hasattr(persistent, 'sena_affection'):
+            sena_affection = persistent.sena_affection
+        
+        # 나머지 게임 데이터 불러오기
         if persistent.game_data:
-            global player_name, chanmi_affection, ari_affection, sena_affection
-            player_name = persistent.game_data.get("player_name")
-            chanmi_affection = persistent.game_data.get("chanmi_affection", 20)
-            ari_affection = persistent.game_data.get("ari_affection", 20)
-            sena_affection = persistent.game_data.get("sena_affection", 20)
-            persistent.chapter_selected = persistent.game_data.get("chapter_selected", 0)  # 추가
+            player_name = persistent.game_data.get("player_name", player_name)
+            persistent.chapter_selected = persistent.game_data.get("chapter_selected", persistent.chapter_selected)
 
     def reset_persistent_data():
-        persistent._clear()  # 모든 persistent 데이터 초기화
-        
-        # 기본 데이터 즉시 재설정
+        # 초기화 시 호감도도 초기값으로 설정
+        persistent.chanmi_affection = 20
+        persistent.ari_affection = 20
+        persistent.sena_affection = 20
         persistent.game_data = {
-            "chanmi_affection": 20,
-            "ari_affection": 20,
-            "sena_affection": 20,
-            "chapter_selected": 0  # 추가
+            "chapter_selected": 0
         }
         persistent.player_name = None
         persistent.chapter1_cleared = False

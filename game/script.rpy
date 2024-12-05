@@ -5,6 +5,8 @@ init python:
         global player_name
         player_name = persistent.player_name
 
+default persistent.is_new_game = True
+
 # 여기에서부터 게임이 시작합니다.
 label start:
     transform center:
@@ -21,35 +23,40 @@ label start:
     transform big_size:
         zoom 1.5
 
-    if not persistent.game_data or persistent.chapter_selected == 0:
-        $ reset_persistent_data()
-    
-    $ load_game_state()
+
     $ renpy.block_rollback()
+
     
-    # 이름이 없을 경우 먼저 이름 입력 처리
-    if not persistent.player_name:
+    # 새 게임이면 모든 데이터 초기화
+    if persistent.is_new_game:
+        $ reset_persistent_data()
+        $ persistent.player_name = None
+        $ player_name = None
+        $ persistent.chapter_selected = 0
+        $ persistent.is_new_game = False  # 초기화 후 플래그 변경
+        
         "안녕하세요, 게임을 시작하기전 당신의 이름을 알려주세요!"
 
         while not persistent.player_name:
             $ persistent.player_name = renpy.input("이름을 입력해주세요.")
         
         $ sync_player_name()
-
         "당신의 이름은 [player_name]이군요! 게임을 시작합니다!"
         
         jump chapter1
     
-    # 이름이 있는 경우 챕터 분기 처리
-    if persistent.chapter_selected == 0:
-        jump chapter1
-    elif persistent.chapter_selected == 1:
-        jump chapter1
-    elif persistent.chapter_selected == 2:
-        jump chapter2
-    elif persistent.chapter_selected == 3:
-        jump chapter3
-    elif persistent.chapter_selected == 4:
-        jump chapter4
+    # 챕터 선택인 경우
+    else:
+        $ load_game_state()
+        if persistent.chapter_selected == 0:
+            jump chapter1
+        elif persistent.chapter_selected == 1:
+            jump chapter1
+        elif persistent.chapter_selected == 2:
+            jump chapter2
+        elif persistent.chapter_selected == 3:
+            jump chapter3
+        elif persistent.chapter_selected == 4:
+            jump chapter4
     
     return
