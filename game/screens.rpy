@@ -296,8 +296,6 @@ screen navigation():
 
             ##textbutton _("시작하기") action Start()
 
-        else:
-
             textbutton _("대사록") action ShowMenu("history")
 
             # textbutton _("저장하기") action ShowMenu("save")
