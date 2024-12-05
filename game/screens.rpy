@@ -356,14 +356,11 @@ screen main_menu():
     frame:
         style "main_menu_frame"
 
-    hbox:
+    vbox:
 
-        xpos 0.5
-        yalign 1.0
-        xanchor 0.5
-        yoffset -50 
-
-        spacing 20
+        # 세로로 나열
+        align (0.08, 0.5)
+        spacing 70  # 버튼 간 간격 (필요에 따라 조정)
 
         ## "시작하기" 버튼
         imagebutton:
@@ -385,26 +382,24 @@ screen main_menu():
             action ShowMenu("game_help")
 
         ## "호감도 확인" 버튼
-        imagebutton:
-            idle "images_favor_idle.png"
-            hover "images_favor_hover.png"
-            action ShowMenu("affection_status")    
+        ##imagebutton:
+            ##idle "images_favor_idle.png"
+            ##hover "images_favor_hover.png"
+            ##action ShowMenu("affection_status")  
+            ##xsize 80
+            ##ysize 40  
 
         ## 환경설정 버튼
         imagebutton:
             idle "images_settings_idle.png"
             hover "images_settings_hover.png"
-            action ShowMenu("preferences")
-            xsize 10  # 이미지 크기 줄이기 (가로)
-            ysize 10  # 이미지 크기 줄이기 (세로)    
+            action ShowMenu("preferences")    
 
         ## 프로필 버튼
         imagebutton:
             idle "images_profile_idle.png"
             hover "images_profile_hover.png"
             action ShowMenu("character_profiles") 
-            xsize 10  # 이미지 크기 줄이기 (가로)
-            ysize 10  # 이미지 크기 줄이기 (세로)
 
         ## "게임 종료" 버튼
         imagebutton:
