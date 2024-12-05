@@ -1,8 +1,13 @@
 default name_entered = False
 default player_name = None
+
 default persistent.chanmi_affection = 20
-default persistent.ari_affection = 20 
+default persistent.ari_affection = 20
 default persistent.sena_affection = 20
+
+default chanmi_affection = persistent.chanmi_affection
+default ari_affection = persistent.ari_affection
+default sena_affection = persistent.sena_affection
 
 init python:
     def save_game_state():
