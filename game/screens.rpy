@@ -621,6 +621,13 @@ init python:
     if persistent.player_name is None:
         persistent.player_name = None
 
+# 먼저 persistent 변수들을 초기화
+default persistent.chapter_selected = 0
+default persistent.chapter1_cleared = False
+default persistent.chapter2_cleared = False
+default persistent.chapter3_cleared = False
+
+# 챕터 선택 스크린
 screen chapter_select():
     tag menu
     modal True
@@ -635,22 +642,22 @@ screen chapter_select():
             text "새 게임을 시작하세요." size 20 color "#ff0000"
 
         if persistent.player_name:
-            textbutton "Chapter 1" action [Hide("chapter_select"), Jump("chapter1")]
+            textbutton "Chapter 1" action [SetField(persistent, "chapter_selected", 1), Function(save_game_state), Hide("chapter_select"), Start()]
         else:
             textbutton "Chapter 1 (Locked)" action NullAction()
 
         if persistent.chapter1_cleared:
-            textbutton "Chapter 2" action [Hide("chapter_select"), Jump("chapter2")]
+            textbutton "Chapter 2" action [SetField(persistent, "chapter_selected", 2), Function(save_game_state), Hide("chapter_select"), Start()]
         else:
             textbutton "Chapter 2 (Locked)" action NullAction()
 
         if persistent.chapter2_cleared:
-            textbutton "Chapter 3" action [Hide("chapter_select"), Jump("chapter3")]
+            textbutton "Chapter 3" action [SetField(persistent, "chapter_selected", 3),Function(save_game_state),  Hide("chapter_select"), Start()]
         else:
             textbutton "Chapter 3 (Locked)" action NullAction()
 
         if persistent.chapter3_cleared:
-            textbutton "Chapter 4" action [Hide("chapter_select"), Jump("chapter4")]
+            textbutton "Chapter 4" action [SetField(persistent, "chapter_selected", 4), Function(save_game_state), Hide("chapter_select"), Start()]
         else:
             textbutton "Chapter 4 (Locked)" action NullAction()
 
