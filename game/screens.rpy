@@ -294,7 +294,7 @@ screen navigation():
 
         if main_menu:
 
-            textbutton _("시작하기") action Start()
+            textbutton _("시작하기") action [SetField(persistent, "is_new_game", True), Start()]
 
         else:
 
@@ -369,7 +369,7 @@ screen main_menu():
         imagebutton:
             idle "images_start_idle.png"
             hover "images_start_hover.png"
-            action Start()
+            action [SetField(persistent, "is_new_game", True), Start()]
             
     
         ## "돌아가기" 버튼
@@ -733,7 +733,7 @@ screen character_profiles():
 
 screen save():
     tag menu
-    use game_menu(_("저장하기")):
+    use game_menu(_("일시정지")):
         use affection_status
 
 screen load():
@@ -760,55 +760,59 @@ screen affection_status():
             xalign 0.5
             yalign 0.5
             
-            text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
-            
-            null height 40
-            
-            hbox:
-                spacing 50
-                xalign 0.5
-                    
-                # 찬미 호감도
-                vbox:
-                    spacing 10
-                    text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    bar:
-                        xsize 150
-                        ysize 150
-                        value chanmi_affection
-                        range 100
-                        right_bar Frame("gui/heart_full.png")
-                        left_bar Frame("gui/heart_empty.png")
-                        style "vbar"  # vertical bar 스타일 적용
-                    text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    
-                # 아리 호감도
-                vbox:
-                    spacing 10
-                    text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    bar:
-                        xsize 150
-                        ysize 150
-                        value ari_affection
-                        range 100
-                        right_bar Frame("gui/heart_full.png")
-                        left_bar Frame("gui/heart_empty.png")
-                        style "vbar"  # vertical bar 스타일 적용
-                    text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    
-                # 세나 호감도
-                vbox:
-                    spacing 10
-                    text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
-                    bar:
-                        xsize 150
-                        ysize 150
-                        value sena_affection
-                        range 100
-                        right_bar Frame("gui/heart_full.png")
-                        left_bar Frame("gui/heart_empty.png")
-                        style "vbar"  # vertical bar 스타일 적용
-                    text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+            if persistent.player_name:  # 이름이 입력된 경우에만 표시
+                text "플레이어 이름 : [persistent.player_name]" size 20 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
+                text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
+                
+                null height 40
+                
+                hbox:
+                    spacing 50
+                    xalign 0.5
+                        
+                    # 찬미 호감도
+                    vbox:
+                        spacing 10
+                        text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value chanmi_affection
+                            range 100
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"
+                        text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        
+                    # 아리 호감도
+                    vbox:
+                        spacing 10
+                        text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value ari_affection
+                            range 100
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"
+                        text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        
+                    # 세나 호감도
+                    vbox:
+                        spacing 10
+                        text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        bar:
+                            xsize 150
+                            ysize 150
+                            value sena_affection
+                            range 100
+                            right_bar Frame("gui/heart_full.png")
+                            left_bar Frame("gui/heart_empty.png")
+                            style "vbar"
+                        text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+            # else:  # 이름이 입력되지 않은 경우
+            #     text "게임을 시작하고 이름을 입력해주세요." size 30 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
 
 
 ## Preferences 스크린 #############################################################
