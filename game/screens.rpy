@@ -680,7 +680,7 @@ screen character_profiles():
             for char in all_characters:
                 hbox:
                     spacing 20
-                    add char.image size (200, 200)
+                    add char.profile_image size (200, 200)
                     vbox:
                         text char.name style "character_name_text" color char.color
                         text char.personality style "character_identity_text"
