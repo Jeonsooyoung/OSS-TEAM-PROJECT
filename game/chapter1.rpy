@@ -6,6 +6,8 @@ define prof = Character("김봉재 교수님")
 image man = "character/man_extra.png"
 image classroom = "background/classroom.png"
 image home = "background/home.jpg"
+image campus = "background/campus.jpg"
+
 label chapter1:
 
     $ load_game_state()
@@ -13,6 +15,8 @@ label chapter1:
 
     # 나머지 코드...
     # 충북대에 들어서며 시나리오 시작
+
+    scene campus with fade
     p "여름이 끝나고 선선한 가을바람이 부는 캠퍼스. 나무는 초록에서 서서히 단풍으로 물들고 있다."
     p "충북대 정문에서 잠시 걸음을 멈춘다"
     "[player_name]" "익숙한 길, 익숙한 풍경이지만 뭔가 다르게 느껴지네."
@@ -29,7 +33,7 @@ label chapter1:
     "[player_name]" "벌써 자리가 꽉 차 있네. 사람 없는 중간 자리에 앉아야겠다"
     
     # 학생 3과의 상호작용
-    show chanmi at left with fade
+    show chanmi at left
     c "안녕! 여기 앉아도 돼?"
     
     menu:
@@ -46,7 +50,7 @@ label chapter1:
             $ chanmi.decrease_affection(1) # 호감도 하락
             c "뒷자리로 가야겠다." 
     
-    hide chanmi with fade
+    hide chanmi
     # 교수님 등장
     p "강의실에 교수님이 들어온다"
     show man at center, small_size
@@ -57,10 +61,10 @@ label chapter1:
     hide man
     p "제비뽑기를 통해 조가 정해졌고, 같은 조원은 [c],[a],[s]였다"
     "[player_name]" "(어떤 사람들과 한 조가 될지 걱정했는데, 조원들이 나쁘지 않아서 다행이다.)"
-    show chanmi at left
+    show chanmi at left 
     c "안녕! 같은 조가 됐네. 난 [c]야. 앞으로 잘 부탁해!"  
     "[player_name]" "응, 잘 부탁해. 난 [player_name]이야."  
-    show ari at center
+    show ari at center 
     a "난 [a]라고 해. 조별 과제는 솔직히 부담스럽지만... 다들 화이팅 해보자.ㅎㅎ" 
     show sena at right
     s "와, 팀 분위기 좋은데? 난 [s]! 힘든 과제라도 다 같이 하면 재밌을 거야!"  
@@ -98,9 +102,15 @@ menu:
 
 label continue_story:
     c "좋아. 이제 우리가 선택한 주제로 앱을 만들어 보자!"
+    hide chanmi
+    hide ari
+    hide sena with dissolve
+    show man at center, small_size
     prof "자, 다들 주제는 정했나요? 오늘 수업은 여기까지 할게요. 여러분이라면 멋진 발표를 준비해 올 거라 믿어요. 다음 수업에서 기대할게요~!"
+    hide man
     p "수업이 끝나고 집으로 돌아온다."
 
+    scene home with fade
 
     # 팀 해산 후, 채팅
     p "그날 밤, 단체 채팅방에서 PPT와 관련된 이야기를 나누기로 했다."
@@ -188,12 +198,13 @@ label continue_story:
             p "찬미의 아쉬움은 잠시였지만 그래도 서로의 역할을 나누고 함께하는 모습에, 조금은 더 가까워졌다."
 
     # 발표 성공
+    scene classroom
     prof "여러분, 프로젝트 준비 잘 하셨나요? 저는 여러분이 잘 준비했을 거라고 믿어요. 그럼, 1조부터 발표를 시작하겠습니다."
     p "발표는 성공적으로 마무리되었고, 교수님께 좋은 평가를 받았다."
     prof "정말 잘했어요! 여러분의 팀워크가 빛나는 발표였습니다."
     p "[player_name]의 팀은 좋은 점수를 받았다. 모두 환하게 웃으며 서로를 축하했다"
     p "그 미소 속에는 기쁨과 함께 조금은 떨리는 마음이 섞여 있었다."
-    scene classroom # 모든 캐릭터 숨기기
+    hide classroom # 모든 캐릭터 숨기기
     p "이렇게 Chapter 1이 끝났다."
 
     jump chapter1_end 
