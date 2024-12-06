@@ -33,24 +33,29 @@ label chapter1:
     "[player_name]" "벌써 자리가 꽉 차 있네. 사람 없는 중간 자리에 앉아야겠다"
     
     # 학생 3과의 상호작용
-    show chanmi at left
+    show chanmi at left with dissolve
     c "안녕! 여기 앉아도 돼?"
     
     menu:
         "인사를 받아준다":
             "[player_name]" "그래, 앉아."
+            hide chanmi
+            show chanmi_happy at left
             c "고마워! 방학 동안 잘 지냈니?" 
             $ chanmi.increase_affection(1) # 호감도 상승
             "[player_name]" "응, 잘 보냈어. 너는 어땠어?"
             c "나도 나름대로 재밌게 지냈어! 다음 방학에 같이 어디 놀러 가지 않을래?" 
             "[player_name]" "나야 좋지. 다음에 같이 놀러 가자!"
+            hide chanmi_happy
         "인사를 받아주지 않는다":
             "[player_name]" "여기 자리 있어서.."
+            hide chanmi
+            show chanmi_sad at left
             c "아, 그래... 알겠어." 
             $ chanmi.decrease_affection(1) # 호감도 하락
             c "뒷자리로 가야겠다." 
-    
-    hide chanmi
+            hide chanmi_sad
+
     # 교수님 등장
     p "강의실에 교수님이 들어온다"
     show man at center, small_size
@@ -215,4 +220,8 @@ label chapter1_end:
     $ persistent.chapter1_cleared = True  # 챕터 1 완료 상태 설정
     # call screen chapter_select
     jump chapter2
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0edc5f5a6f08571396683bec64c1a2f4cd55aa51
     return
