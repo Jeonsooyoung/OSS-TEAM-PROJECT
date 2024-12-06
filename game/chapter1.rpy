@@ -4,7 +4,8 @@ define p = Character(" ")
 # define s3 = Character("학생 3")
 define prof = Character("김봉재 교수님")
 image man = "character/man_extra.png"
-image background1 = "background/background_1_.png"
+image classroom = "background/classroom.png"
+image home = "background/home.jpg"
 label chapter1:
 
     $ load_game_state()
@@ -23,12 +24,12 @@ label chapter1:
 
 
     # 강의실에 들어서며 시나리오 시작
-    scene background1 with fade
+    scene classroom with fade
     p "허겁지겁 강의실에 들어간다"
     "[player_name]" "벌써 자리가 꽉 차 있네. 사람 없는 중간 자리에 앉아야겠다"
     
     # 학생 3과의 상호작용
-    show chanmi at left
+    show chanmi at left with fade
     c "안녕! 여기 앉아도 돼?"
     
     menu:
@@ -45,7 +46,7 @@ label chapter1:
             $ chanmi.decrease_affection(1) # 호감도 하락
             c "뒷자리로 가야겠다." 
     
-    hide chanmi
+    hide chanmi with fade
     # 교수님 등장
     p "강의실에 교수님이 들어온다"
     show man at center, small_size
@@ -54,7 +55,7 @@ label chapter1:
     prof "여러분, 조별 과제는 학기 중에 진행될 주요 프로젝트입니다. 과제의 주제는 '앱 개발'이고, 조는 제가 랜덤으로 정할게요."
     prof "물론 부담스러울 수 있다는 걸 알지만, 이번 과제를 통해 여러분이 실력을 쌓고 서로 협력하는 기회를 얻길 바랍니다."
     hide man
-    p "제비뽑기를 통해 조가 정해졌고, 같은 조원은 [c],[a],[s]이었다"
+    p "제비뽑기를 통해 조가 정해졌고, 같은 조원은 [c],[a],[s]였다"
     "[player_name]" "(어떤 사람들과 한 조가 될지 걱정했는데, 조원들이 나쁘지 않아서 다행이다.)"
     show chanmi at left
     c "안녕! 같은 조가 됐네. 난 [c]야. 앞으로 잘 부탁해!"  
