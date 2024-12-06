@@ -35,14 +35,14 @@ label chapter1:
         "인사를 받아준다":
             "[player_name]" "그래, 앉아."
             c "고마워! 방학 동안 잘 지냈니?" 
-            $ sena.increase_affection(1) # 호감도 상승
+            $ chanmi.increase_affection(1) # 호감도 상승
             "[player_name]" "응, 잘 보냈어. 너는 어땠어?"
             c "나도 나름대로 재밌게 지냈어! 다음 방학에 같이 어디 놀러 가지 않을래?" 
             "[player_name]" "나야 좋지. 다음에 같이 놀러 가자!"
         "인사를 받아주지 않는다":
             "[player_name]" "여기 자리 있어서.."
             c "아, 그래... 알겠어." 
-            $ sena.decrease_affection(1) # 호감도 하락
+            $ chanmi.decrease_affection(1) # 호감도 하락
             c "뒷자리로 가야겠다." 
     
     hide chanmi
@@ -57,7 +57,7 @@ label chapter1:
     p "제비뽑기를 통해 조가 정해졌고, 같은 조원은 [c],[a],[s]이었다"
     "[player_name]" "(어떤 사람들과 한 조가 될지 걱정했는데, 조원들이 나쁘지 않아서 다행이다.)"
     show chanmi at left
-    c "안녕! 같은 조가 됐네. 난 [c]이야. 앞으로 잘 부탁해!"  
+    c "안녕! 같은 조가 됐네. 난 [c]야. 앞으로 잘 부탁해!"  
     "[player_name]" "응, 잘 부탁해. 난 [player_name]이야."  
     show ari at center
     a "난 [a]라고 해. 조별 과제는 솔직히 부담스럽지만... 다들 화이팅 해보자.ㅎㅎ" 
@@ -170,7 +170,7 @@ label continue_story:
             c "고마워! 함께 잘 준비하자!"
             c "뭔가 나랑 잘 맞는 느낌이 들어서 우리 발표 잘할 수 있을 것 같아."
             "[player_name]" "찬미는 내가 맡은 부분을 맡아줘서 고마운 듯 보였다."
-            p "우리의 협력은 놀라울 정도로 자연스러웠고, 점점 더 서로에게 의지하게 되는 것 같았다."
+            p "발표 준비는 놀라울 정도로 수월했고, 우리는 점점 더 서로에게 의지하게 되는 것 같았다."
         
 
         "이 부분하기 싫은데..":
