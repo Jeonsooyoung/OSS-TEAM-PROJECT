@@ -220,8 +220,5 @@ label chapter1_end:
     $ persistent.chapter1_cleared = True  # 챕터 1 완료 상태 설정
     # call screen chapter_select
     jump chapter2
-<<<<<<< HEAD
-=======
-
->>>>>>> 0edc5f5a6f08571396683bec64c1a2f4cd55aa51
+    
     return
