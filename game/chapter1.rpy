@@ -7,6 +7,7 @@ image man = "character/man_extra.png"
 image classroom = "background/classroom.png"
 image home = "background/home.jpg"
 image campus = "background/campus.jpg"
+image story_end = "background/background.png"
 
 label chapter1:
 
@@ -216,7 +217,8 @@ label continue_story:
     p "[player_name]의 팀은 좋은 점수를 받았다. 모두 환하게 웃으며 서로를 축하했다"
     p "그 미소 속에는 기쁨과 함께 조금은 떨리는 마음이 섞여 있었다."
     hide classroom # 모든 캐릭터 숨기기
-    p "이렇게 Chapter 1이 끝났다."
+    show story_end
+    p "Chapter 1 종료"
 
     jump chapter1_end 
 
