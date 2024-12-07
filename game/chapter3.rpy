@@ -219,5 +219,5 @@ label chapter3:
 
 label chapter3_end:
     $ persistent.chapter3_cleared = True  # 챕터 3 완료 상태 설정
-    call screen chapter_select
+    jump chapter4
     return
