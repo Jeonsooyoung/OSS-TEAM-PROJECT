@@ -226,6 +226,7 @@ label continue_story:
 
 label chapter1_end:
     $ persistent.chapter1_cleared = True  # 챕터 1 완료 상태 설정
+    $ save_game_state()
     # call screen chapter_select
     jump chapter2
 

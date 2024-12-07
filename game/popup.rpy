@@ -59,22 +59,23 @@ screen increase_popup(message):
         frame:
             background Frame("gui/frame.png", 25, 25)
             xsize 300
-            ysize 150
+            ysize 75
             xalign 0.0
-            yalign 0.0
+            yalign 0.5
             xpadding 20
             ypadding 10
             
             text message:
-                size 20
+                size 30
                 color "#ffffff"
                 font "KCC-Ganpan.ttf"
                 text_align 0.5
                 xalign 0.5
+                yalign 0.5
         
         add "increase_animation":
             yalign 0.5
-            size (180, 180)
+            size (120, 120)
         
         at popup_appear
 
@@ -89,22 +90,23 @@ screen decrease_popup(message):
         frame:
             background Frame("gui/frame.png", 25, 25)
             xsize 300
-            ysize 150
+            ysize 75
             xalign 0.0
-            yalign 0.0
+            yalign 0.5
             xpadding 20
             ypadding 10
             
             text message:
-                size 20
+                size 30
                 color "#ffffff"
                 font "KCC-Ganpan.ttf"
                 text_align 0.5
                 xalign 0.5
+                yalign 0.5
         
         add "decrease_animation":
             yalign 0.5
-            size (180, 180)
+            size (120, 120)
         
         at popup_appear
 
