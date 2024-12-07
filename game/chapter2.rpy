@@ -2,6 +2,8 @@ define p = Character(" ")
 # define s1 = Character("학생 1")
 # define s2 = Character("학생 2")
 # define s3 = Character("학생 3")
+image bg_beach_day = "background/bg_beach_day.jpg"
+image bg_bbq_evening = "background/bbq_evening.jpg"
 label chapter2:
 
     $ load_game_state()
