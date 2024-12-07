@@ -4,6 +4,8 @@ define p = Character(" ")
 # define s3 = Character("학생 3")
 image bg_beach_day = "background/bg_beach_day.jpg"
 image bg_bbq_evening = "background/bbq_evening.jpg"
+image bg_drinking_game = "background/drinking.jpg"
+image bg_beach_evening = "background/beach_evening.jpg"
 label chapter2:
 
     $ load_game_state()
@@ -135,6 +137,8 @@ label chapter2:
             "나는 쌈을 거절하고 고기를 굽는 데 집중했다."
             return
 
+
+    scene bg_drinking_game with fade
     "바비큐가 마무리되고, 우리는 술을 마시며 게임을 시작했다."
 
     if affection_1 >= 10:
@@ -150,6 +154,7 @@ label chapter2:
                 "나는 잠시 쉬고 싶다며 숙소로 돌아갔다."
                 return
 
+    scene bg_beach_evening with fade
     "밤이 되자, 우리는 해변으로 산책을 나섰다."
     "술에 취한 학생 2가 걸려 넘어질 뻔했다."
 
