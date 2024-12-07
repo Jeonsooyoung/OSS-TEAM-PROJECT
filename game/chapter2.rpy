@@ -31,6 +31,7 @@ label chapter2:
     p "각 조가 경쟁을 벌이면서도, 모두가 즐기고 있다는 것이 느껴졌다."
 
     p "게임이 한창 진행되던 중, 세나가 [player_name]에게 다가와 말을 걸었다."
+    show sena at left with dissolve
     s "야, [player_name]! 다음 게임이 신발 던지기인데 너가 한 번 도전해볼래? "
 
     menu:
@@ -38,6 +39,7 @@ label chapter2:
             "[player_name]" "훗 드디어 내가 나서야 되나?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이였지(후후)"
             $ sena.increase_affection(1) # 호감도 상승
+            show sena_happy at left with dissolve
             s "ㅋㅋㅋㅋㅋ알겠어, 그럼 부탁한다! 우리 팀의 희망은 너야!"
             s "(보기보다 허세가 많네ㅎㅎ)"
             p "[player_name]는 자신감을 내비치며 게임에 도전했다."
@@ -56,7 +58,10 @@ label chapter2:
             "[player_name]" "(아니 하기 싫다는데 왜 자꾸 시킬려고 하는거야)"
             "[player_name]" "(좋게 좋게 넘어가보자)"
             "[player_name]" "아니, 그런 건 아니고... 네가 워낙 잘할 것 같아서 그러지! 팀의 에이스는 너 아니겠어?"
+            show sena_sad at left with dissolve
             $ sena.decrease_affection(1)
+            hide sena_sad
+            show sena at left with dissolve
             s "허허 쫄보네 좋아, 이 누나가 한 수 보여줄게!"
             s "(우리 팀을 위해 한 번쯤 멋지게 나서주는 것도 괜찮았을 텐데... 조금 아쉽네)"
             p "세나가 자신만만한 표정으로 앞으로 나서자, 팀원들 사이에서 환호와 응원이 쏟아졌다."
@@ -76,12 +81,15 @@ label chapter2:
     p "저녁 시간이 다가오자, 바비큐 준비가 시작되었다."
     p "찬미가 상추, 수저, 포크 같은 것들을 정리하고 있는 모습이 보인다."
     "[player_name]" "(이런 모습, 꽤 보기 좋네... )"
-    c "야, [player_name], 왜 그렇게 쳐다보고 있어? 준비하는 내 모습이 예뻐? ㅋㅋ"
-    c "할 일이 없으면 바비큐 준비 좀 도와줄래?"
+    show chanmi at left with dissolve
+    c "야, [player_name], 왜 그렇게 쳐다보고 있어? 내가 그렇게 예쁘냐? ㅋㅋ"
+    c "할 일이 없으면 바비큐 준비 좀 도와줘~"
 
     menu:
         "예뻐 보이긴 하더라, 도와줄게!":
-            "[player_name]" "예뻐 보이긴 하더라ㅎㅎ, 도와줄게!"
+            "[player_name]" "예쁘긴 하더라ㅎㅎ, 도와줄게!"
+            hide chanmi
+            show chanmi_happy at left
             $ chanmi.increase_affection(1)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
@@ -98,6 +106,8 @@ label chapter2:
             "[player_name]" "(음... 솔직히 도와주는 건 좀 귀찮은데... 어떻게 말하지?)"
             "[player_name]" "에이~ 난 이런 거랑은 좀 안 맞는 스타일이라서."
             p "(장난스러운 표정을 지으며 손을 휘저어 보인다.)"
+            hide chanmi
+            show chanmi_sad at right
             $ chanmi.decrease_affection(1)
             c "바비큐는 다 같이 준비해야 더 맛있다고!"
             c "정말 안 도와줄 거야~? 그럼 너무 서운한데..."
