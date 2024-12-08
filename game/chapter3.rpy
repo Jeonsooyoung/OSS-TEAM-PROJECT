@@ -18,7 +18,7 @@ label chapter3:
     "[player_name]""어 뭐야 찬미도 공부하려고 도서관에 왔네"
     p"[player_name]은(는) 찬미에게 손인사를 한다. 아리도 인사를 받아준다"
 
-    "[player_name]이(가) 공부를 하던중, 찬미가 노트를 들고 다가온다"
+    p"[player_name]이(가) 공부를 하던중, 찬미가 노트를 들고 다가온다"
     c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어."
     
     menu:
@@ -43,7 +43,7 @@ label chapter3:
                 "미안해":
                     "[player_name]""미안.. 나 선약이 있어"
                     c"그래? 아쉽지만 어쩔 수 없네"
-                    "찬미는 아쉬워하며 자리로 돌아간다."
+                    p "찬미는 아쉬워하며 자리로 돌아간다."
 
         "찬미교수..":
             "[player_name]""이 노트로 교수님이 배워야 하는거 아니니.. 찬미교수님?"
@@ -55,7 +55,7 @@ label chapter3:
             "[player_name]""정리가 많이 아쉽네. 다시 해보길 바래"
             $ chanmi.decrease_affection(1)
             c"너 너무한거 아니니!!"
-            "찬미는 화난 표정으로 자리로 돌아간다."
+            p "찬미는 화난 표정으로 자리로 돌아간다."
 
     p"[player_name]이(가) 조용히 공부하던 중 아리가 갑자기 어깨를 툭툭 친다"
 
@@ -63,7 +63,7 @@ label chapter3:
 
     menu:
         "문제를 봐준다":
-            "아리 옆으로 다가가 문제를 도와준다"
+            p "아리 옆으로 다가가 문제를 도와준다"
             a"와 너 덕분에 진짜 살았다.. 진짜 고마워!"
             $ ari.increase_affection(1)
             "[player_name]""별거 아니라구 ㅋ"
@@ -72,9 +72,8 @@ label chapter3:
             "[player_name]""넌 머리가 안돌아가는게 아니라. 멍청한거야"
             a"머..뭐라고..?"
             "[player_name]""장난이고 이미 과부화 걸린거야. 좀 쉬면서해"
-            "아리가 웃음을 터뜨리며 말한다"
-            a"그래 너 정말 태평하다!"
-            "아리가 다시 자리로 돌아가 다시 문제를 고민한다"
+            a"그래 너 정말 태평하다! ㅋㅋㅋㅋ"
+            p "아리가 다시 자리로 돌아가 다시 문제를 고민한다"
 
         "다음에 알려줄게":
             "[player_name]""내 문제도 많이 밀려 있어서.. 나중에 알려줄게!"
@@ -219,5 +218,5 @@ label chapter3:
 
 label chapter3_end:
     $ persistent.chapter3_cleared = True  # 챕터 3 완료 상태 설정
-    call screen chapter_select
+    jump chapter4
     return
