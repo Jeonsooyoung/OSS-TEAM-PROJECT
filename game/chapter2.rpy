@@ -119,7 +119,7 @@ label chapter2:
             "[player_name]"  "알겠어요ㅋㅋ 지치면 얘기해요!"
             "[player_name]"  "(꼭 내가 도와줘야 하는 건 아닌데... 끝까지 날 시키려는 거야? 은근히 고집 있네.)"
             hide chanmi_sad
-            show chanmi at right with dissolve
+            show chanmi at right
             p "찬미는 가볍게 한숨을 쉬며 다시 준비를 시작하고, [player_name](은)는 조용히 옆에서 지켜본다."
             
 
