@@ -187,3 +187,8 @@ label end:
     jump chapter4_end
 
     return
+
+label chapter4_end:
+    "플레이 해주셔서 감사합니다!!"
+    
+    return
