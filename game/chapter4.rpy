@@ -3,13 +3,20 @@ define p = Character(" ")
 label chapter4:
     $ load_game_state()
     $ sync_player_name()
+
     p "캠퍼스는 축제 준비로 북적이고 있었다. 학과 부스도 점점 모양을 갖춰가고 있다."
 
-    e "어, 너 여기 있었구나. 마침 잘 왔어. 지금 여기 좀 도와줄 수 있어?"
+    p"[player_name]은 학교에 일찍 도착해 축제 준비를 구경하고 있었다."
+
+    "[player_name]""어? 뭐야 찬미누나 안녕?"
+    c"어 [player_name] 일찍왔네 안녕~~"
+    "[player_name]""누나 축제부스도 운영했었어? 몰랐네.."
+    c "어 맞아맞아 말 안했던가.."
+    c"아무튼 잘왔다 여기좀 도와줄래..? 일손이 부족한데.."
 
     menu:
         "도와준다":
-            $ affection_e += 10
+            $ chanmi.increase_affection(5)
             p "그래, 나도 축제 준비에 한몫하고 싶어."
         
             scene booth_preparation
