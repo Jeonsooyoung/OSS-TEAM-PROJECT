@@ -59,16 +59,16 @@ define gui.interface_text_color = '#ffffff'
 ## 글자와 글자 크기 ###################################################################
 
 ## 인-게임 글자에 사용됩니다.
-define gui.text_font = "SOYO Maple Bold.ttf"
+define gui.text_font = "DungGeunMo.ttf"
 
 ## 캐릭터의 이름에 사용됩니다.
-define gui.name_text_font = "KCC-Ganpan.ttf"
+define gui.name_text_font = "DungGeunMo.ttf"
 
 ## 인터페이스에 사용됩니다.
 define gui.interface_text_font = "SourceHanSansLite.ttf"
 
 ## 일반 대사의 글자 크기입니다.
-define gui.text_size = 33
+define gui.text_size = 35
 
 ## 캐릭터 이름의 글자 크기입니다.
 define gui.name_text_size = 45
