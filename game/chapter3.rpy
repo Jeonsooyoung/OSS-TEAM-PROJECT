@@ -15,7 +15,7 @@ label chapter3:
     "[player_name]" "역시 나는 구석으로 가야겠다."
 
     #자리에 앉은 장면
-    "[player_name]""어 뭐야 찬미도 공부하려고 도서관에 왔네"
+    "[player_name]""어 뭐야 찬미누나도 공부하려고 도서관에 왔네"
     p"[player_name]은(는) 찬미에게 손인사를 한다. 아리도 인사를 받아준다"
 
     p"[player_name]이(가) 공부를 하던중, 찬미가 노트를 들고 다가온다"
@@ -23,7 +23,7 @@ label chapter3:
     
     menu:
         "확인하고 칭찬한다":
-            "[player_name]""와.. 너 완전 대단하다. 이 정도면 완벽한거 같은데?"
+            "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한거 같은데?"
             $ chanmi.increase_affection(1)
             c "아 ㅎㅎ!! 진짜 고마워!!"
             c "너랑 얘기하니까 마음이 좀 놓인다..."
@@ -36,7 +36,7 @@ label chapter3:
                     "[player_name]""그래 이따 연락할게!"
                     $ chanmi.increase_affection(1)
                 "혼밥해":
-                    "[player_name]""너랑 밥먹어줄 사람 없다~~"
+                    "[player_name]""누나랑 밥먹어줄 사람 없어용~~"
                     c "아.. 알겠어.."
                     $ chanmi.decrease_affection(2)
                     p "찬미는 짜증내며 자리로 돌아간다."
@@ -46,7 +46,7 @@ label chapter3:
                     p "찬미는 아쉬워하며 자리로 돌아간다."
 
         "찬미교수..":
-            "[player_name]""이 노트로 교수님이 배워야 하는거 아니니.. 찬미교수님?"
+            "[player_name]""이 노트로 교수님이 배워야 하는거 아니야...? 찬미교수님?"
             $ chanmi.increase_affection(1)
             c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못말려~~ 아잉~~"
             p "찬미는 한층 밝아진 표정으로 자리로 돌아간다."
@@ -165,7 +165,7 @@ label chapter3:
     
     menu:
         "찬미에게 말을 건다":
-            "[player_name]""어! 이제 집가는 거니?"
+            "[player_name]""어! 이제 집가는 거야?"
             c "그럴려고, 근데 아직 안 갔네? 오늘 공부 많이 했어?"
             menu:
                 "많이 했어":
@@ -175,7 +175,7 @@ label chapter3:
                     c"나 이제 집가볼게 안녕~"
                     menu:
                         "같이 가자고 한다":
-                            "[player_name]""찬미야! 우리 같이가자! 집방향이 같으니까.."
+                            "[player_name]""누나! 우리 같이가자! 집방향이 같으니까.."
                             c"어? 그래그래 좋아 같이가자"
                             $ chanmi.increase_affection(1)
                             "둘은 헤어지고 [player_name]은(는) 집에 도착했다"
