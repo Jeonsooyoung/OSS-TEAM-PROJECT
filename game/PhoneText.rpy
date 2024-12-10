@@ -1,5 +1,5 @@
 define nvl_mode = "phone"  ##Allow the NVL mode to become a phone conversation
-define MC_Name = "Nighten" ##The name of the main character, used to place them on the screen
+define MC_Name = "[player_name]" ##The name of the main character, used to place them on the screen
 
 init -1 python:
     phone_position_x = 0.5
@@ -128,7 +128,7 @@ screen nvl_phonetext(dialogue):
                                 at message_appear(1)
                             else:
                                 at message_appear(-1)
-
+                        
                         text d.what:
                             pos (0,0)
                             xsize 350
@@ -141,8 +141,7 @@ screen nvl_phonetext(dialogue):
                                 xpos -580
                             else:
                                 color "#000"
-
-                                
+    
                             id d.what_id
         $ previous_d_who = d.who
                     
