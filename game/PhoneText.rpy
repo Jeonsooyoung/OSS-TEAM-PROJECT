@@ -2,7 +2,7 @@ define nvl_mode = "phone"  ##Allow the NVL mode to become a phone conversation
 define MC_Name = "Nighten" ##The name of the main character, used to place them on the screen
 
 init -1 python:
-    phone_position_x = 0.3
+    phone_position_x = 0.5
     phone_position_y = 0.5
 
     ## def Phone_ReceiveSound(event, interact=True, **kwargs):
@@ -113,7 +113,8 @@ screen nvl_phonetext(dialogue):
                 vbox:
                     yalign 1.0
                     if d.who != MC_Name and previous_d_who != d.who:
-                        text d.who
+                        text d.who:
+                            size 20
 
                     frame:
                         padding (20,20)
