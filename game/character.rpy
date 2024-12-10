@@ -64,3 +64,15 @@ init -2 python:
 init python:
     def show_affection(character):
         renpy.say(None, f"{character.name}의 현재 호감도: {character.get_affection()}")
+
+
+init python:
+    # 대화 데이터를 담을 클래스
+    class Dialogue:
+        def __init__(self, who, what, current=False, what_id=None):
+            self.who = who  # 말하는 사람 (None이면 나레이션)
+            self.what = what  # 대화 내용
+            self.current = current  # 현재 메시지 여부 (애니메이션 적용)
+            self.what_id = what_id  # 각 메시지에 대한 ID (선택적)
+
+

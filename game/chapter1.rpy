@@ -121,6 +121,28 @@ label continue_story:
 
     scene home with fade
 
+    label phone_example:
+    # 대화 데이터를 정의
+    $ phone_dialogue = [
+        Dialogue("세나", "안녕?", current=True),
+        Dialogue("[player_name]", "안녕!", current=True),
+        Dialogue("찬미", "조별 과제는 어떻게 나눠서 할지 이야기해볼까? 각자 맡고 싶은 부분이 있으면 말해줘!", current=True),
+        Dialogue("찬미", "나는 발표 쪽이 좋아! 말하는 건 자신 있으니까 그 부분은 내가 맡을게.", current=True),
+    ]
+
+    # PhoneDialogue 화면을 호출
+    show screen phone_dialogue(dialogue=phone_dialogue)
+
+    # 플레이어가 상호작용할 시간을 줌
+    pause
+
+    # 화면 닫기
+    hide screen PhoneDialogue
+
+    return
+
+
+
     # 팀 해산 후, 채팅
     p "그날 밤, 단체 채팅방에서 PPT와 관련된 이야기를 나누기로 했다."
     c "조별 과제는 어떻게 나눠서 할지 이야기해볼까? 각자 맡고 싶은 부분이 있으면 말해줘!"
@@ -197,13 +219,13 @@ label continue_story:
         
 
         "이 부분하기 싫은데..":
-            "[player_name]" "음... 저도 사실 누나랑 같은 부분 하고 싶어요"
+            "[player_name]" "음... 저도 사실 누나랑 같은 부분 하고 싶어요."
             $ chanmi.decrease_affection(1)  # 호감도 하락
             c "아, 그래? 그럼 다른 방식으로 나누자. 괜찮아."
             p "찬미는 살짝 아쉬워하는 듯했지만, 그래도 다른 방법을 찾기로 했다."
             c "어느 부분 맡고 싶은데?"
             "[player_name]" "앱 설명 부분을 맡고 싶어요..!"
-            c "알겠어! 내가 소개와 결론을 맡고, 네가 앱을 소개하는 부분을 맡자"
+            c "알겠어! 내가 소개와 결론을 맡고, 네가 앱을 소개하는 부분을 맡자."
             c "네가 맡게 될 부분은 정말 중요하니까 열심히 준비해줘!"
             "[player_name]" "넵. 열심히 준비할게요. 양보해 줘서 고마워요!"
             c "그래, 우리 잘 해보자!"
