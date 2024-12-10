@@ -122,26 +122,22 @@ label continue_story:
     scene home with fade
 
     label phone_example:
-    # 대화 데이터를 정의
-    $ phone_dialogue = [
+        # 대화 데이터를 정의
+        $ phone_dialogue = [
         Dialogue("세나", "안녕?", current=True),
         Dialogue("[player_name]", "안녕!", current=True),
         Dialogue("찬미", "조별 과제는 어떻게 나눠서 할지 이야기해볼까? 각자 맡고 싶은 부분이 있으면 말해줘!", current=True),
         Dialogue("찬미", "나는 발표 쪽이 좋아! 말하는 건 자신 있으니까 그 부분은 내가 맡을게.", current=True),
-    ]
+        ]
 
-    # PhoneDialogue 화면을 호출
-    show screen phone_dialogue(dialogue=phone_dialogue)
+        # PhoneDialogue 화면을 호출
+        show screen phone_dialogue(dialogue=phone_dialogue)
 
-    # 플레이어가 상호작용할 시간을 줌
-    pause
+        # 플레이어가 상호작용할 시간을 줌
+        pause
 
-    # 화면 닫기
-    hide screen PhoneDialogue
-
-    return
-
-
+        # 화면 닫기
+        hide screen phone_dialogue
 
     # 팀 해산 후, 채팅
     p "그날 밤, 단체 채팅방에서 PPT와 관련된 이야기를 나누기로 했다."
