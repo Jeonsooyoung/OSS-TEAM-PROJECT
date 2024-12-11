@@ -100,8 +100,12 @@ screen nvl_phonetext(dialogue):
                 if previous_d_who != d.who:
                     if d.who == MC_Name:
                         $ message_icon = "phone_send_icon.png"
-                    else:
-                        $ message_icon = "phone_received_icon.png"
+                    elif d.who == "세나":
+                        $ message_icon = "phone_received_icon_sena.png"
+                    elif d.who == "찬미":
+                        $ message_icon = "phone_received_icon_chanmi.png"
+                    elif d.who == "아리":
+                        $ message_icon = "phone_received_icon_ari.png"
 
                     add message_icon:
                         if d.current:
