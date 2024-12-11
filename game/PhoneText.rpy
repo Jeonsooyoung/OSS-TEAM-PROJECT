@@ -13,7 +13,7 @@ init -1 python:
     ##     if event == "show_done":
     ##         renpy.sound.play("audio/SendText.ogg")
 
-    
+
     def print_bonjour():
         print("bonjour")
 
@@ -94,21 +94,24 @@ screen nvl_phonetext(dialogue):
             hbox:
                 spacing 10
                 if d.who == "[player_name]":
-                    box_reverse True
+                    pos (110,0)
                 
-                if previous_d_who != d.who:
-                    if d.who == "[player_name]":
-                        $ message_icon = "phone_send_icon.png"
-                    elif d.who == "세나":
+                if previous_d_who != d.who and d.who != "[player_name]":  # 플레이어가 아니고 이전 화자와 다를 때만
+                    if d.who == "세나":
                         $ message_icon = "phone_received_icon_sena.png"
+                        add message_icon:
+                            if d.current:
+                                at message_appear_icon()
                     elif d.who == "찬미":
                         $ message_icon = "phone_received_icon_chanmi.png"
+                        add message_icon:
+                            if d.current:
+                                at message_appear_icon()
                     elif d.who == "아리":
                         $ message_icon = "phone_received_icon_ari.png"
-
-                    add message_icon:
-                        if d.current:
-                            at message_appear_icon()
+                        add message_icon:
+                            if d.current:
+                                at message_appear_icon()
                 else:
                     null width 50
 
@@ -121,7 +124,7 @@ screen nvl_phonetext(dialogue):
                     frame:
                         padding (20,20)
                         background Frame(message_frame, 23,23,23,23)
-                        xsize 350
+                        xsize 300
 
                         if d.current:
                             if d.who == "[player_name]":
