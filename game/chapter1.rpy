@@ -187,52 +187,55 @@ label continue_story:
         # 화면 닫기
         hide screen phone_dialogue
 
-    menu:
-        a "괜찮다면 자료 찾는 거 도와줄 수 있을까?{fast}"
-        "도와준다":
-            "[player_name]" "알겠어. 내가 도와줄게. 어떤 자료 찾으면 될까?"
-            a "우와 정말 고마워!"
-            $ ari.increase_affection(1) # 호감도 상승
-            a "우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?"
-            "[player_name]" "혼자 자료조사 하기 힘들었겠다ㅠㅠ 최대한 빨리 찾아서 너한테 보내줄게"
-            a "응! 덕분에 한결 마음이 편해진다 도와줘서 고마워!"
-            p "보내준 자료 덕분에 아리는 자료 조사를 훨씬 수월하게 진행할 수 있었다. 그녀가 만족스러워하는 모습이 머릿속에 그려지는 듯했다."
- 
-        "도와주지 않는다":
-            p "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!"
-            a "아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워"
-            $ ari.decrease_affection(1) # 호감도 하락
-
 
     # 세나와 주인공의 대화(ppt)
     p "휴대폰이 진동하며 화면에 알림이 떴다. 세나가 보낸 메시지였다."
-    s "지금 PPT 디자인을 손보고 있는데, 네 의견이 듣고 싶어서 연락했어."
-    s "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?"
-    
-    # 선택지 메뉴
-    menu:
-        s "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?{fast}"
-        "적극적으로 반응한다":
-        # 플레이어가 호감도를 얻는 경우
-            "[player_name]" "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?"
-            $ sena.increase_affection(1) # 호감도 상승
-            s "고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?"
-            "[player_name]" "아니야, 색 조합 괜찮아! 근데 조금 더 강조하고 싶으면 글자 테두리를 추가해보는 것도 좋을 것 같아."
-            s "오! 좋은 생각이야. 바로 적용해볼게!"
-            s "덕분에 내가 원하던 느낌 그대로 PPT를 완성할 수 있을 것 같아! 고마워."
-            "[player_name]" "그래! 의견 묻고 싶은 거 있으면 언제든 말해."
-            "[player_name]" "(세나의 말에서 전해지는 작은 설렘에 나까지 기분이 좋아졌다.)"
-            p "[player_name]의 조언 덕분에 세나는 PPT 디자인에 더욱 의욕적으로 임했다."
-                
 
-        "무시한다":
-            # 플레이어가 호감도를 잃는 경우
-            "[player_name]" "읽기 귀찮은데.."
-            "[player_name]" "(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"
-            p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
-            $ sena.decrease_affection(1) # 호감도 하락
-            s "(음... 아무래도 답장이 없네. 괜히 물어본 걸까?)"
-            p "세나는 살짝 실망한 듯 보였다."
+    label phone_example3:
+        # 대화 데이터를 정의
+        $ phone_dialogue = [
+        Dialogue("세나", "지금 PPT 디자인을 손보고 있는데, 네 의견이 듣고 싶어서 연락했어.", current=True),
+        Dialogue("세나", "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?", current=True),
+        ]
+        # PhoneDialogue 화면을 호출
+        show screen phone_dialogue(dialogue=phone_dialogue)
+
+        # 플레이어가 상호작용할 시간을 줌
+        pause
+
+        menu:
+            a "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?{fast}"
+
+            "적극적으로 반응한다":
+       
+                $ phone_dialogue.append(Dialogue ("[player_name]", "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?"))
+                $ sena.increase_affection(1) # 호감도 상승
+                $ phone_dialogue.append(Dialogue ("세나","고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?"))
+                $ phone_dialogue.append(Dialogue ("아리","우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?"))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "아니야, 색 조합 괜찮아! 근데 조금 더 강조하고 싶으면 글자 테두리를 추가해보는 것도 좋을 것 같아."))
+                $ phone_dialogue.append(Dialogue ("세나","오! 좋은 생각이야. 바로 적용해볼게!"))
+                $ phone_dialogue.append(Dialogue ("세나","덕분에 내가 원하던 느낌 그대로 PPT를 완성할 수 있을 것 같아! 고마워."))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "그래! 의견 묻고 싶은 거 있으면 언제든 말해."))
+                p "[player_name]의 조언 덕분에 세나는 PPT 디자인에 더욱 의욕적으로 임했다."
+
+                
+            "무시한다":
+                $ phone_dialogue.append(Dialogue ("[player_name]", "읽기 귀찮은데.."))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"))
+                p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
+                $ sena.decrease_affection(1) # 호감도 하락
+                s "(음... 아무래도 답장이 없네. 괜히 물어본 걸까?)"
+                p "세나는 살짝 실망한 듯 보였다."
+                
+        
+        # PhoneDialogue 화면을 호출
+        show screen phone_dialogue(dialogue=phone_dialogue)
+
+        # 플레이어가 상호작용할 시간을 줌
+        pause
+
+        # 화면 닫기
+        hide screen phone_dialogue
 
     # 발표 준비
     c "발표 준비 같이 하게 돼서 좋다! 발표 내용은 어떻게 나눠서 할지 이야기해보자."
