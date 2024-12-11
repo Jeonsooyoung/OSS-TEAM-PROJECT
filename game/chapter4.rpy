@@ -78,6 +78,9 @@ label chapter4:
             p"[player_name]이(가) 전화를 받는척하며 어딘가로 달려간다"
             c"?"
             $ chanmi.decrease_affection(3)
+            "[player_name]""후,, 따돌렸나.. 귀찮게 뭘 도와줘 쯧"
+
+
 
     # 학생 3 이벤트
     if affection_m >= 50:
