@@ -220,8 +220,8 @@ label continue_story:
 
                 
             "무시한다":
-                $ phone_dialogue.append(Dialogue ("[player_name]", "읽기 귀찮은데.."))
-                $ phone_dialogue.append(Dialogue ("[player_name]", "(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"))
+                "[player_name]" "읽기 귀찮은데.."
+                "[player_name]""(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"
                 p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
                 $ sena.decrease_affection(1) # 호감도 하락
                 s "(음... 아무래도 답장이 없네. 괜히 물어본 걸까?)"
