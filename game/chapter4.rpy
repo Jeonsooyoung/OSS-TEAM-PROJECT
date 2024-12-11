@@ -80,7 +80,14 @@ label chapter4:
             $ chanmi.decrease_affection(3)
             "[player_name]""후,, 따돌렸나.. 귀찮게 뭘 도와줘 쯧"
 
-
+    p"축제가 본격적으로 시작되었다." 
+    p"사람들이 하나둘 축재현장으로 모여들기 시작했다."
+    
+    "[player_name]""와.. 사람들 왜 이렇게 많아.."
+    "[player_name]" "나도 한번 본격적으로 축제를 즐겨볼까? 후훗"
+    "[player_name]" "바로 소개팅부터 조져야겠다.."
+    p"[player_name]은(는) 소개팅부스에 인스타아이디를 적고 돌아왔다."
+    "[player_name]" "빨리 연락왔으면 좋겠네~~"
 
     # 학생 3 이벤트
     if affection_m >= 50:
