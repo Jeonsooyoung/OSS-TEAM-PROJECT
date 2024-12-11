@@ -145,10 +145,48 @@ label continue_story:
         # 화면 닫기
         hide screen phone_dialogue
 
-
     p "조별 과제 분담 이야기가 끝난 뒤, 아리가 따로 자료조사를 도와달라는 메시지를 보내왔다."
-    a "저기, 잠깐 시간 괜찮아? 사실 자료 조사하다가 조금 막히는 부분이 있어가지고..."
-    a "괜찮다면 자료 찾는 거 도와줄 수 있을까?"
+
+    label phone_example2:
+        # 대화 데이터를 정의
+        $ phone_dialogue = [
+        Dialogue("아리", "저기, 잠깐 시간 괜찮아? 사실 자료 조사하다가 조금 막히는 부분이 있어가지고...", current=True),
+        Dialogue("아리", "괜찮다면 자료 찾는 거 도와줄 수 있을까?", current=True),
+        ]
+        # PhoneDialogue 화면을 호출
+        show screen phone_dialogue(dialogue=phone_dialogue)
+
+        # 플레이어가 상호작용할 시간을 줌
+        pause
+
+        menu:
+            a "괜찮다면 자료 찾는 거 도와줄 수 있을까?{fast}"
+
+            "도와준다":
+       
+                $ phone_dialogue.append(Dialogue("[player_name]", "알겠어. 내가 도와줄게. 어떤 자료 찾으면 될까?"))
+                $ phone_dialogue.append(Dialogue("아리","우와 정말 고마워!"))
+                $ ari.increase_affection(1) # 호감도 상승
+                $ phone_dialogue.append(Dialogue ("아리","우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?"))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "혼자 자료조사 하기 힘들었겠다ㅠㅠ 최대한 빨리 찾아서 너한테 보내줄게"))
+                $ phone_dialogue.append(Dialogue ("아리","응! 덕분에 한결 마음이 편해진다 도와줘서 고마워!"))
+
+                p "보내준 자료 덕분에 아리는 자료 조사를 훨씬 수월하게 진행할 수 있었다. 그녀가 만족스러워하는 모습이 머릿속에 그려지는 듯했다."
+        
+            "도와주지 않는다":
+                $ phone_dialogue.append(Dialogue ("[player_name]", "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!"))
+                $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워"))
+                $ ari.decrease_affection(1) # 호감도 하락
+        
+        # PhoneDialogue 화면을 호출
+        show screen phone_dialogue(dialogue=phone_dialogue)
+
+        # 플레이어가 상호작용할 시간을 줌
+        pause
+
+        # 화면 닫기
+        hide screen phone_dialogue
+
     menu:
         a "괜찮다면 자료 찾는 거 도와줄 수 있을까?{fast}"
         "도와준다":
