@@ -108,7 +108,7 @@ screen nvl_phonetext(dialogue):
                             at message_appear_icon()
                         
                 else:
-                    null width 107
+                    null width 50
 
                 vbox:
                     yalign 1.0
