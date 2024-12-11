@@ -9,6 +9,7 @@ default persistent.is_new_game = True
 
 # 여기에서부터 게임이 시작합니다.
 label start:
+    stop music
     transform center:
         xalign 0.5
         yalign 0.6
