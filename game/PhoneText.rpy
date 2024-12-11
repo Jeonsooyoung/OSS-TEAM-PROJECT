@@ -124,7 +124,7 @@ screen nvl_phonetext(dialogue):
                         xsize 350
 
                         if d.current:
-                            if d.who == MC_Name:
+                            if d.who == "MC_Name":
                                 at message_appear(1)
                             else:
                                 at message_appear(-1)
