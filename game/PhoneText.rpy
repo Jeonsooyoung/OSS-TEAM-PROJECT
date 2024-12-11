@@ -13,7 +13,6 @@ init -1 python:
     ##     if event == "show_done":
     ##         renpy.sound.play("audio/SendText.ogg")
 
-
     def print_bonjour():
         print("bonjour")
 
