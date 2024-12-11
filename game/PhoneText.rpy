@@ -5,12 +5,15 @@ init -1 python:
     phone_position_x = 0.5
     phone_position_y = 0.5
 
+
     ## def Phone_ReceiveSound(event, interact=True, **kwargs):
     ##     if event == "show_done":
     ##         renpy.sound.play("audio/ReceiveText.ogg")
     ## def Phone_SendSound(event, interact=True, **kwargs):
     ##     if event == "show_done":
     ##         renpy.sound.play("audio/SendText.ogg")
+
+    
     def print_bonjour():
         print("bonjour")
 
@@ -51,7 +54,6 @@ transform message_narrator:
         easein_back 0.5 yoffset 0
 
 screen phone_dialogue(dialogue, items=None):
-
     style_prefix "phoneFrame"
     frame at phone_transform(phone_position_x, phone_position_y):
         if len(dialogue) == 1:
@@ -59,9 +61,7 @@ screen phone_dialogue(dialogue, items=None):
         viewport:
             draggable True
             mousewheel True
-            # cols 1
             yinitial 1.0
-            # scrollbars "vertical"
             vbox:
                 null height 20
                 use nvl_phonetext(dialogue)
@@ -75,30 +75,29 @@ screen nvl_phonetext(dialogue):
     for id_d, d in enumerate(dialogue):
         if d.who == None: # Narrator
             text d.what:
-                    xpos -335
-                    ypos 0.0
-                    xsize 350
-                    text_align 0.5
-                    italic True
-                    size 28
-                    slow_cps False
-                    id d.what_id
-                    if d.current:
-                        at message_narrator
+                xpos -335
+                ypos 0.0
+                xsize 350
+                text_align 0.5
+                italic True
+                size 28
+                slow_cps False
+                id d.what_id
+                if d.current:
+                    at message_narrator
         else:
-            if d.who == MC_Name:
+            if d.who == "[player_name]":
                 $ message_frame = "phone_send_frame.png"
             else:
                 $ message_frame = "phone_received_frame.png"
 
             hbox:
                 spacing 10
-                if d.who == MC_Name:
+                if d.who == "[player_name]":
                     box_reverse True
                 
-                #If this is the first message of the character, show an icon
                 if previous_d_who != d.who:
-                    if d.who == MC_Name:
+                    if d.who == "[player_name]":
                         $ message_icon = "phone_send_icon.png"
                     else:
                         $ message_icon = "phone_received_icon.png"
@@ -106,25 +105,22 @@ screen nvl_phonetext(dialogue):
                     add message_icon:
                         if d.current:
                             at message_appear_icon()
-                        
                 else:
                     null width 50
 
                 vbox:
                     yalign 1.0
-                    if d.who != MC_Name and previous_d_who != d.who:
+                    if d.who != "[player_name]" and previous_d_who != d.who:
                         text d.who:
                             size 20
 
                     frame:
                         padding (20,20)
-                        
-
                         background Frame(message_frame, 23,23,23,23)
                         xsize 350
 
                         if d.current:
-                            if d.who == "MC_Name":
+                            if d.who == "[player_name]":
                                 at message_appear(1)
                             else:
                                 at message_appear(-1)
@@ -134,14 +130,13 @@ screen nvl_phonetext(dialogue):
                             xsize 350
                             slow_cps False
                             
-
-                            if d.who == MC_Name :
+                            if d.who == "[player_name]":
                                 color "#FFF"
                                 text_align 1.0
-                                xpos -580
                             else:
                                 color "#000"
-    
+                                text_align 0.0
+
                             id d.what_id
         $ previous_d_who = d.who
                     
@@ -150,14 +145,12 @@ style phoneFrame is default
 style phoneFrame_frame:
     background Transform("phone_background.png", xcenter=0.5,yalign=0.5)
     foreground Transform("phone_foreground.png", xcenter=0.5,yalign=0.5)
-    
     ysize 815
     xsize 495
 
 style phoneFrame_viewport:
     yfill True
     xfill True
-
     yoffset -20
 
 style phoneFrame_vbox:
