@@ -123,7 +123,7 @@ label continue_story:
 
     # 팀 해산 후, 채팅
     p "그날 밤, 단체 채팅방에서 PPT와 관련된 이야기를 나누기로 했다."
-
+    window hide
     label phone_example:
         # 대화 데이터를 정의
         $ phone_dialogue = [
@@ -158,12 +158,12 @@ label continue_story:
 
         # 플레이어가 상호작용할 시간을 줌
         pause
-
+        window show
         menu:
             a "괜찮다면 자료 찾는 거 도와줄 수 있을까?{fast}"
 
             "도와준다":
-       
+                window hide
                 $ phone_dialogue.append(Dialogue("[player_name]", "알겠어. 내가 도와줄게. 어떤 자료 찾으면 될까?"))
                 $ phone_dialogue.append(Dialogue("아리","우와 정말 고마워!"))
                 $ ari.increase_affection(1) # 호감도 상승
@@ -174,23 +174,23 @@ label continue_story:
                 p "보내준 자료 덕분에 아리는 자료 조사를 훨씬 수월하게 진행할 수 있었다. 그녀가 만족스러워하는 모습이 머릿속에 그려지는 듯했다."
         
             "도와주지 않는다":
+                window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!"))
                 $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워"))
                 $ ari.decrease_affection(1) # 호감도 하락
-        
         # PhoneDialogue 화면을 호출
-        show screen phone_dialogue(dialogue=phone_dialogue)
+        # show screen phone_dialogue(dialogue=phone_dialogue)
 
         # 플레이어가 상호작용할 시간을 줌
-        pause
+        # pause
 
         # 화면 닫기
         hide screen phone_dialogue
 
-
+    
     # 세나와 주인공의 대화(ppt)
     p "휴대폰이 진동하며 화면에 알림이 떴다. 세나가 보낸 메시지였다."
-
+    window hide
     label phone_example3:
         # 대화 데이터를 정의
         $ phone_dialogue = [
@@ -203,11 +203,12 @@ label continue_story:
         # 플레이어가 상호작용할 시간을 줌
         pause
 
+        window show
         menu:
             a "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?{fast}"
 
             "적극적으로 반응한다":
-       
+                window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?"))
                 $ sena.increase_affection(1) # 호감도 상승
                 $ phone_dialogue.append(Dialogue ("세나","고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?"))
@@ -220,6 +221,7 @@ label continue_story:
 
                 
             "무시한다":
+                window hide
                 "[player_name]" "읽기 귀찮은데.."
                 "[player_name]""(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"
                 p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
@@ -250,12 +252,12 @@ label continue_story:
 
         # 플레이어가 상호작용할 시간을 줌
         pause
-
+        window show
         menu:
             c "그럼 [player_name]은(는) 나머지 부분을 맡을래?{fast}"
 
             "좋아요! 제가 나머지 부분 맡을게요!":
-       
+                window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "좋아요! 나머지 부분은 제가 맡을게요."))
                 $ chanmi.increase_affection(1) # 호감도 상승
                 $ phone_dialogue.append(Dialogue ("찬미","고마워! 함께 잘 준비하자!"))
@@ -263,6 +265,7 @@ label continue_story:
                 p "발표 준비는 놀라울 정도로 수월했고, 우리는 점점 더 서로에게 의지하게 되는 것 같았다."
                 
             "이 부분하기 싫은데...":
+                window hide
                 "[player_name]" "음... 저도 사실 누나랑 같은 부분 하고 싶어요."
                 $ chanmi.decrease_affection(1)  # 호감도 하락
                 $ phone_dialogue.append(Dialogue ("찬미", "아, 그래? 그럼 다른 방식으로 나누자. 괜찮아."))
@@ -285,6 +288,7 @@ label continue_story:
         # 화면 닫기
         hide screen phone_dialogue
 
+    window show
 
     # 발표 성공
     scene classroom
