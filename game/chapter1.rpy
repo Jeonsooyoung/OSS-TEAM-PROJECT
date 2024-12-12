@@ -124,25 +124,37 @@ label continue_story:
     p "그날 밤, 단체 채팅방에서 PPT와 관련된 이야기를 나누기로 했다."
     window hide
     label phone_example:
-        # 대화 데이터를 정의
-        $ phone_dialogue = [
+    # 대화 데이터를 정의
+    $ phone_dialogue = [
         Dialogue("세나", "안녕?", current=True),
-        Dialogue("[player_name]", "안녕!", current=True),
-        Dialogue("찬미", "조별 과제는 어떻게 나눠서 할지 이야기해볼까? 각자 맡고 싶은 부분이 있으면 말해줘!", current=True),
-        Dialogue("찬미", "나는 발표 쪽이 좋아! 말하는 건 자신 있으니까 그 부분은 내가 맡을게.", current=True),
-        Dialogue("세나","나는 PPT 제작 맡을게. 꼼꼼하게 만드는 거 자신 있어!"),
-        Dialogue("아리","음... 그럼 나는 자료 조사를 하면 될까? 열심히 찾아볼게"),
-        Dialogue( "[player_name]" ,"좋아! 그럼 발표는 내가 찬미누나랑 함께 맡을게. 그리고 자료 정리 마감일은 내일까지로 하자. 모두 힘내서 멋지게 해보자!")
-        ]
+        Dialogue("[player_name]", "안녕!", current=False),
+        Dialogue("찬미", "조별 과제는 어떻게 나눠서 할지 이야기해볼까? 각자 맡고 싶은 부분이 있으면 말해줘!", current=False),
+        Dialogue("찬미", "나는 발표 쪽이 좋아! 말하는 건 자신 있으니까 그 부분은 내가 맡을게.", current=False),
+        Dialogue("세나", "나는 PPT 제작 맡을게. 꼼꼼하게 만드는 거 자신 있어!", current=False),
+        Dialogue("아리", "음... 그럼 나는 자료 조사를 하면 될까? 열심히 찾아볼게", current=False),
+        Dialogue("[player_name]", "좋아! 그럼 발표는 내가 찬미누나랑 함께 맡을게. 그리고 자료 정리 마감일은 내일까지로 하자. 모두 힘내서 멋지게 해보자!", current=False)
+    ]
 
-        # PhoneDialogue 화면을 호출
-        show screen phone_dialogue(dialogue=phone_dialogue)
+    # PhoneDialogue 화면을 호출
+    show screen phone_dialogue(dialogue=phone_dialogue)
 
-        # 플레이어가 상호작용할 시간을 줌
-        pause
+    # 대사가 하나씩 출력되도록
+    $ next_message(phone_dialogue)  # 첫 번째 대사 출력
 
-        # 화면 닫기
-        hide screen phone_dialogue
+    # 대사 진행을 위해 클릭 대기
+    label wait_for_click:
+        # 대사 진행 상태를 확인
+        $ current_dialogue = [d for d in phone_dialogue if d.current]
+        
+        # 만약 대사가 끝났으면 다음 대사를 출력
+        if current_dialogue:
+            $ next_message(phone_dialogue)
+            pause  # 플레이어의 클릭을 기다리기 위해 잠시 대기
+            jump wait_for_click  # 클릭 후 계속 진행
+
+    # 대사가 모두 끝나면 화면을 숨김
+    hide screen phone_dialogue
+
 
     p "조별 과제 분담 이야기가 끝난 뒤, 아리가 따로 자료조사를 도와달라는 메시지를 보내왔다."
 
@@ -163,19 +175,19 @@ label continue_story:
 
             "도와준다":
                 window hide
-                $ phone_dialogue.append(Dialogue("[player_name]", "알겠어. 내가 도와줄게. 어떤 자료 찾으면 될까?"))
-                $ phone_dialogue.append(Dialogue("아리","우와 정말 고마워!"))
+                $ phone_dialogue.append(Dialogue("[player_name]", "알겠어. 내가 도와줄게. 어떤 자료 찾으면 될까?",current=True))
+                $ phone_dialogue.append(Dialogue("아리","우와 정말 고마워!",current=True))
                 $ ari.increase_affection(1) # 호감도 상승
-                $ phone_dialogue.append(Dialogue ("아리","우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?"))
-                $ phone_dialogue.append(Dialogue ("[player_name]", "혼자 자료조사 하기 힘들었겠다ㅠㅠ 최대한 빨리 찾아서 너한테 보내줄게"))
-                $ phone_dialogue.append(Dialogue ("아리","응! 덕분에 한결 마음이 편해진다 도와줘서 고마워!"))
+                $ phone_dialogue.append(Dialogue ("아리","우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?",current=True))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "혼자 자료조사 하기 힘들었겠다ㅠㅠ 최대한 빨리 찾아서 너한테 보내줄게",current=True))
+                $ phone_dialogue.append(Dialogue ("아리","응! 덕분에 한결 마음이 편해진다 도와줘서 고마워!",current=True))
 
                 p "보내준 자료 덕분에 아리는 자료 조사를 훨씬 수월하게 진행할 수 있었다. 그녀가 만족스러워하는 모습이 머릿속에 그려지는 듯했다."
         
             "도와주지 않는다":
                 window hide
-                $ phone_dialogue.append(Dialogue ("[player_name]", "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!"))
-                $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워"))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!",current=True))
+                $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워",current=True))
                 $ ari.decrease_affection(1) # 호감도 하락
         # PhoneDialogue 화면을 호출
         # show screen phone_dialogue(dialogue=phone_dialogue)
@@ -208,13 +220,13 @@ label continue_story:
 
             "적극적으로 반응한다":
                 window hide
-                $ phone_dialogue.append(Dialogue ("[player_name]", "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?"))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?",current=True))
                 $ sena.increase_affection(1) # 호감도 상승
-                $ phone_dialogue.append(Dialogue ("세나","고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?"))
-                $ phone_dialogue.append(Dialogue ("[player_name]", "아니야, 색 조합 괜찮아! 근데 조금 더 강조하고 싶으면 글자 테두리를 추가해보는 것도 좋을 것 같아."))
-                $ phone_dialogue.append(Dialogue ("세나","오! 좋은 생각이야. 바로 적용해볼게!"))
-                $ phone_dialogue.append(Dialogue ("세나","덕분에 내가 원하던 느낌 그대로 PPT를 완성할 수 있을 것 같아! 고마워."))
-                $ phone_dialogue.append(Dialogue ("[player_name]", "그래! 의견 묻고 싶은 거 있으면 언제든 말해."))
+                $ phone_dialogue.append(Dialogue ("세나","고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?",current=True))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "아니야, 색 조합 괜찮아! 근데 조금 더 강조하고 싶으면 글자 테두리를 추가해보는 것도 좋을 것 같아.",current=True))
+                $ phone_dialogue.append(Dialogue ("세나","오! 좋은 생각이야. 바로 적용해볼게!",current=True))
+                $ phone_dialogue.append(Dialogue ("세나","덕분에 내가 원하던 느낌 그대로 PPT를 완성할 수 있을 것 같아! 고마워.",current=True))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "그래! 의견 묻고 싶은 거 있으면 언제든 말해.",current=True))
                 p "[player_name]의 조언 덕분에 세나는 PPT 디자인에 더욱 의욕적으로 임했다."
 
                 
@@ -256,9 +268,9 @@ label continue_story:
 
             "좋아요! 제가 나머지 부분 맡을게요!":
                 window hide
-                $ phone_dialogue.append(Dialogue ("[player_name]", "좋아요! 나머지 부분은 제가 맡을게요."))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "좋아요! 나머지 부분은 제가 맡을게요.",current=True))
                 $ chanmi.increase_affection(1) # 호감도 상승
-                $ phone_dialogue.append(Dialogue ("찬미","고마워! 함께 잘 준비하자!"))
+                $ phone_dialogue.append(Dialogue ("찬미","고마워! 함께 잘 준비하자!",current=True))
                 "[player_name]" "누나는 내가 맡은 부분을 맡아줘서 고마운 듯 보였다."
                 p "발표 준비는 놀라울 정도로 수월했고, 우리는 점점 더 서로에게 의지하게 되는 것 같았다."
                 
@@ -266,14 +278,14 @@ label continue_story:
                 window hide
                 "[player_name]" "음... 저도 사실 누나랑 같은 부분 하고 싶어요."
                 $ chanmi.decrease_affection(1)  # 호감도 하락
-                $ phone_dialogue.append(Dialogue ("찬미", "아, 그래? 그럼 다른 방식으로 나누자. 괜찮아."))
+                $ phone_dialogue.append(Dialogue ("찬미", "아, 그래? 그럼 다른 방식으로 나누자. 괜찮아.",current=True))
                 p "찬미는 살짝 아쉬워하는 듯했지만, 그래도 다른 방법을 찾기로 했다."
-                $ phone_dialogue.append(Dialogue ("찬미", "어느 부분 맡고 싶은데?"))
-                $ phone_dialogue.append(Dialogue ("[player_name]", "앱 설명 부분을 맡고 싶어요..!"))
-                $ phone_dialogue.append(Dialogue ("찬미", "알겠어! 내가 소개와 결론을 맡고, 네가 앱을 소개하는 부분을 맡자."))
-                $ phone_dialogue.append(Dialogue ("찬미", "네가 맡게 될 부분은 정말 중요하니까 열심히 준비해줘!"))
-                $ phone_dialogue.append(Dialogue ("[player_name]", "넵. 열심히 준비할게요. 양보해 줘서 고마워요!"))
-                $ phone_dialogue.append(Dialogue ("찬미", "그래, 우리 잘 해보자!"))
+                $ phone_dialogue.append(Dialogue ("찬미", "어느 부분 맡고 싶은데?",current=True))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "앱 설명 부분을 맡고 싶어요..!",current=True))
+                $ phone_dialogue.append(Dialogue ("찬미", "알겠어! 내가 소개와 결론을 맡고, 네가 앱을 소개하는 부분을 맡자.",current=True))
+                $ phone_dialogue.append(Dialogue ("찬미", "네가 맡게 될 부분은 정말 중요하니까 열심히 준비해줘!",current=True))
+                $ phone_dialogue.append(Dialogue ("[player_name]", "넵. 열심히 준비할게요. 양보해 줘서 고마워요!",current=True))
+                $ phone_dialogue.append(Dialogue ("찬미", "그래, 우리 잘 해보자!",current=True))
                 p "찬미의 아쉬움은 잠시였지만 그래도 서로의 역할을 나누고 함께하는 모습에, 조금은 더 가까워졌다."
                 
         
