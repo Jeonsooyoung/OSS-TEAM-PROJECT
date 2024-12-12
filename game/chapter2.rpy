@@ -4,7 +4,7 @@ define p = Character(" ")
 # define s3 = Character("학생 3")
 image bg_beach_day = "background/bg_beach_day.jpg"
 image bg_bbq_evening = "background/bbq_evening.jpg"
-image bg_drinking_game = "background/drinking.jpg"
+image bg_drinking_game = "background/drinking.png"
 image bg_beach_evening = "background/beach_evening.jpg"
 label chapter2:
 
@@ -39,8 +39,8 @@ label chapter2:
         "내 활약 보고 반해버려도 책임 못 진다?":
             "[player_name]" "훗 드디어 내가 나설 차례인가?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이었지(후후)"
-            $ sena.increase_affection(1) # 호감도 상승
             show sena_happy at left with dissolve
+            $ sena.increase_affection(1) # 호감도 상승
             s "ㅋㅋㅋㅋㅋ알겠어, 그러면 부탁해! 우리 팀의 희망은 너야!"
             s "(보기보다 허세가 많네ㅎㅎ)"
             p "[player_name]는 자신감을 내비치며 게임에 도전했다."
@@ -95,6 +95,8 @@ label chapter2:
             $ chanmi.increase_affection(1)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
+            hide chanmi_happy
+            show chanmi at right
             c "에이, 말만 그렇게 하지 말고 손부터 움직이시죠!"
             "[player_name]" "넵 알겠습니다!! 뭘 도와주면 될까요?"
             c "고기 좀 준비해 줘. 양념한 거 저기 있어! 고기 구우면서 조심하고, 너무 태우지 말고~"
@@ -121,10 +123,12 @@ label chapter2:
             hide chanmi_sad
             show chanmi at right
             p "찬미는 가볍게 한숨을 쉬며 다시 준비를 시작하고, [player_name](은)는 조용히 옆에서 지켜본다."
-            
+
+    hide chanmi
 
     p "바비큐가 시작되고, [player_name]와 친구들은 고기를 구우며 서로 이야기를 나누었다."
     
+    show ari at right
     a "[player_name] 고기 너가 구운거야? 너무 잘 구웠다!!"
     a "[player_name] 보는 것만으로도 군침이 돈다"
 
@@ -138,26 +142,34 @@ label chapter2:
             "[player_name]"  "(눈 감으면서 천천히 음미중)"
             "[player_name]"  "아니 뭐야? 아리가 싸줘서 그런건가?"
             "[player_name]"  "나 진짜 거짓말 안치고 살면서 먹었던 쌈중 TOP3 안에 들어"
+            hide ari
+            show ari_happy at right
+            $ ari.increase_affection(5)
             a "TOP3라니ㅋㅋ 말하는 것 봐 나 좀 감동받았는데?!"
-            $ arii.decrease_affection(5)
             "[player_name]" "진짜야, 농담 아니야. 이거 뭐랄까... 쌈의 균형이 완벽해."
             a "알겠어 알겠어, 그렇게 말해주니 왠지 좀 부끄럽네ㅎㅎ"
             a "(이렇게 말해주면... 설레잖아..)"
             p "아리는 [player_name](이)에게 약간의 설렘을 느낀다"
+            hide ari_happy
+            show ari at right
 
         "어... 고맙긴 한데, 내가 직접 싸서 먹을게!":
             "[player_name]"  "고맙긴 한데, 내가 직접 싸서 먹을게"
             "[player_name]"  "좀 부담스러워서..ㅎㅎ"
+            hide ari
+            show ari_sad at left
+            $ ari.decrease_affection(5)
             a "우리 어느 정도 친해진 거 아니었어? 나만 그렇게 생각한 건가.."
             a "부담스러웠다면 미안해.."
-            $ ari.decrease_affection(5)
             "[player_name]"  "(살짝 얼굴이 붉어지며) 아, 그런 뜻은 아니고... 그냥 내가 부끄러워서.."
             a "부끄러움이 많구나, 그럼 다음부터는 조심할게"
+            hide ari_sad
+            show ari at right
             "[player_name]"  "(조금 당황한 듯)어.. 조심 안해도 되는데.."
             a "하하.. 알겠어ㅋㅋ 너 생각보다 부끄럼이 많구나? 귀엽네"
             p "아리는 [player_name](이) 부끄러워하는 모습을 보고 귀여움을 느낀다."
 
-
+    hide ari with fade
     scene bg_drinking_game with fade
     p "바비큐가 마무리되고, 다같이 술을 마시며 게임을 시작했다."
     p "[player_name](이)가 좋아하는 랜덤 게임~ 무슨 게임~ 게임 스타트! "

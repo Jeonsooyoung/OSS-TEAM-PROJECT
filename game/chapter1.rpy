@@ -211,7 +211,6 @@ label continue_story:
                 $ phone_dialogue.append(Dialogue ("[player_name]", "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?"))
                 $ sena.increase_affection(1) # 호감도 상승
                 $ phone_dialogue.append(Dialogue ("세나","고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?"))
-                $ phone_dialogue.append(Dialogue ("아리","우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?"))
                 $ phone_dialogue.append(Dialogue ("[player_name]", "아니야, 색 조합 괜찮아! 근데 조금 더 강조하고 싶으면 글자 테두리를 추가해보는 것도 좋을 것 같아."))
                 $ phone_dialogue.append(Dialogue ("세나","오! 좋은 생각이야. 바로 적용해볼게!"))
                 $ phone_dialogue.append(Dialogue ("세나","덕분에 내가 원하던 느낌 그대로 PPT를 완성할 수 있을 것 같아! 고마워."))
