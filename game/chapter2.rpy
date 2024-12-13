@@ -195,6 +195,9 @@ label chapter2:
     menu:
         "내가 부축해줄게!":
             "[player_name]"  "알겠어. 찬미야, 나한테 기대. 천천히 가자. 방까지는 금방이야"
+            $ ari.increase_affection(10)
+            $ sena.increase_affection(10)
+            $ chanmi.increase_affection(10)
             p "찬미는 조심스럽게 [player_name](이)의 팔에 의지하며 한 걸음씩 앞으로 나아갔다"
             p "찬미의 얼굴은 여전히 창백했지만, 도움에 조금 안도한 것 같았다"
             p "좋아, 거의 다 왔어! 찬미야, 조금만 더 힘내!"
@@ -206,6 +209,9 @@ label chapter2:
         "너희들이 도와주는 게 나을 것 같아":
             "[player_name]"  "아니야, 내가 부축하는 것보다 너희들이 도와주는 게 나을 것 같아"
             "[player_name]"  "난 조금 뒤에서 도울게"
+            $ ari.decrease_affection(10)
+            $ sena.decrease_affection(10)
+            $ chanmi.decrease_affection(10)
             s "그래? 알겠어... 우리라도 도울게"
             s "(좀 도와주지.. 이 정도도 못 도와주는 거야?)"
             a "그럼 우리가 찬미를 반쯤 부축할게. [player_name], 너는 뒤에서 조심히 지켜봐."
