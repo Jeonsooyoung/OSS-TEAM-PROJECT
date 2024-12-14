@@ -106,7 +106,7 @@ label chapter3:
                     s "나는 무조건 여행 갈 거야. 너도 같이 갈래?"
                     
                     menu:
-                        s "나는 무조건 여행 갈 거야. 너도 같이 갈래?"{fast}
+                        s "나는 무조건 여행 갈 거야. 너도 같이 갈래?{fast}"
                         "농담으로 응답한다":
                             $ sena.increase_affection(1)
                             "[player_name]" "네가 다 계획했구나. 난 네가 운전만 해주면 따라갈게."
