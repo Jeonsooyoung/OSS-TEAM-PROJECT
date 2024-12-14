@@ -40,20 +40,20 @@ label chapter1:
         c "안녕! 여기 앉아도 돼?{fast}" # 선택지가 나와도 대화창이 남아있음
         "인사를 받아준다":
             "[player_name]" "그래, 앉아."
+            "[player_name]" "응, 잘 보냈어. 너는 어땠어?"
             hide chanmi
             show chanmi_happy at left
             c "고마워! 방학 동안 잘 지냈니?" 
             $ chanmi.increase_affection(1) # 호감도 상승
-            "[player_name]" "응, 잘 보냈어. 너는 어땠어?"
             c "나도 나름대로 재밌게 지냈어! 다음 방학에 같이 어디 놀러 가지 않을래?" 
             "[player_name]" "나야 좋지. 다음에 같이 놀러 가자!"
             hide chanmi_happy
         "인사를 받아주지 않는다":
             "[player_name]" "여기 자리 있어서.."
+            $ chanmi.decrease_affection(1) # 호감도 하락
             hide chanmi
             show chanmi_sad at left
             c "아, 그래... 알겠어." 
-            $ chanmi.decrease_affection(1) # 호감도 하락
             c "뒷자리로 가야겠다." 
             hide chanmi_sad
 
@@ -87,7 +87,6 @@ menu:
         
         # 여학생들의 의견에 따른 세부 주제 선택
         menu:
-            "[player_name]" "우와! 다들 아이디어가 넘치네. 나는 이중에서..{fast}"
             "게임 앱":
                 $ final_topic = "게임 앱"
                 "[player_name]" "나는 게임 앱이 제일 좋아 보여."
@@ -187,8 +186,9 @@ label continue_story:
             "도와주지 않는다":
                 window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!",current=True))
-                $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워",current=True))
                 $ ari.decrease_affection(1) # 호감도 하락
+                $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워",current=True))
+                
         # PhoneDialogue 화면을 호출
         # show screen phone_dialogue(dialogue=phone_dialogue)
 
@@ -234,8 +234,8 @@ label continue_story:
                 window hide
                 "[player_name]" "읽기 귀찮은데.."
                 "[player_name]""(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"
-                p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
                 $ sena.decrease_affection(1) # 호감도 하락
+                p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
                 s "(음... 아무래도 답장이 없네. 괜히 물어본 걸까?)"
                 p "세나는 살짝 실망한 듯 보였다."
                 
