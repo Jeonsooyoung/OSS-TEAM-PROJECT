@@ -55,12 +55,12 @@ label chapter2:
 
         "ㅈㄴ 하기 싫은데 어떻게 하지;;":
             "[player_name]" "음… 네가 더 잘할 것 같은데? 내가 하면 팀 점수가 위험할 수도 있으니까..ㅎㅎ"
+            $ sena.decrease_affection(1)
             s "야, 설마 나한테 미루는 거야? 한 번 보여줘 봐!!"
             "[player_name]" "(아니 하기 싫다는데 왜 자꾸 시킬려고 하는 거야)"
             "[player_name]" "(좋게 좋게 넘어가 보자)"
             "[player_name]" "아니, 그런 건 아니고... 네가 워낙 잘할 것 같아서 그러지ㅎ~ 우리 팀 에이스는 세나 아니겠어?"
             show sena_sad at left with dissolve
-            $ sena.decrease_affection(1)
             s "(우리 팀을 위해 한 번쯤 멋지게 나서주는 것도 괜찮았을 텐데... 조금 아쉽네)"
             hide sena_sad with dissolve
             show sena at left with dissolve
@@ -140,12 +140,12 @@ label chapter2:
         "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어~!":
             "[player_name]" "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어ㅠㅠ"
             a "ㅋㅋㅋ 너무 빨진 말고"
+            $ ari.increase_affection(5)
             "[player_name]"  "(눈 감으면서 천천히 음미중)"
             "[player_name]"  "아니 뭐야? 아리가 싸줘서 그런건가?"
             "[player_name]"  "나 진짜 거짓말 안치고 살면서 먹었던 쌈중 TOP3 안에 들어"
             hide ari
             show ari_happy at right
-            $ ari.increase_affection(5)
             a "TOP3라니ㅋㅋ 말하는 것 봐 나 좀 감동받았는데?!"
             "[player_name]" "진짜야, 농담 아니야. 이거 뭐랄까... 쌈의 균형이 완벽해."
             a "알겠어 알겠어, 그렇게 말해주니 왠지 좀 부끄럽네ㅎㅎ"
