@@ -878,14 +878,14 @@ screen preferences():
                                 textbutton _("테스트") action Play("sound", config.sample_sound)
 
 
-                    if config.has_voice:
-                        label _("음성 음량")
+                    # if config.has_voice:
+                    #     label _("음성 음량")
 
-                        hbox:
-                            bar value Preference("voice volume")
+                    #     hbox:
+                    #         bar value Preference("voice volume")
 
-                            if config.sample_voice:
-                                textbutton _("테스트") action Play("voice", config.sample_voice)
+                    #         if config.sample_voice:
+                    #             textbutton _("테스트") action Play("voice", config.sample_voice)
 
                     if config.has_music or config.has_sound or config.has_voice:
                         null height gui.pref_spacing
