@@ -123,7 +123,8 @@ label chapter4:
             c "아, 그래?? 알았어.."
             p"[player_name]은(는) 아리를 버리고 빠르게 도망갔다."
             
-
+    p"혼자 축제를 둘러보던중.."
+    "[player_name]""오!! 세나야 안녕 방가방가"
 
     # 학생 3 이벤트
     if affection_m >= 50:
