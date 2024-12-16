@@ -302,14 +302,14 @@ screen navigation():
 
         ##textbutton _("불러오기") action ShowMenu("chapter_select")
 
-        textbutton _("환경설정") action ShowMenu("preferences")
+        # textbutton _("환경설정") action ShowMenu("preferences")
 
         if _in_replay:
 
             textbutton _("리플레이 끝내기") action EndReplay(confirm=True)
 
         elif not main_menu:
-
+            textbutton _("환경설정") action ShowMenu("preferences")
             textbutton _("메인 메뉴") action [Function(save_game_state), MainMenu()]
 
         ##textbutton _("캐릭터 프로필") action ShowMenu("character_profiles")
