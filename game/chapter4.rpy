@@ -130,7 +130,7 @@ label chapter4:
     m "같이 회전목마 타러 갈래요? 축제 오면 이런 건 꼭 해야지!"
     menu:
         "좋아":
-            $ affection_m += 10
+            $ sena.increase_affection(5)
             p "그래, 좋아."
             m "생각보다 너 이런 거 좋아하네. 나랑 있으면 더 재밌어질걸?"
             menu:
