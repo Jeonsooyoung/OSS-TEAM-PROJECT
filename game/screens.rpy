@@ -754,8 +754,8 @@ screen affection_status():
             yalign 0.5
             
             if persistent.player_name:  # 이름이 입력된 경우에만 표시
-                text "플레이어 이름 : [persistent.player_name]" size 20 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
-                text "캐릭터 호감도" size 40 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
+                text "플레이어 이름 : [persistent.player_name]" size 20 xalign 0.5 color "#000000" outlines [(2, "#ffffff")]
+                text "캐릭터 호감도" size 40 xalign 0.5 color "#000000" outlines [(2, "#ffffff")]
                 
                 null height 40
                 
@@ -766,7 +766,7 @@ screen affection_status():
                     # 찬미 호감도
                     vbox:
                         spacing 10
-                        text "찬미" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        text "찬미" size 30 xalign 0.5 color "#000000" outlines [(1, "#ffffff")]
                         bar:
                             xsize 150
                             ysize 150
@@ -775,12 +775,12 @@ screen affection_status():
                             right_bar Frame("gui/heart_full.png")
                             left_bar Frame("gui/heart_empty.png")
                             style "vbar"
-                        text "[chanmi_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        text "[chanmi_affection]/100" xalign 0.5 color "#000000" outlines [(1, "#ffffff")]
                         
                     # 아리 호감도
                     vbox:
                         spacing 10
-                        text "아리" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        text "아리" size 30 xalign 0.5 color "#000000" outlines [(1, "#ffffff")]
                         bar:
                             xsize 150
                             ysize 150
@@ -789,12 +789,12 @@ screen affection_status():
                             right_bar Frame("gui/heart_full.png")
                             left_bar Frame("gui/heart_empty.png")
                             style "vbar"
-                        text "[ari_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        text "[ari_affection]/100" xalign 0.5 color "#000000" outlines [(1, "#ffffff")]
                         
                     # 세나 호감도
                     vbox:
                         spacing 10
-                        text "세나" size 30 xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        text "세나" size 30 xalign 0.5 color "#000000" outlines [(1, "#ffffff")]
                         bar:
                             xsize 150
                             ysize 150
@@ -803,9 +803,9 @@ screen affection_status():
                             right_bar Frame("gui/heart_full.png")
                             left_bar Frame("gui/heart_empty.png")
                             style "vbar"
-                        text "[sena_affection]/100" xalign 0.5 color "#ffffff" outlines [(1, "#000000")]
+                        text "[sena_affection]/100" xalign 0.5 color "#000000" outlines [(1, "#ffffff")]
             # else:  # 이름이 입력되지 않은 경우
-            #     text "게임을 시작하고 이름을 입력해주세요." size 30 xalign 0.5 color "#ffffff" outlines [(2, "#000000")]
+            #     text "게임을 시작하고 이름을 입력해주세요." size 30 xalign 0.5 color "#000000" outlines [(2, "#000000")]
 
 
 ## Preferences 스크린 #############################################################
@@ -1702,7 +1702,7 @@ screen quick_menu():
 
     zorder 100
 
-    if quick_menu:
+    if quick_menu and renpy.get_screen("window"):
 
         hbox:
             style_prefix "quick"
