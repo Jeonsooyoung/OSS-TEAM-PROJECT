@@ -21,7 +21,7 @@ define gui.show_name = True
 
 ## 게임의 버전입니다.
 
-define config.version = "v5.0.1211-alpha"
+define config.version = "v5.1.1216-alpha"
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
@@ -44,8 +44,13 @@ define build.name = "DokiDokiCBNU"
 
 define config.has_sound = True
 define config.has_music = True
-define config.has_voice = True
+define config.has_voice = False
 
+label before_main_menu:
+    # 음량 기본값 설정
+    $ renpy.sound.set_volume(1.0, channel="music")
+    $ renpy.sound.set_volume(1.0, channel="sound")
+    return
 
 ## 사용자가 음향 또는 음성 채널에서 테스트 사운드를 재생할 수 있게 하려면 아래
 ## 줄의 주석을 제거하고 이를 사용하여 재생할 샘플 사운드를 설정하십시오.

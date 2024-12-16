@@ -865,14 +865,14 @@ screen preferences():
                         label _("배경음 음량")
 
                         hbox:
-                            bar value Preference("music volume")
+                            bar value Preference("music volume") style "sound_slider"
 
                     if config.has_sound:
 
                         label _("효과음 음량")
 
                         hbox:
-                            bar value Preference("sound volume")
+                            bar value Preference("sound volume") style "sound_slider"
 
                             if config.sample_sound:
                                 textbutton _("테스트") action Play("sound", config.sample_sound)
