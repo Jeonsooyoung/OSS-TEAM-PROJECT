@@ -21,7 +21,7 @@ define gui.show_name = True
 
 ## 게임의 버전입니다.
 
-define config.version = "v5.1.1216-alpha"
+define config.version = "v1.0.1217-release"
 
 
 ## 게임의 about 스크린에 배치되는 텍스트입니다. 텍스트를 삼중 따옴표 사이에 배치
@@ -208,3 +208,10 @@ init python:
 ## 다.
 
 # define build.itch_project = "renpytom/test-project"
+
+
+define config.has_voice = False
+
+## 특정 키 비활성화
+define config.keymap['self_voicing'] = []
+define config.keymap['accessibility'] = []
