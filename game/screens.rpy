@@ -865,14 +865,14 @@ screen preferences():
                         label _("배경음 음량")
 
                         hbox:
-                            bar value Preference("music volume") style "sound_slider"
+                            bar value Preference("music volume") changed log_scale
 
                     if config.has_sound:
 
                         label _("효과음 음량")
 
                         hbox:
-                            bar value Preference("sound volume") style "sound_slider"
+                            bar value Preference("sound volume") changed log_scale
 
                             if config.sample_sound:
                                 textbutton _("테스트") action Play("sound", config.sample_sound)
@@ -893,6 +893,16 @@ screen preferences():
                         textbutton _("모두 음소거"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
+
+init python:
+    import math
+
+    def log_scale(value, min_db=-40, max_db=0):
+        if value <= 0:
+            return 0
+        min_amp = 10 ** (min_db / 20)
+        max_amp = 10 ** (max_db / 20)
+        return min_amp * (max_amp/min_amp) ** value
 
 
 style pref_label is gui_label
