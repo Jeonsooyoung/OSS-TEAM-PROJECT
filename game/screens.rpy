@@ -302,7 +302,7 @@ screen navigation():
 
         ##textbutton _("불러오기") action ShowMenu("chapter_select")
 
-        ##textbutton _("환경설정") action ShowMenu("preferences")
+        textbutton _("환경설정") action ShowMenu("preferences")
 
         if _in_replay:
 
