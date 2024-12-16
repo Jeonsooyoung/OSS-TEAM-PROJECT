@@ -46,6 +46,9 @@ define config.has_sound = True
 define config.has_music = True
 define config.has_voice = False
 
+define config.default_music_volume = 0.5
+define config.default_sfx_volume = 0.5
+
 label before_main_menu:
     # 음량 기본값 설정
     $ renpy.sound.set_volume(1.0, channel="music")
