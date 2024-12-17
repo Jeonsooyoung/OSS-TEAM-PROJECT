@@ -194,6 +194,7 @@ label concert_with_chanmi:
     c "봐봐, 다음 곡이 내가 제일 좋아하는 노래야. 이 노래 나올 때 다들 엄청난 에너지를 보여줘. 나랑 같이 뛰자!"
     c "약속해. 오늘 이 밤은 우리 둘만의 기억으로 남길 거야."
     "[player_name]" "그녀와 함께 춤추며 밤이 깊어간다. 그리고 우리는 축제의 마지막 밤을 누구보다도 뜨겁게 즐겼다."
+    jump chapter4_end
 
 label concert_with_sena:
     show festival_concert with fade
@@ -207,6 +208,7 @@ label concert_with_sena:
     "[player_name]" "공연이 끝나갈 무렵, 세나는 내 쪽으로 고개를 돌려 작은 목소리로 말했다."
     s "오늘의 이 감정... 절대 잊지 않을 거야. 너도, 나도."
     "[player_name]" "그녀의 손길이 살짝 닿은 순간, 이 밤이 우리의 마음 속 깊이 새겨질 것임을 느낄 수 있었다."
+    jump chapter4_end
 
 label concert_with_ari:
     show festival_concert with fade
@@ -220,6 +222,7 @@ label concert_with_ari:
     "[player_name]" "아리의 눈빛이 반짝였다. 그녀가 음악에 몰입하는 모습을 보며 나도 점점 빠져들었다."
     a "오늘의 이 시간은... 나에게 정말 의미 있는 순간이 될 거야. 네가 있어서 가능했어. 고마워."
     "[player_name]" "그녀와 함께 조용히 공연장을 빠져나오며, 나는 그녀가 말하지 않아도 전해지는 감정을 느꼈다."
+    jump chapter4_end
 
 label solo_ending:
     show festival_concert with fade
