@@ -168,7 +168,7 @@ label concert_decision:
         "세나와 함께 가기로 한다" if sena_affection >= 70:
             jump concert_with_sena
 
-        "아리셋과 함께 가기로 한다" if ari_affection >= 70:
+        "아리와와 함께 가기로 한다" if ari_affection >= 70:
             jump concert_with_ari
 
         "혼자 콘서트를 보러 간다":
