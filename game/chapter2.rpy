@@ -14,6 +14,8 @@ label chapter2:
     scene bg_beach_day
     with dissolve
 
+    play music "audio/CR5_Under_the_Spotlight_FULL_End.ogg" fadein 5.0
+
     p "새 학기가 시작된 지도 어느덧 한 달. 설렘 가득한 마음으로 컴퓨터공학과 학생들은 MT를 떠나 대천해수욕장에 도착했다."
     p "버스에서 내리자마자, 다들 설렘이 가득한 얼굴로 짐을 정리하고는 하나둘 해수욕장으로 모여들었다."
     p "반짝이는 바다와 시원한 바람이 불고, 모두가 들뜬 목소리로 여기저기서 이야기꽃을 피운다." 
@@ -40,7 +42,7 @@ label chapter2:
             "[player_name]" "훗 드디어 내가 나설 차례인가?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이었지(후후)"
             show sena_happy at left with dissolve
-            $ sena.increase_affection(5) # 호감도 상승
+            $ sena.increase_affection(10) # 호감도 상승
             s "ㅋㅋㅋㅋㅋ알겠어, 그러면 부탁해! 우리 팀의 희망은 너야!"
             s "(보기보다 허세가 많네ㅎㅎ)"
             p "[player_name]는 자신감을 내비치며 게임에 도전했다."
@@ -55,7 +57,7 @@ label chapter2:
 
         "ㅈㄴ 하기 싫은데 어떻게 하지;;":
             "[player_name]" "음… 네가 더 잘할 것 같은데? 내가 하면 팀 점수가 위험할 수도 있으니까..ㅎㅎ"
-            $ sena.decrease_affection(5)
+            $ sena.decrease_affection(10)
             s "야, 설마 나한테 미루는 거야? 한 번 보여줘 봐!!"
             "[player_name]" "(아니 하기 싫다는데 왜 자꾸 시킬려고 하는 거야)"
             "[player_name]" "(좋게 좋게 넘어가 보자)"
@@ -92,7 +94,7 @@ label chapter2:
             "[player_name]" "되게 예쁘던데요ㅎㅎ, 도와줄게요!"
             hide chanmi
             show chanmi_happy at left
-            $ chanmi.increase_affection(5)
+            $ chanmi.increase_affection(10)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
             hide chanmi_happy
@@ -111,7 +113,7 @@ label chapter2:
             p "(장난스러운 표정을 지으며 손을 휘저어 보인다.)"
             hide chanmi
             show chanmi_sad at right
-            $ chanmi.decrease_affection(5)
+            $ chanmi.decrease_affection(10)
             c "바비큐는 다 같이 준비해야 더 맛있다고!"
             c "정말 안 도와줄 거야~? 그럼 너무 서운한데..."
             "[player_name]" "(이거... 은근히 꼽주네)"
@@ -140,7 +142,7 @@ label chapter2:
         "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어~!":
             "[player_name]" "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어ㅠㅠ"
             a "ㅋㅋㅋ 너무 빨진 말고"
-            $ ari.increase_affection(5)
+            $ ari.increase_affection(10)
             "[player_name]"  "(눈 감으면서 천천히 음미중)"
             "[player_name]"  "아니 뭐야? 아리가 싸줘서 그런건가?"
             "[player_name]"  "나 진짜 거짓말 안치고 살면서 먹었던 쌈중 TOP3 안에 들어"
@@ -159,7 +161,7 @@ label chapter2:
             "[player_name]"  "좀 부담스러워서..ㅎㅎ"
             hide ari
             show ari_sad at left
-            $ ari.decrease_affection(5)
+            $ ari.decrease_affection(10)
             a "우리 어느 정도 친해진 거 아니었어? 나만 그렇게 생각한 건가.."
             a "부담스러웠다면 미안해.."
             "[player_name]"  "(살짝 얼굴이 붉어지며) 아, 그런 뜻은 아니고... 그냥 내가 부끄러워서.."
@@ -190,11 +192,11 @@ label chapter2:
     c "아.. 얘들아 무슨 일이 이었던 거야.. 머리가 너무 어지럽다.."
     p "그녀의 목소리는 한껏 풀린 기색으로 떨렸고, 눈동자는 초점을 찾지 못한 채 흔들렸다"
     a "괜찮아? 무리하지 말고 조금만 쉬자"
-    c "그러는게 좋겠다 찬미야, 정신 좀 차려. 이 상태로 방에 갈 수 있겠어?"
-    c "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘"
+    s "그러는게 좋겠다 찬미야, 정신 좀 차려. 이 상태로 방에 갈 수 있겠어?"
+    s "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘"
 
     menu:
-        c "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘{fast}"
+        s "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘{fast}"
         "내가 부축해줄게!":
             "[player_name]"  "알겠어. 찬미야, 나한테 기대. 천천히 가자. 방까지는 금방이야"
             $ ari.increase_affection(10)
@@ -241,8 +243,11 @@ label chapter2:
     "[player_name]" "(이런 순간이야말로 오래도록 기억에 남겠지… 진짜 MT 오길 잘한 것 같아.)"
     p "그리고 그렇게, 깊은 새벽까지 이어진 그들의 시간은 잊을 수 없는 추억으로 남게 되었다."
 
+    stop music fadeout 5.0
+
 
 label chapter2_end:
     $ persistent.chapter2_cleared = True  # 챕터 2 완료 상태 설정
+    $ save_game_state()
     jump chapter3
     return
