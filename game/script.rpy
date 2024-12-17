@@ -19,8 +19,8 @@ label start:
     transform right:
         xalign 0.85
         yalign 0.6
-    transform small_size:
-        zoom 0.4   
+    transform small_size:   
+        zoom 0.5   
     transform big_size:
         zoom 1.5
 
