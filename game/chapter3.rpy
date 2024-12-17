@@ -17,7 +17,7 @@ label chapter3:
     play music "audio/CR5_Love_Spell_FULL_End.ogg"
 
     "[player_name]" "하.. x발 벌써 중간고사네..."
-    "[player_name]" "도서관가서 공부나 해야겠다."
+    "[player_name]" "도서관 가서 공부나 해야겠다."
 
     p "도서관으로 이동 중..."
 
@@ -28,25 +28,25 @@ label chapter3:
     show chanmi at left
     show ari at right
     #자리에 앉은 장면
-    "[player_name]""어 뭐야 찬미누나도 공부하려고 도서관에 왔네"
+    "[player_name]""어 뭐야 찬미 누나도 공부하려고 도서관에 왔네"
     p"[player_name]은(는) 찬미에게 손인사를 한다. 아리도 인사를 받아준다"
     hide ari
     show chanmi at right with move
-    p"[player_name]이(가) 공부를 하던중, 찬미가 노트를 들고 다가온다"
+    p"[player_name]이(가) 공부를 하던 중, 찬미가 노트를 들고 다가온다"
     c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어."
     
     menu:
         c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어.{fast}"
         "확인하고 칭찬한다":
-            "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한거 같은데?"
+            "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한 거 같은데?"
             hide chanmi
             show chanmi_happy at right with dissolve
-            $ chanmi.increase_affection(1)
+            $ chanmi.increase_affection(10)
             c "아 ㅎㅎ!! 진짜 고마워!!"
             c "너랑 얘기하니까 마음이 좀 놓인다..."
             hide chanmi_happy
             show chanmi at right with dissolve
-            c "우리 공부 다 끝내고 같이 밥먹을래??."
+            c "우리 공부 다 끝내고 같이 밥 먹을래??."
             
             menu:
                 "좋아":
@@ -55,15 +55,15 @@ label chapter3:
                     show chanmi_happy at right with dissolve
                     c "오~~ [player_name]!! 이따 공부 끝나면 연락해!!"
                     "[player_name]""그래 이따 연락할게!"
-                    $ chanmi.increase_affection(5)
+                    $ chanmi.increase_affection(10)
                     hide chanmi_happy
                 "혼밥해":
-                    "[player_name]""누나랑 밥먹어줄 사람 없어용~~"
+                    "[player_name]""누나랑 밥 먹어줄 사람 없어용~~"
                     hide chanmi
                     show chanmi_sad at left with dissolve
                     c "아.. 알겠어.."
                     $ chanmi.decrease_affection(10)
-                    p "찬미는 짜증내며 자리로 돌아간다."
+                    p "찬미는 짜증 내며 자리로 돌아간다."
                     hide chanmi_sad
                 "미안해":
                     "[player_name]""미안.. 나 선약이 있어"
@@ -72,71 +72,71 @@ label chapter3:
                     hide chanmi
 
         "찬미교수..":
-            "[player_name]""이 노트로 교수님이 배워야 하는거 아니야...? 찬미교수님?"
+            "[player_name]""이 노트로 교수님이 배워야 하는 거 아니야...? 찬미 교수님?"
             hide chanmi
             show chanmi_happy at right with dissolve
-            $ chanmi.increase_affection(5)
-            c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못말려~~ 아잉~~"
+            $ chanmi.increase_affection(10)
+            c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못 말려~~ 아잉~~"
             p "찬미는 한층 밝아진 표정으로 자리로 돌아간다."
             hide chanmi_happy
 
         "별로야":
-            "[player_name]""정리가 많이 아쉽네. 다시 해보길 바래"
+            "[player_name]""정리가 많이 아쉽네. 다시 해보길 바라라"
             hide chanmi
             show chanmi_sad at left with dissolve
             $ chanmi.decrease_affection(10)
-            c"너 너무한거 아니니!!"
+            c"너 너무한 거 아니니!!"
             p "찬미는 화난 표정으로 자리로 돌아간다."
             hide chanmi_sad
     
     show ari at left with move
     p"[player_name]이(가) 조용히 공부하던 중 아리가 갑자기 어깨를 툭툭 친다"
 
-    a"이 문제 좀 봐줄래..? 나 머리가 잘 안돌아가.."
+    a"이 문제 좀 봐줄래..? 나 머리가 잘 안 돌아가.."
 
     menu:
-        a"이 문제 좀 봐줄래..? 나 머리가 잘 안돌아가..{fast}"
+        a"이 문제 좀 봐줄래..? 나 머리가 잘 안 돌아가..{fast}"
         "문제를 봐준다":
             p "아리 옆으로 다가가 문제를 도와준다"
             hide ari
             show ari_happy at right with dissolve
             a"와 너 덕분에 진짜 살았다.. 진짜 고마워!"
-            $ ari.increase_affection(5)
+            $ ari.increase_affection(10)
             "[player_name]""별거 아니라구 ㅋ"
             hide ari_happy
 
         "멍청아":
-            "[player_name]""넌 머리가 안돌아가는게 아니라. 멍청한거야"
+            "[player_name]""넌 머리가 안 돌아가는 게 아니라. 멍청한 거야"
             a"머..뭐라고..?"
-            "[player_name]""장난이고 이미 과부화 걸린거야. 좀 쉬면서해"
+            "[player_name]""장난이고 이미 과부하 걸린 거야. 좀 쉬면서 해"
             a"그래 너 정말 태평하다! ㅋㅋㅋㅋ"
             p "아리가 다시 자리로 돌아가 다시 문제를 고민한다"
             hide ari with dissolve
 
         "다음에 알려줄게":
             "[player_name]""내 문제도 많이 밀려 있어서.. 나중에 알려줄게!"
-            a"내일 모레 시험인데.. 알았어!!"
+            a"내일모레 시험인데.. 알았어!!"
             hide ari
             show ari_sad at right with dissolve
             $ ari.decrease_affection(10)
-            "아리는 다른 사람을 찾아 떠난다."
+            p "아리는 다른 사람을 찾아 떠난다."
             hide ari_sad
 
-    "[player_name]""다시 열심히 공부해볼까?"
+    "[player_name]""다시 열심히 공부해 볼까?"
     #3hours later
     "[player_name]은(는) 공부를 열심히 하다 잠깐 쉬러 나왔다."
     show sena at right
     "[player_name]""어, 세나야 안녕!!"
     p "세나가 인사를 하며 다가왔다."
-    s"공부 많이했어?"
-    "[player_name]""어.. 나 오늘 하루종일 도서관에 있었다.."
+    s"공부 많이 했어?"
+    "[player_name]""어.. 나 오늘 하루 종일 도서관에 있었다.."
     "[player_name]""지금 잠깐 쉬러 나왔어"
-    s "너무 열심히 하는 거 아니야? 좀 쉬면서해~~ 커피 한 잔 사줄게."
+    s "너무 열심히 하는 거 아니야? 좀 쉬면서 해~~ 커피 한 잔 사줄게."
     
     menu:
-        s "너무 열심히 하는 거 아니야? 좀 쉬면서해~~ 커피 한 잔 사줄게.{fast}"
+        s "너무 열심히 하는 거 아니야? 좀 쉬면서 해~~ 커피 한 잔 사줄게.{fast}"
         "좋은데?":
-            "[player_name]""어어 너무 좋다. 가자가자"
+            "[player_name]""어어 너무 좋다. 가자 가자"
             s "좋아, 잠깐 머리 식히는 것도 필요하잖아."
             show coffee_machine with fade
             show sena at right
@@ -154,15 +154,15 @@ label chapter3:
                             hide sena
                             show sena_happy at right with dissolve
                             s "좋아, 넌 그냥 옆에서 초콜릿만 먹고 있어."
-                            $ sena.increase_affection(5)
+                            $ sena.increase_affection(10)
                             hide sena_happy with dissolve
                         "진지하게 관심을 보인다":
-                            "[player_name]" "생각해볼게. 근데 어디로 가려고?"
+                            "[player_name]" "생각해 볼게. 근데 어디로 가려고?"
                             hide sena
                             show sena_happy at right with dissolve
                             $ sena.increase_affection(10)
                             s "제주도로 갈 생각이었어."
-                            "[player_name]""와 나도 제주도 가고싶었는데!! 내가 한번 계획짜볼게!"  
+                            "[player_name]""와 나도 제주도 가고 싶었는데!! 내가 한번 계획 짜볼게!"  
                             "[player_name]" "세나의 열정을 보며 나도 설렜다."
                             hide sena_happy with dissolve
 
@@ -183,11 +183,11 @@ label chapter3:
                             "[player_name]" "시험 끝나면 우리 둘 다 바로 지쳐 쓰러지겠지?"
                             hide sena
                             show sena_happy at right with dissolve
-                            $ sena.increase_affection(5)
+                            $ sena.increase_affection(10)
                             s "우린 멋지게 쓰러질 것 같아 하하하하하~"
                             hide sena_happy with dissolve
                         "아닌데? ㅋ" :
-                            "[player_name]""난 시험 끝나고도 계속 공부 할건데?"
+                            "[player_name]""난 시험 끝나고도 계속 공부할 건데?"
                             hide sena
                             show sena_sad at left with dissolve
                             $ sena.decrease_affection(10)
@@ -195,7 +195,7 @@ label chapter3:
                             hide sena_sad with dissolve 
         
         "괜찮아 ㅎㅎ":
-            p "지금은 좀 힘들어. 나 다시 바로 공부하러 가야하거든..."
+            p "지금은 좀 힘들어. 나 다시 바로 공부하러 가야 하거든..."
             hide sena
             show sena_sad at right with dissolve
             $ sena.decrease_affection(10)
@@ -213,23 +213,23 @@ label chapter3:
             show cafe with fade
             show sena at right with dissolve
             p "둘은 커피를 마시며 가볍게 이야기를 나눴다."
-            s "근데 너 우리과 중에서 제일 친하다고 생각하는 사람 있어?"
+            s "근데 너 우리 과 중에서 제일 친하다고 생각하는 사람 있어?"
             
             menu:
-                s "근데 너 우리과 중에서 제일 친하다고 생각하는 사람 있어?{fast}"
+                s "근데 너 우리 과 중에서 제일 친하다고 생각하는 사람 있어?{fast}"
                 "너라고 답한다":
-                    "[player_name]""나는 너랑 제일 친하다고 생각해. 너가 제일 편하기도 하고"
+                    "[player_name]""나는 너랑 제일 친하다고 생각해. 네네가 제일 편하기도 하고"
                     hide sena
                     show sena_happy at right with dissolve
-                    $ sena.increase_affection(1)
+                    $ sena.increase_affection(15)
                     s "진짜? 그런 줄 몰랐네. 고맙다. 네가 이렇게 말해주니 좀 설레네..."
                     hide sena_happy
                 "나 찐따야..":
-                    "[player_name]""나... 아무랑도 친하다고 생각한적이 없어.."
+                    "[player_name]""나... 아무랑도 친하다고 생각한 적이 없어.."
                     "[player_name]""나는 찐.따.거든.."
                     hide sena
                     show sena_sad at right with dissolve
-                    $ sena.decrease_affection(1)
+                    $ sena.decrease_affection(10)
                     s "아 그래..? 난 너랑 친하다고 생각했는데.."
                     hide sena_sad
 
@@ -246,41 +246,40 @@ label chapter3:
     "[player_name]" "늦은 밤이 되어 도서관을 나서려던 순간 찬미와 아리를 발견했다."
     
     menu:
-        "[player_name]" "늦은 밤이 되어 도서관을 나서려던 순간 찬미와 아리를 발견했다.{fast}"
         "찬미에게 말을 건다":
             hide ari
-            "[player_name]""어! 누나 이제 집가는 거야?"
-            c "그럴려고, 근데 아직 안 갔네? 오늘 공부 많이 했어?"
+            "[player_name]""어! 누나 이제 집 가는 거야?"
+            c "그러려고, 근데 아직 안 갔네? 오늘 공부 많이 했어?"
             menu:
-                c "그럴려고, 근데 아직 안 갔네? 오늘 공부 많이 했어?{fast}"
+                c "그러려고, 근데 아직 안 갔네? 오늘 공부 많이 했어?{fast}"
                 "많이 했어":
                     "[player_name]""오늘 좀 많이 한거 같아 좀 피곤하네 ㅎㅎ"
-                    c"고생했아 [player_name]! 과탑하는거 아니야??"
+                    c"고생했어 [player_name]! 과탑하는거 아니야??"
                     "[player_name]""ㅋㅋㅋㅋ 되려나.."
-                    c"나 이제 집가볼게 안녕~"
+                    c"나 이제 집 가볼게 안녕~"
                     menu:
-                        c"나 이제 집가볼게 안녕~{fast}"
+                        c"나 이제 집 가볼게 안녕~{fast}"
                         "같이 가자고 한다":
-                            "[player_name]""누나! 우리 같이 가자! 집방향이 같으니까.."
+                            "[player_name]""누나! 우리 같이 가자! 집 방향이 같으니까.."
                             hide chanmi
                             show chanmi_happy at right with dissolve
-                            $ chanmi.increase_affection(1)
-                            c"어? 그래그래 좋아 같이가자"
+                            $ chanmi.increase_affection(15)
+                            c"어? 그래그래 좋아 같이 가자"
                             show home with fade
                             "둘은 헤어지고 [player_name]은(는) 집에 도착했다"
                         "인사한다":
-                            "[player_name]""응 잘가! 수업때 보자"
+                            "[player_name]""응 잘 가! 수업 때 보자"
                             c"그래 빠이빠이~"
                             show home with fade
                             "[player_name]은(는) 쓸쓸하게 집에 도착했다"
                 "아니 딴짓했어":
-                    "[player_name]""아니 나 딴짓밖에 안했다.."
-                    "[player_name]""(사실 공부 미친듯이 했지롱 ㅋㅋ)"
+                    "[player_name]""아니 나 딴짓밖에 안 했다.."
+                    "[player_name]""(사실 공부 미친 듯이 했지롱 ㅋㅋ)"
                     hide chanmi
                     show chanmi_sad at right with dissolve
-                    $ chanmi.decrease_affection(1)
-                    c"아 그래?? (뭐야 열심히 하는줄 알았더니..)"
-                    c"그럼 집 잘가~!"
+                    $ chanmi.decrease_affection(15)
+                    c"아 그래?? (뭐야 열심히 하는 줄 알았더니..)"
+                    c"그럼 집 잘 가~!"
                     show home with fade
         
         "아리에게 말을 건다":
@@ -293,25 +292,25 @@ label chapter3:
                     "[player_name]""좋아 좋아 마침 출출했는데"
                     show store with fade
                     show ari_happy at right with dissolve
-                    $ sena.increase_affection(1)
+                    $ sena.increase_affection(15)
                     p"둘은 편의점에서 먹을 것들을 사고 테이블에 앉았다"
                     hide ari_happy
                     show ari at right
-                    a "이 초콜릿 내가 제일 좋아하는건데 너도 먹어볼래?"
+                    a "이 초콜릿 내가 제일 좋아하는 건데 너도 먹어볼래?"
                     "[player_name]""어 먹어볼래"
                     "[player_name]와(과) 아리는 다 먹은 후 편의점에서 나왔다."
-                    a"잘가! 수업때 보자"
+                    a"잘가! 수업 때 보자"
                     show home with fade
                     "[player_name]은(는) 배부른 상태로 집에 도착했다"
                 "거절한다":
-                    "[player_name]""미안 집에 빨리 가야해서.. 미안해!"
+                    "[player_name]""미안 집에 빨리 가야 해서.. 미안해!"
                     a "그래, 알았어. 그럼 내일 보자!"
                     p "아리는 아쉬운 듯 혼자 편의점으로 향했다."
                     show home with fade
                     "[player_name]은(는) 집에 도착했다"
     
     # 엔딩 분기 준비
-    p "이렇게 하루가 지나갔다. 앞으로 무슨일이 생길까..?"
+    p "이렇게 하루가 지나갔다. 앞으로 무슨 일이 생길까..?"
 
     stop music fadeout 5.0
     
