@@ -81,7 +81,7 @@ label chapter3:
             hide chanmi_happy
 
         "별로야":
-            "[player_name]""정리가 많이 아쉽네. 다시 해보길 바라라"
+            "[player_name]""정리가 많이 아쉽네. 다시 해보길 바라"
             hide chanmi
             show chanmi_sad at left with dissolve
             $ chanmi.decrease_affection(10)
