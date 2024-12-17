@@ -242,9 +242,9 @@ screen quick_menu():
 
         hbox:
             style_prefix "quick"
-            xalign 0.9
-            yalign 1.0
-            yoffset -205
+            xalign 0.5
+            yalign 0.97
+            #yoffset 0
             spacing 5
 
             textbutton _("되감기") action Rollback() text_size 25
