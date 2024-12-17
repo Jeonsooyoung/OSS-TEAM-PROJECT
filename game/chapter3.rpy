@@ -215,15 +215,23 @@ label chapter3:
                 "너라고 답한다":
                     "[player_name]""나는 너랑 제일 친하다고 생각해. 너가 제일 편하기도 하고"
                     $ sena.increase_affection(1)
+                    hide sena
+                    show sena_happy at right with dissolve
                     s "진짜? 그런 줄 몰랐네. 고맙다. 네가 이렇게 말해주니 좀 설레네..."
+                    hide sena_happy
                 "나 찐따야..":
                     "[player_name]""나... 아무랑도 친하다고 생각한적이 없어.."
                     "[player_name]""나는 찐.따.거든.."
-                    s "아 그래..? 난 너랑 친하다고 생각했는데.."
                     $ sena.decrease_affection(1)
+                    hide sena
+                    show sena_happy at right with dissolve
+                    s "아 그래..? 난 너랑 친하다고 생각했는데.."
+                    hide sena_sad
+
                 "잘 모르겠어":
                     "[player_name]" "좀 고르기 어려운데..."
                     s "알겠어 ㅋㅋㅋㅋㅋ 내가 첫 번째 후보라고 생각할게!"
+                    hide sena with dissolve
 
     "이렇게 [player_name]은(는) 잠시 휴식을 취하며 다시 공부에 집중할 수 있었다."
     # 늦은 밤 도서관
