@@ -140,6 +140,7 @@ label chapter3:
         "좋은데?":
             "[player_name]""어어 너무 좋다. 가자 가자"
             s "좋아, 잠깐 머리 식히는 것도 필요하잖아."
+            hide library
             show coffee_machine with fade
             show sena at right
             p "둘은 커피 자판기로 이동하며 대화를 나눈다."
@@ -153,7 +154,6 @@ label chapter3:
                         s "나는 무조건 여행 갈 거야. 너도 같이 갈래?{fast}"
                         "농담으로 응답한다":
                             "[player_name]" "네가 다 계획했구나. 난 네가 운전만 해주면 따라갈게."
-                            hide sena
                             show sena_happy at right with dissolve
                             s "좋아, 넌 그냥 옆에서 초콜릿만 먹고 있어."
                             $ sena.increase_affection(15)
@@ -248,6 +248,7 @@ label chapter3:
     "[player_name]" "늦은 밤이 되어 도서관을 나서려던 순간 찬미와 아리를 발견했다."
     
     menu:
+        "[player_name]" "늦은 밤이 되어 도서관을 나서려던 순간 찬미와 아리를 발견했다.{fast}"
         "찬미에게 말을 건다":
             hide ari
             "[player_name]""어! 누나 이제 집 가는 거야?"
@@ -261,7 +262,7 @@ label chapter3:
                     c"나 이제 집 가볼게 안녕~"
                     menu:
                         c"나 이제 집 가볼게 안녕~{fast}"
-                        "같이 가자고 한다":
+                        "같이 가자고 한다":  
                             "[player_name]""누나! 우리 같이 가자! 집 방향이 같으니까.."
                             hide chanmi
                             show chanmi_happy at right with dissolve
