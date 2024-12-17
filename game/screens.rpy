@@ -1095,8 +1095,9 @@ screen game_help():
                         text "호감도 시스템" size 30 color "#ffffff"
                         null height 20
                         text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다." color "#ffffff"
-                        text "• 호감도는 0에서 100 사이의 값을 가지며, 게임 시작 시 20으로 시작합니다다." color "#ffffff"
+                        text "• 호감도는 0에서 100 사이의 값을 가지며, 게임 시작 시 20으로 시작합니다." color "#ffffff"
                         text "• 특정 선택지는 호감도에 영향을 미칩니다." color "#ffffff"
+                        text "• 만약 특정 캐릭터의 호감도가 70이상일 시 그 캐릭터의 엔딩을 볼 수 있습니다."
                     
                     vbox:
                         spacing 10
