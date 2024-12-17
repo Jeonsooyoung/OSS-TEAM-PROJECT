@@ -35,7 +35,7 @@ label credits:
 
     # 크레딧 스크롤
     show credits_roll at Move((0.5, 1.0), (0.5, -1.8), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="top")
-    $ renpy.pause(credits_speed + 3.0, hard=True)
+    $ renpy.pause(credits_speed, hard=True)
     
     # # 크레딧 숨기기
     # hide credits_roll with dissolve
@@ -46,7 +46,7 @@ label credits:
         xalign 0.5
         yalign 0.5
     with dissolve
-    $ renpy.pause(1.0)
+    $ renpy.pause(5.0)
     
     hide end_text with dissolve
     $ renpy.full_restart()
