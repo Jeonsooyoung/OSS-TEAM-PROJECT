@@ -364,7 +364,7 @@ screen main_menu():
         imagebutton:
             idle "main_button/images_start_idle.png"
             hover "main_button/images_start_hover.png"
-            action [SetField(persistent, "is_new_game", True), Start()]
+            action CheckNewGame()
             
     
         ## "돌아가기" 버튼
@@ -455,6 +455,37 @@ style main_menu_title:
 
 style main_menu_version:
     properties gui.text_properties("version")
+
+init python:
+    def CheckNewGame():
+        # 저장된 데이터가 있는지 확인
+        if  persistent.chanmi_affection != 20 or \
+            persistent.ari_affection != 20 or \
+            persistent.sena_affection != 20 or \
+            (hasattr(persistent, 'player_name') and persistent.player_name is not None):
+            return Show("confirm_new_game")
+        else:
+            return [SetField(persistent, "is_new_game", True), Start()]
+
+screen confirm_new_game():
+    modal True
+    zorder 200  # 다른 화면보다 위에 표시되도록 설정
+    
+    frame:
+        style_prefix "confirm"
+        xalign 0.5
+        yalign 0.5
+        vbox:
+            spacing 30
+            text "데이터가 존재합니다.\n새 게임을 시작하시겠습니까?\n모든 진행 상황이 초기화됩니다."
+            hbox:
+                spacing 100
+                textbutton "예":
+                    action [Function(reset_persistent_data), SetField(persistent, "is_new_game", True), Start()]
+                textbutton "아니오":
+                    action Hide("confirm_new_game")
+
+
 
 
 ## Game Menu 스크린 ###############################################################
