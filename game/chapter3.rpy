@@ -14,6 +14,8 @@ label chapter3:
     $ load_game_state()
     $ sync_player_name()
 
+    play music "audio/CR5_Love_Spell_FULL_End.ogg"
+
     "[player_name]" "하.. x발 벌써 중간고사네..."
     "[player_name]" "도서관가서 공부나 해야겠다."
 
@@ -53,14 +55,14 @@ label chapter3:
                     show chanmi_happy at right with dissolve
                     c "오~~ [player_name]!! 이따 공부 끝나면 연락해!!"
                     "[player_name]""그래 이따 연락할게!"
-                    $ chanmi.increase_affection(1)
+                    $ chanmi.increase_affection(5)
                     hide chanmi_happy
                 "혼밥해":
                     "[player_name]""누나랑 밥먹어줄 사람 없어용~~"
                     hide chanmi
                     show chanmi_sad at left with dissolve
                     c "아.. 알겠어.."
-                    $ chanmi.decrease_affection(2)
+                    $ chanmi.decrease_affection(10)
                     p "찬미는 짜증내며 자리로 돌아간다."
                     hide chanmi_sad
                 "미안해":
@@ -73,7 +75,7 @@ label chapter3:
             "[player_name]""이 노트로 교수님이 배워야 하는거 아니야...? 찬미교수님?"
             hide chanmi
             show chanmi_happy at right with dissolve
-            $ chanmi.increase_affection(1)
+            $ chanmi.increase_affection(5)
             c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못말려~~ 아잉~~"
             p "찬미는 한층 밝아진 표정으로 자리로 돌아간다."
             hide chanmi_happy
@@ -82,7 +84,7 @@ label chapter3:
             "[player_name]""정리가 많이 아쉽네. 다시 해보길 바래"
             hide chanmi
             show chanmi_sad at left with dissolve
-            $ chanmi.decrease_affection(1)
+            $ chanmi.decrease_affection(10)
             c"너 너무한거 아니니!!"
             p "찬미는 화난 표정으로 자리로 돌아간다."
             hide chanmi_sad
@@ -99,7 +101,7 @@ label chapter3:
             hide ari
             show ari_happy at right with dissolve
             a"와 너 덕분에 진짜 살았다.. 진짜 고마워!"
-            $ ari.increase_affection(1)
+            $ ari.increase_affection(5)
             "[player_name]""별거 아니라구 ㅋ"
             hide ari_happy
 
@@ -116,7 +118,7 @@ label chapter3:
             a"내일 모레 시험인데.. 알았어!!"
             hide ari
             show ari_sad at right with dissolve
-            $ ari.decrease_affection(1)
+            $ ari.decrease_affection(10)
             "아리는 다른 사람을 찾아 떠난다."
             hide ari_sad
 
@@ -152,13 +154,13 @@ label chapter3:
                             hide sena
                             show sena_happy at right with dissolve
                             s "좋아, 넌 그냥 옆에서 초콜릿만 먹고 있어."
-                            $ sena.increase_affection(1)
+                            $ sena.increase_affection(5)
                             hide sena_happy with dissolve
                         "진지하게 관심을 보인다":
                             "[player_name]" "생각해볼게. 근데 어디로 가려고?"
                             hide sena
                             show sena_happy at right with dissolve
-                            $ sena.increase_affection(2)
+                            $ sena.increase_affection(10)
                             s "제주도로 갈 생각이었어."
                             "[player_name]""와 나도 제주도 가고싶었는데!! 내가 한번 계획짜볼게!"  
                             "[player_name]" "세나의 열정을 보며 나도 설렜다."
@@ -174,21 +176,21 @@ label chapter3:
                             "[player_name]""너도 힘든데 이렇게 챙겨줘서 고마워."
                             hide sena
                             show sena_happy at right with dissolve
-                            $ sena.increase_affection(2)
+                            $ sena.increase_affection(10)
                             s "네가 이렇게 말해주니까 더 힘내야겠다는 생각이 든다.. ㅎㅎ"
                             hide sena_happy with dissolve
                         "농담으로 분위기를 바꾼다":
                             "[player_name]" "시험 끝나면 우리 둘 다 바로 지쳐 쓰러지겠지?"
                             hide sena
                             show sena_happy at right with dissolve
-                            $ sena.increase_affection(1)
+                            $ sena.increase_affection(5)
                             s "우린 멋지게 쓰러질 것 같아 하하하하하~"
                             hide sena_happy with dissolve
                         "아닌데? ㅋ" :
                             "[player_name]""난 시험 끝나고도 계속 공부 할건데?"
                             hide sena
                             show sena_sad at left with dissolve
-                            $ sena.decrease_affection(1)
+                            $ sena.decrease_affection(10)
                             s"아.. 그래 그러던가;;"
                             hide sena_sad with dissolve 
         
@@ -196,7 +198,7 @@ label chapter3:
             p "지금은 좀 힘들어. 나 다시 바로 공부하러 가야하거든..."
             hide sena
             show sena_sad at right with dissolve
-            $ sena.decrease_affection(1)
+            $ sena.decrease_affection(10)
             s "그래..? 다른 사람이랑 가야겠네.."
             hide sena_sad
 
@@ -204,7 +206,7 @@ label chapter3:
             "[player_name]" "내가 살게! 나도 커피가 땡기던 참이었어."
             hide sena
             show sena_happy at right with dissolve
-            $ sena.increase_affection(3)
+            $ sena.increase_affection(10)
             "[player_name]""쿠비앤용으로 가자!"
             s "역시 넌 너무 착해. 넌 너무 빛이나.."
             hide sena_happy
@@ -310,6 +312,8 @@ label chapter3:
     
     # 엔딩 분기 준비
     p "이렇게 하루가 지나갔다. 앞으로 무슨일이 생길까..?"
+
+    stop music fadeout 5.0
     
     jump chapter3_end
 

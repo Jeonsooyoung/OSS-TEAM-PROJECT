@@ -4,6 +4,8 @@ label chapter4:
     $ load_game_state()
     $ sync_player_name()
 
+    play music "audio/CR5_Sugary_Love_FULL_End.ogg"
+
     p "캠퍼스는 축제 준비로 북적이고 있었다. 학과 부스도 점점 모양을 갖춰가고 있다."
 
     p"[player_name]은 학교에 일찍 도착해 축제 준비를 구경하고 있었다."
