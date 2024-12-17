@@ -29,14 +29,10 @@ label chapter4:
     menu:
         c"마침 잘왔다 일손이 부족한데 여기 좀 도와줄래..?{fast}"
         "도와준다":
-<<<<<<< HEAD
-=======
-            $ chanmi.increase_affection(15)
->>>>>>> 26a399a1810dcb90e1cef998674a340ce593ff61
             "[player_name]" "당근이지 맡겨만 두라고!"
             hide chanmi
             show chanmi_happy at right with dissolve
-            $ chanmi.increase_affection(10)
+            $ chanmi.increase_affection(15)
             c"ㅋㅋㅋㅋㅋㅋㅋ 그래그래 고맙네"
             "[player_name]""그러면 난 뭐를 도와주면 되는데??"
             hide chanmi_happy
@@ -59,13 +55,9 @@ label chapter4:
                     c"어?? 무슨 소리야?"
                     "[player_name]""누나가 장식품 아니냐고 ㅋ"
                     "[player_name]""장식품이 이미 충분해서 안붙여도 되겠는데?"
-<<<<<<< HEAD
                     hide chanmi
                     show chanmi_happy at right with dissolve
                     $ chanmi.increase_affection(15)
-=======
-                    $ chanmi.increase_affection(20)
->>>>>>> 26a399a1810dcb90e1cef998674a340ce593ff61
                     p"찬미의 볼이 붉게 물들었다."
                     c"아니 ㅋㅋㅋ 뭐라는 거야"
                     hide chanmi_happy
@@ -93,13 +85,9 @@ label chapter4:
                     "[player_name]""어 근데, 내가 그 자리에 껴도 되는 거 맞아??"
                     c"응응! 상관없어 아까 우리 부스 사람들이 너 부르라고 하더라"
                     "[player_name]""그래? 그럼 좋아! 이따 끝나고 연락해!"
-<<<<<<< HEAD
                     hide chanmi
                     show chanmi_happy at right with dissolve
                     $ chanmi.increase_affection(10)
-=======
-                    $ chanmi.increase_affection(15)
->>>>>>> 26a399a1810dcb90e1cef998674a340ce593ff61
                     c"알았어~ 이따 보자"
             
                 "혼자 시간을 보내고 싶어":
@@ -134,41 +122,51 @@ label chapter4:
     p"[player_name]은(는) 소개팅 부스에 인스타 아이디를 적고 돌아왔다."
     "[player_name]" "빨리 연락이 왔으면 좋겠다~~~ 다른 곳도 좀 둘러볼까~"
     "[player_name]은(는) 다른 부스들을 둘러보다가 아리와 마주쳤다"
+    show ari at left
     a"어 안녕? 너 축제 구경 중이었구나?"
     "[player_name]""어어 나도 대학생이니까 한번 경험은 해보고 싶었어 ㅎㅎ"
     a "그치, 저기 먹거리 부스 엄청 많던데 같이 돌아볼래?"
     menu:
         a "그치, 저기 먹거리 부스 엄청 많던데 같이 돌아볼래?{fast}"
         "좋아":
-            $ ari.increase_affection(15)
             "[player_name]" "좋아! 그럼 뭐 먹어볼래?"
-            a "저기 보세요, 핫도그도 있고, 떡볶이도 있고... 음, 난 저 와플이 좀 끌리는데!"
+            hide ari
+            show ari_happy at left with dissolve
+            $ ari.increase_affection(10)
+            a "저기 봐봐, 핫도그도 있고, 떡볶이도 있고... 음, 난 저 와플이 좀 끌리는데!"
             menu:
-                a "저기 보세요, 핫도그도 있고, 떡볶이도 있고... 음, 난 저 와플이 좀 끌리는데!{fast}"
+                a "저기 봐봐, 핫도그도 있고, 떡볶이도 있고... 음, 난 저 와플이 좀 끌리는데!{fast}"
                 "와플 먹자고 한다":
-                    $ ari.increase_affection(15)
+                    $ ari.increase_affection(10)
                     "[player_name]" "와플 좋아~ 같이 먹자."
                     a"좋아! 나는 딸기 크림 얹은 걸로 할래. 너는?"
                     "[player_name]" "나는 초코 소스 잔뜩 얹은 걸로 할게."
                     a "역시 너도 단 걸 좋아하네! 이렇게 같이 먹으니까 더 맛있는 것 같아."
                     "[player_name]""맛있누~~"
+                    hide ari_happy
+                    show ari at left with dissolve
                 "떡볶이를 추천한다":
                     "[player_name]" "와플도 좋지만, 떡볶이 한번 먹어볼래? 저기 줄 서 있는 거 보니까 엄청 인기 많아 보여."
+                    hide ari_happy
+                    show ari at left with dissolve
                     c "그것도 좋지! 매운 거 잘 먹는 편이야?"
                     "[player_name]" "응, 매운 거 좋아해. 같이 먹으면 더 맛있을 거야."
                     c "그럼 얼른 가자! 네가 추천해준 거니까 더 기대된다."
                 "핫도그를 추천한다":
                     "[player_name]" "와플도 좋지만, 핫도그 한번 먹어볼래? 저기 줄 서 있는 거 보니까 엄청 인기 많아 보여."
+                    hide ari_happy
+                    show ari at left with dissolve
                     c "그것도 좋지! 나 핫도그 좋아한다룡~"
                     "[player_name]" "아 진짜?? 나도 좋아한다능"
                     c "그럼 얼른 가자! 네가 추천해 준 거니까 더 기대된다."
             p"둘은 음식을 맛있게 먹고 서로 할 것을 하러 갔다."
 
-
         "거절한다":
             "[player_name]" "미안, 지금은 별로 배가 안 고파서.. (배고픔)"
             c "아, 그래?? 알았어.."
             p"[player_name]은(는) 아리를 버리고 빠르게 도망갔다."
+
+    hide ari
             
     p"혼자 축제를 둘러보던 중.."
     "[player_name]""오!! 세나야 안녕 방가방가"
@@ -179,13 +177,13 @@ label chapter4:
     menu:
         s"같이 회전목마 타러 갈래? 축제 오면 이런 건 꼭 해야지!{fast}"
         "좋아":
-            $ sena.increase_affection(15)
+            $ sena.increase_affection(10)
             "[player_name]" "그래, 회전목마 국룰이지~~"
             s"그치 그치! 뭘 아는군~! 나랑 타면 더 재밌어질걸?"
             show festival_merrygoround with fade
             menu:
                 "너랑 타니까 더 즐거워.":
-                    $ sena.increase_affection(20)
+                    $ sena.increase_affection(15)
                     "[player_name]""응, 너랑 타니까 더 즐거워."
                     s "진짜? 헤헤 갑자기 기분이 좋아지는구먼~~!"
                 "조금 어색하지만 네 덕분에 괜찮아.":
