@@ -1,6 +1,9 @@
 #나레이션
 define p = Character(" ")
 
+image library = "background/library.jpg"
+image library2 = "background/library2.jpg"
+
 label chapter3:
 
     $ load_game_state()
@@ -11,13 +14,17 @@ label chapter3:
 
     narrator "{fast}도서관으로 이동 중...{slow=0.05}"
 
+    show library with fade
     "[player_name]" "사람들 공부 열심히들 하시네.. 근데 어디에 앉지.."
     "[player_name]" "역시 나는 구석으로 가야겠다."
-
+    show library2 with fade
+    show chanmi at left
+    show ari at right
     #자리에 앉은 장면
     "[player_name]""어 뭐야 찬미누나도 공부하려고 도서관에 왔네"
     p"[player_name]은(는) 찬미에게 손인사를 한다. 아리도 인사를 받아준다"
-
+    hide ari
+    show chanmi at right with move
     p"[player_name]이(가) 공부를 하던중, 찬미가 노트를 들고 다가온다"
     c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어."
     
