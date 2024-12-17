@@ -72,7 +72,6 @@ screen phone_dialogue(dialogue, items=None):
                 null height 20
                 use nvl_phonetext(dialogue)
                 null height 100
-    key "mouseup_1" action Function(next_message, dialogue)
 
 
 screen nvl_phonetext(dialogue):
