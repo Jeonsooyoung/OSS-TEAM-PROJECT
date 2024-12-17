@@ -42,7 +42,7 @@ label chapter2:
             "[player_name]" "훗 드디어 내가 나설 차례인가?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이었지(후후)"
             show sena_happy at left with dissolve
-            $ sena.increase_affection(10) # 호감도 상승
+            $ sena.increase_affection(15) # 호감도 상승
             s "ㅋㅋㅋㅋㅋ알겠어, 그러면 부탁해! 우리 팀의 희망은 너야!"
             s "(보기보다 허세가 많네ㅎㅎ)"
             p "[player_name]는 자신감을 내비치며 게임에 도전했다."
@@ -94,7 +94,7 @@ label chapter2:
             "[player_name]" "되게 예쁘던데요ㅎㅎ, 도와줄게요!"
             hide chanmi
             show chanmi_happy at left
-            $ chanmi.increase_affection(10)
+            $ chanmi.increase_affection(15)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
             hide chanmi_happy
@@ -142,7 +142,7 @@ label chapter2:
         "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어~!":
             "[player_name]" "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어ㅠㅠ"
             a "ㅋㅋㅋ 너무 빨진 말고"
-            $ ari.increase_affection(10)
+            $ ari.increase_affection(15)
             "[player_name]"  "(눈 감으면서 천천히 음미중)"
             "[player_name]"  "아니 뭐야? 아리가 싸줘서 그런건가?"
             "[player_name]"  "나 진짜 거짓말 안치고 살면서 먹었던 쌈중 TOP3 안에 들어"
@@ -199,9 +199,9 @@ label chapter2:
         s "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘{fast}"
         "내가 부축해줄게!":
             "[player_name]"  "알겠어. 찬미야, 나한테 기대. 천천히 가자. 방까지는 금방이야"
-            $ ari.increase_affection(10)
-            $ sena.increase_affection(10)
-            $ chanmi.increase_affection(10)
+            $ ari.increase_affection(15)
+            $ sena.increase_affection(15)
+            $ chanmi.increase_affection(15)
             p "찬미는 조심스럽게 [player_name](이)의 팔에 의지하며 한 걸음씩 앞으로 나아갔다"
             p "찬미의 얼굴은 여전히 창백했지만, 도움에 조금 안도한 것 같았다"
             p "좋아, 거의 다 왔어! 찬미야, 조금만 더 힘내!"
