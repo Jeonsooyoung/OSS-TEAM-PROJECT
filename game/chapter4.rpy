@@ -155,20 +155,19 @@ label chapter4:
 
 label concert_decision:
     menu:
-        "찬미와 함께 가기로 한다" if affection_chanmi >= 50:
+        "찬미와 함께 가기로 한다" if chanmi_affection >= 50:
             jump concert_with_chanmi
 
-        "세나와 함께 가기로 한다" if affection_sena >= 50:
+        "세나와 함께 가기로 한다" if sena_affection >= 50:
             jump concert_with_sena
 
-        "아리셋과 함께 가기로 한다" if affection_aricet >= 50:
+        "아리셋과 함께 가기로 한다" if ari_affection >= 50:
             jump concert_with_aricet
 
         "혼자 콘서트를 보러 간다":
             jump solo_ending
 
 label concert_with_chanmi:
-    scene bg_concert with fade
     c "와, 진짜 왔구나! 역시 너는 내가 믿는 대로야!"
     c "이 콘서트, 정말 엄청난 거 알아? 오늘을 얼마나 기다렸는지 몰라. 내가 너랑 함께 오고 싶어서 얼마나 고민했는지 알아?"
     p "찬미는 항상 밝고 활기찬 모습이지만, 지금은 그 어느 때보다 더 기뻐 보인다."
