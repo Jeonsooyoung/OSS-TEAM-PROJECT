@@ -58,12 +58,12 @@ label chapter3:
                     $ chanmi.increase_affection(10)
                     hide chanmi_happy
                 "혼밥해":
-                    "[player_name]""누나랑 밥먹어줄 사람 없어용~~"
+                    "[player_name]""누나랑 밥 먹어줄 사람 없어용~~"
                     hide chanmi
                     show chanmi_sad at left with dissolve
                     c "아.. 알겠어.."
                     $ chanmi.decrease_affection(10)
-                    p "찬미는 짜증내며 자리로 돌아간다."
+                    p "찬미는 짜증 내며 자리로 돌아간다."
                     hide chanmi_sad
                 "미안해":
                     "[player_name]""미안.. 나 선약이 있어"
@@ -72,30 +72,30 @@ label chapter3:
                     hide chanmi
 
         "찬미교수..":
-            "[player_name]""이 노트로 교수님이 배워야 하는거 아니야...? 찬미교수님?"
+            "[player_name]""이 노트로 교수님이 배워야 하는 거 아니야...? 찬미 교수님?"
             hide chanmi
             show chanmi_happy at right with dissolve
             $ chanmi.increase_affection(10)
-            c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못말려~~ 아잉~~"
+            c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못 말려~~ 아잉~~"
             p "찬미는 한층 밝아진 표정으로 자리로 돌아간다."
             hide chanmi_happy
 
         "별로야":
-            "[player_name]""정리가 많이 아쉽네. 다시 해보길 바래"
+            "[player_name]""정리가 많이 아쉽네. 다시 해보길 바라라"
             hide chanmi
             show chanmi_sad at left with dissolve
             $ chanmi.decrease_affection(10)
-            c"너 너무한거 아니니!!"
+            c"너 너무한 거 아니니!!"
             p "찬미는 화난 표정으로 자리로 돌아간다."
             hide chanmi_sad
     
     show ari at left with move
     p"[player_name]이(가) 조용히 공부하던 중 아리가 갑자기 어깨를 툭툭 친다"
 
-    a"이 문제 좀 봐줄래..? 나 머리가 잘 안돌아가.."
+    a"이 문제 좀 봐줄래..? 나 머리가 잘 안 돌아가.."
 
     menu:
-        a"이 문제 좀 봐줄래..? 나 머리가 잘 안돌아가..{fast}"
+        a"이 문제 좀 봐줄래..? 나 머리가 잘 안 돌아가..{fast}"
         "문제를 봐준다":
             p "아리 옆으로 다가가 문제를 도와준다"
             hide ari
