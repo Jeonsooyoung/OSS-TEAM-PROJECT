@@ -248,5 +248,6 @@ label chapter2:
 
 label chapter2_end:
     $ persistent.chapter2_cleared = True  # 챕터 2 완료 상태 설정
+    $ save_game_state()
     jump chapter3
     return
