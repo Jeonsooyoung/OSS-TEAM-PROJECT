@@ -1107,6 +1107,8 @@ screen game_help():
                         text _("{a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only] 으로 만들어진 게임.\n\n[renpy.license!t]") color "#ffffff"
                         null height 20
                         text _("게임 버전 [config.version!t]\n") color "#ffffff"
+                        textbutton _("크레딧 보기"):
+                            action Call("credits")
 
             vbar value YScrollValue("help_vp")
 
