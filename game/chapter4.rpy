@@ -19,7 +19,7 @@ label chapter4:
     p "캠퍼스는 축제 준비로 북적이고 있었다. 학과 부스도 점점 모양을 갖춰가고 있다."
 
     p"[player_name]은 학교에 일찍 도착해 축제 준비를 구경하고 있었다."
-
+    show chanmi at right 
     "[player_name]""어? 뭐야 찬미 누나 안녕?"
     c"어 [player_name] 일찍 왔네. 안녕~~"
     "[player_name]""누나 축제 부스도 운영했었어? 몰랐네.."
@@ -29,10 +29,14 @@ label chapter4:
     menu:
         c"마침 잘왔다 일손이 부족한데 여기 좀 도와줄래..?{fast}"
         "도와준다":
-            $ chanmi.increase_affection(10)
             "[player_name]" "당근이지 맡겨만 두라고!"
+            hide chanmi
+            show chanmi_happy at right with dissolve
+            $ chanmi.increase_affection(10)
             c"ㅋㅋㅋㅋㅋㅋㅋ 그래그래 고맙네"
             "[player_name]""그러면 난 뭐를 도와주면 되는데??"
+            hide chanmi_happy
+            show chanmi at right
             c"음.. 이리 와서 이거 한 번만 봐주라"
             c"여기 장식품 좀 더 붙이려 하는데 네가 보기엔 어디에 붙이는 게 더 나을까?"
 
@@ -51,11 +55,16 @@ label chapter4:
                     c"어?? 무슨 소리야?"
                     "[player_name]""누나가 장식품 아니냐고 ㅋ"
                     "[player_name]""장식품이 이미 충분해서 안붙여도 되겠는데?"
+                    hide chanmi
+                    show chanmi_happy at right with dissolve
                     $ chanmi.increase_affection(15)
                     p"찬미의 볼이 붉게 물들었다."
                     c"아니 ㅋㅋㅋ 뭐라는 거야"
+                    hide chanmi_happy
+                    show chanmi at right
                     c"그래서 장난치지 말고 어디에 붙일까?"
                     menu:
+                        c"그래서 장난치지 말고 어디에 붙일까?{fast}"
                         "중앙에 붙인다":
                             "[player_name]" "중앙에 붙이는게 더 눈에 띄겠지?"
                             c"역시 네 눈썰미는 믿을만해. 좋았어, 그렇게 하자."
@@ -76,22 +85,30 @@ label chapter4:
                     "[player_name]""어 근데, 내가 그 자리에 껴도 되는 거 맞아??"
                     c"응응! 상관없어 아까 우리 부스 사람들이 너 부르라고 하더라"
                     "[player_name]""그래? 그럼 좋아! 이따 끝나고 연락해!"
+                    hide chanmi
+                    show chanmi_happy at right with dissolve
                     $ chanmi.increase_affection(10)
                     c"알았어~ 이따 보자"
             
                 "혼자 시간을 보내고 싶어":
                     "[player_name]" "아마 혼자 있을 것 같아. 이런 때에 혼자만의 시간도 중요하잖아."
-                    c "같이 술 마시자고 하려 했는데.. 알았어..."
+                    hide chanmi
+                    show chanmi_sad at left with dissolve
                     $ chanmi.decrease_affection(10)
+                    c "같이 술 마시자고 하려 했는데.. 알았어..."
 
         "거절한다":
-            $ chanmi.decrease_affection(10)
             "[player_name]""미안, 지금은 좀 어려울 것 같아. 다른 일이 있어서."
+            hide chanmi
+            show chanmi_sad at left with dissolve
+            $ chanmi.decrease_affection(10)
             c "아, 알았어. 괜찮아. 내가 조금 더 힘내면 되겠지.."
 
         "도망간다":
             p"[player_name]이(가) 전화를 받는척하며 어딘가로 달려간다"
             c"?"
+            hide chanmi
+            show chanmi_sad at left with dissolve
             $ chanmi.decrease_affection(10)
             "[player_name]""후,, 따돌렸나.. 귀찮게 뭘 도와줘 쯧"
 
