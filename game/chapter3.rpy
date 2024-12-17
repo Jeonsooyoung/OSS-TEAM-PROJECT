@@ -10,7 +10,7 @@ label chapter3:
     $ sync_player_name()
 
     "[player_name]" "하.. x발 벌써 중간고사네..."
-    "[player_name]" "도서관가서 공부나 해야겠다."
+    "[player_name]" "도서관 가서 공부나 해야겠다."
 
     narrator "{fast}도서관으로 이동 중...{slow=0.05}"
 
@@ -21,17 +21,17 @@ label chapter3:
     show chanmi at left
     show ari at right
     #자리에 앉은 장면
-    "[player_name]""어 뭐야 찬미누나도 공부하려고 도서관에 왔네"
+    "[player_name]""어 뭐야 찬미 누나도 공부하려고 도서관에 왔네"
     p"[player_name]은(는) 찬미에게 손인사를 한다. 아리도 인사를 받아준다"
     hide ari
     show chanmi at right with move
-    p"[player_name]이(가) 공부를 하던중, 찬미가 노트를 들고 다가온다"
+    p"[player_name]이(가) 공부를 하던 중, 찬미가 노트를 들고 다가온다"
     c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어."
     
     menu:
         c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어.{fast}"
         "확인하고 칭찬한다":
-            "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한거 같은데?"
+            "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한 거 같은데?"
             hide chanmi
             show chanmi_happy at right with dissolve
             $ chanmi.increase_affection(1)
@@ -39,7 +39,7 @@ label chapter3:
             c "너랑 얘기하니까 마음이 좀 놓인다..."
             hide chanmi_happy
             show chanmi at right with dissolve
-            c "우리 공부 다 끝내고 같이 밥먹을래??."
+            c "우리 공부 다 끝내고 같이 밥 먹을래??."
             
             menu:
                 "좋아":
