@@ -93,7 +93,7 @@ label chapter2:
         "예뻐 보이긴 하더라, 도와줄게!":
             "[player_name]" "되게 예쁘던데요ㅎㅎ, 도와줄게요!"
             hide chanmi
-            show chanmi_happy at left
+            show chanmi_happy at right
             $ chanmi.increase_affection(15)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
