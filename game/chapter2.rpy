@@ -130,7 +130,7 @@ label chapter2:
 
     p "바비큐가 시작되고, [player_name]와 친구들은 고기를 구우며 서로 이야기를 나누었다."
     
-    show ari at right
+    show ari at center
     a "[player_name] 고기 너가 구운거야? 너무 잘 구웠다!!"
     a "[player_name] 보는 것만으로도 군침이 돈다"
 
@@ -147,27 +147,27 @@ label chapter2:
             "[player_name]"  "아니 뭐야? 아리가 싸줘서 그런건가?"
             "[player_name]"  "나 진짜 거짓말 안치고 살면서 먹었던 쌈중 TOP3 안에 들어"
             hide ari
-            show ari_happy at right
+            show ari_happy at center
             a "TOP3라니ㅋㅋ 말하는 것 봐 나 좀 감동받았는데?!"
             "[player_name]" "진짜야, 농담 아니야. 이거 뭐랄까... 쌈의 균형이 완벽해."
             a "알겠어 알겠어, 그렇게 말해주니 왠지 좀 부끄럽네ㅎㅎ"
             a "(이렇게 말해주면... 설레잖아..)"
             p "아리는 [player_name](이)에게 약간의 설렘을 느낀다"
             hide ari_happy
-            show ari at right
+            show ari at center
 
         "어... 고맙긴 한데, 내가 직접 싸서 먹을게!":
             "[player_name]"  "고맙긴 한데, 내가 직접 싸서 먹을게"
             "[player_name]"  "좀 부담스러워서..ㅎㅎ"
             hide ari
-            show ari_sad at left
+            show ari_sad at center
             $ ari.decrease_affection(10)
             a "우리 어느 정도 친해진 거 아니었어? 나만 그렇게 생각한 건가.."
             a "부담스러웠다면 미안해.."
             "[player_name]"  "(살짝 얼굴이 붉어지며) 아, 그런 뜻은 아니고... 그냥 내가 부끄러워서.."
             a "부끄러움이 많구나, 그럼 다음부터는 조심할게"
             hide ari_sad
-            show ari at right
+            show ari at center
             "[player_name]"  "(조금 당황한 듯)어.. 조심 안해도 되는데.."
             a "하하.. 알겠어ㅋㅋ 너 생각보다 부끄럼이 많구나? 귀엽네"
             p "아리는 [player_name](이) 부끄러워하는 모습을 보고 귀여움을 느낀다"
