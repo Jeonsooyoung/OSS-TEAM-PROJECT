@@ -277,7 +277,7 @@ label chapter3:
                     "[player_name]""(사실 공부 미친 듯이 했지롱 ㅋㅋ)"
                     hide chanmi
                     show chanmi_sad at right with dissolve
-                    $ chanmi.decrease_affection(0)
+                    $ chanmi.decrease_affection(15)
                     c"아 그래?? (뭐야 열심히 하는 줄 알았더니..)"
                     c"그럼 집 잘 가~!"
                     show home with fade
