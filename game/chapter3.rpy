@@ -41,7 +41,7 @@ label chapter3:
             "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한 거 같은데?"
             hide chanmi
             show chanmi_happy at right with dissolve
-            $ chanmi.increase_affection(10)
+            $ chanmi.increase_affection(15)
             c "아 ㅎㅎ!! 진짜 고마워!!"
             c "너랑 얘기하니까 마음이 좀 놓인다..."
             hide chanmi_happy
@@ -55,7 +55,7 @@ label chapter3:
                     show chanmi_happy at right with dissolve
                     c "오~~ [player_name]!! 이따 공부 끝나면 연락해!!"
                     "[player_name]""그래 이따 연락할게!"
-                    $ chanmi.increase_affection(10)
+                    $ chanmi.increase_affection(15)
                     hide chanmi_happy
                 "혼밥해":
                     "[player_name]""누나랑 밥 먹어줄 사람 없어용~~"
@@ -75,7 +75,7 @@ label chapter3:
             "[player_name]""이 노트로 교수님이 배워야 하는 거 아니야...? 찬미 교수님?"
             hide chanmi
             show chanmi_happy at right with dissolve
-            $ chanmi.increase_affection(10)
+            $ chanmi.increase_affection(15)
             c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못 말려~~ 아잉~~"
             p "찬미는 한층 밝아진 표정으로 자리로 돌아간다."
             hide chanmi_happy
@@ -101,7 +101,7 @@ label chapter3:
             hide ari
             show ari_happy at right with dissolve
             a"와 너 덕분에 진짜 살았다.. 진짜 고마워!"
-            $ ari.increase_affection(10)
+            $ ari.increase_affection(15)
             "[player_name]""별거 아니라구 ㅋ"
             hide ari_happy
 
@@ -154,7 +154,7 @@ label chapter3:
                             hide sena
                             show sena_happy at right with dissolve
                             s "좋아, 넌 그냥 옆에서 초콜릿만 먹고 있어."
-                            $ sena.increase_affection(10)
+                            $ sena.increase_affection(15)
                             hide sena_happy with dissolve
                         "진지하게 관심을 보인다":
                             "[player_name]" "생각해 볼게. 근데 어디로 가려고?"
@@ -176,14 +176,14 @@ label chapter3:
                             "[player_name]""너도 힘든데 이렇게 챙겨줘서 고마워."
                             hide sena
                             show sena_happy at right with dissolve
-                            $ sena.increase_affection(10)
+                            $ sena.increase_affection(15)
                             s "네가 이렇게 말해주니까 더 힘내야겠다는 생각이 든다.. ㅎㅎ"
                             hide sena_happy with dissolve
                         "농담으로 분위기를 바꾼다":
                             "[player_name]" "시험 끝나면 우리 둘 다 바로 지쳐 쓰러지겠지?"
                             hide sena
                             show sena_happy at right with dissolve
-                            $ sena.increase_affection(10)
+                            $ sena.increase_affection(15)
                             s "우린 멋지게 쓰러질 것 같아 하하하하하~"
                             hide sena_happy with dissolve
                         "아닌데? ㅋ" :
@@ -206,7 +206,7 @@ label chapter3:
             "[player_name]" "내가 살게! 나도 커피가 땡기던 참이었어."
             hide sena
             show sena_happy at right with dissolve
-            $ sena.increase_affection(10)
+            $ sena.increase_affection(15)
             "[player_name]""쿠비앤용으로 가자!"
             s "역시 넌 너무 착해. 넌 너무 빛이나.."
             hide sena_happy
@@ -221,7 +221,7 @@ label chapter3:
                     "[player_name]""나는 너랑 제일 친하다고 생각해. 네네가 제일 편하기도 하고"
                     hide sena
                     show sena_happy at right with dissolve
-                    $ sena.increase_affection(15)
+                    $ sena.increase_affection(20)
                     s "진짜? 그런 줄 몰랐네. 고맙다. 네가 이렇게 말해주니 좀 설레네..."
                     hide sena_happy
                 "나 찐따야..":
@@ -263,7 +263,7 @@ label chapter3:
                             "[player_name]""누나! 우리 같이 가자! 집 방향이 같으니까.."
                             hide chanmi
                             show chanmi_happy at right with dissolve
-                            $ chanmi.increase_affection(15)
+                            $ chanmi.increase_affection(20)
                             c"어? 그래그래 좋아 같이 가자"
                             show home with fade
                             "둘은 헤어지고 [player_name]은(는) 집에 도착했다"
@@ -277,7 +277,7 @@ label chapter3:
                     "[player_name]""(사실 공부 미친 듯이 했지롱 ㅋㅋ)"
                     hide chanmi
                     show chanmi_sad at right with dissolve
-                    $ chanmi.decrease_affection(0)
+                    $ chanmi.decrease_affection(10)
                     c"아 그래?? (뭐야 열심히 하는 줄 알았더니..)"
                     c"그럼 집 잘 가~!"
                     show home with fade
@@ -292,7 +292,7 @@ label chapter3:
                     "[player_name]""좋아 좋아 마침 출출했는데"
                     show store with fade
                     show ari_happy at right with dissolve
-                    $ sena.increase_affection(15)
+                    $ sena.increase_affection(20)
                     p"둘은 편의점에서 먹을 것들을 사고 테이블에 앉았다"
                     hide ari_happy
                     show ari at right
