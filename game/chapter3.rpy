@@ -32,38 +32,55 @@ label chapter3:
         c "[player_name]!! 혹시 이거 좀 봐줄래..? 내가 제대로 정리한 건지 모르겠어.{fast}"
         "확인하고 칭찬한다":
             "[player_name]""와.. 누나 완전 대단하다. 이 정도면 완벽한거 같은데?"
+            hide chanmi
+            show chanmi_happy at right with dissolve
             $ chanmi.increase_affection(1)
             c "아 ㅎㅎ!! 진짜 고마워!!"
             c "너랑 얘기하니까 마음이 좀 놓인다..."
+            hide chanmi_happy
+            show chanmi at right with dissolve
             c "우리 공부 다 끝내고 같이 밥먹을래??."
             
             menu:
                 "좋아":
                     "[player_name]""좋아. 같이 먹을 사람 없었는데 다행이다."
+                    hide chanmi
+                    show chanmi_happy at right with dissolve
                     c "오~~ [player_name]!! 이따 공부 끝나면 연락해!!"
                     "[player_name]""그래 이따 연락할게!"
                     $ chanmi.increase_affection(1)
+                    hide chanmi_happy
                 "혼밥해":
                     "[player_name]""누나랑 밥먹어줄 사람 없어용~~"
+                    hide chanmi
+                    show chanmi_sad at left with dissolve
                     c "아.. 알겠어.."
                     $ chanmi.decrease_affection(2)
                     p "찬미는 짜증내며 자리로 돌아간다."
+                    hide chanmi_sad
                 "미안해":
                     "[player_name]""미안.. 나 선약이 있어"
                     c"그래? 아쉽지만 어쩔 수 없네"
                     p "찬미는 아쉬워하며 자리로 돌아간다."
+                    hide chanmi
 
         "찬미교수..":
             "[player_name]""이 노트로 교수님이 배워야 하는거 아니야...? 찬미교수님?"
+            hide chanmi
+            show chanmi_happy at right with dissolve
             $ chanmi.increase_affection(1)
             c "아 ㅋㅋㅋㅋㅋ 어이없다. 너 진짜 못말려~~ 아잉~~"
             p "찬미는 한층 밝아진 표정으로 자리로 돌아간다."
-        
+            hide chanmi_happy
+
         "별로야":
             "[player_name]""정리가 많이 아쉽네. 다시 해보길 바래"
+            hide chanmi
+            show chanmi_sad at left with dissolve
             $ chanmi.decrease_affection(1)
             c"너 너무한거 아니니!!"
             p "찬미는 화난 표정으로 자리로 돌아간다."
+            hide chanmi_sad
 
     p"[player_name]이(가) 조용히 공부하던 중 아리가 갑자기 어깨를 툭툭 친다"
 
