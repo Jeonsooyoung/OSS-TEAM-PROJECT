@@ -156,13 +156,13 @@ label chapter4:
 
 label concert_decision:
     menu:
-        "찬미와 함께 가기로 한다" if chanmi_affection >= 50:
+        "찬미와 함께 가기로 한다" if chanmi_affection >= 70:
             jump concert_with_chanmi
 
-        "세나와 함께 가기로 한다" if sena_affection >= 50:
+        "세나와 함께 가기로 한다" if sena_affection >= 70:
             jump concert_with_sena
 
-        "아리셋과 함께 가기로 한다" if ari_affection >= 50:
+        "아리셋과 함께 가기로 한다" if ari_affection >= 70:
             jump concert_with_ari
 
         "혼자 콘서트를 보러 간다":
