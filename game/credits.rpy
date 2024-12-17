@@ -30,6 +30,8 @@ init:
 
 label credits:
     scene black with dissolve
+        # 퀵메뉴 숨기기
+    $ _quick_menu = False
     $ credits_speed = 20.0  # 여기서 속도 조절 (숫자가 클수록 느림)
     $ renpy.pause(0.2)
 

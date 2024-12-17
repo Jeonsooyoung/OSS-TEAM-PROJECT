@@ -192,11 +192,11 @@ label chapter2:
     c "아.. 얘들아 무슨 일이 이었던 거야.. 머리가 너무 어지럽다.."
     p "그녀의 목소리는 한껏 풀린 기색으로 떨렸고, 눈동자는 초점을 찾지 못한 채 흔들렸다"
     a "괜찮아? 무리하지 말고 조금만 쉬자"
-    c "그러는게 좋겠다 찬미야, 정신 좀 차려. 이 상태로 방에 갈 수 있겠어?"
-    c "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘"
+    s "그러는게 좋겠다 찬미야, 정신 좀 차려. 이 상태로 방에 갈 수 있겠어?"
+    s "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘"
 
     menu:
-        c "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘{fast}"
+        s "음.. 얘 못갈 것 같은데 [player_name],네가 좀 부축해줘{fast}"
         "내가 부축해줄게!":
             "[player_name]"  "알겠어. 찬미야, 나한테 기대. 천천히 가자. 방까지는 금방이야"
             $ ari.increase_affection(10)
@@ -248,5 +248,6 @@ label chapter2:
 
 label chapter2_end:
     $ persistent.chapter2_cleared = True  # 챕터 2 완료 상태 설정
+    $ save_game_state()
     jump chapter3
     return
