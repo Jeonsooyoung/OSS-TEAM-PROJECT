@@ -32,10 +32,10 @@ label chapter2:
 
     p "게임이 한창 진행되던 중, 세나가 [player_name]에게 다가와 말을 걸었다."
     show sena at left with dissolve
-    s "야, [player_name]! 다음 게임이 신발 던지기인데 네가 한 번 도전해 볼래?"
+    s "야, [player_name]! 다음 게임이 신발 던지기인데 네가 한 번 도전해볼래?"
 
     menu:
-        s "야, [player_name]! 다음 게임이 신발 던지기인데 네가 한 번 도전 해볼래?{fast}"
+        s "야, [player_name]! 다음 게임이 신발 던지기인데 네가 한 번 도전해볼래?{fast}"
         "내 활약 보고 반해버려도 책임 못 진다?":
             "[player_name]" "훗 드디어 내가 나설 차례인가?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이었지(후후)"
