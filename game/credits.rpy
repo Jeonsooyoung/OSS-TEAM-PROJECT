@@ -19,7 +19,7 @@ init python:
             last_category = category
             
         text += "\n\n\n\n{size=40}Made with\n{size=60}Ren'Py\n"
-        text += "\n\n\n\n{size=40}2024 두근두근 충북대 by 옥수수수염차 All rights reserved\n"
+        text += "\n{size=40}2024 두근두근 충북대 by 옥수수수염차 All rights reserved\n"
         return text
 
 
@@ -31,11 +31,11 @@ init:
 label credits:
     scene black with dissolve
     $ credits_speed = 20.0  # 여기서 속도 조절 (숫자가 클수록 느림)
-    $ renpy.pause(1.0)
+    $ renpy.pause(0.2)
 
     # 크레딧 스크롤
-    show credits_roll at Move((0.5, 1.2), (0.5, -2.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="top")
-    $ renpy.pause(credits_speed + 1.0, hard=False)
+    show credits_roll at Move((0.5, 1.0), (0.5, -1.8), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="top")
+    $ renpy.pause(credits_speed, hard=True)
     
     # # 크레딧 숨기기
     # hide credits_roll with dissolve
@@ -46,8 +46,8 @@ label credits:
         xalign 0.5
         yalign 0.5
     with dissolve
-    $ renpy.pause(3.0)
+    $ renpy.pause(5.0)
     
     hide end_text with dissolve
-    return
+    $ renpy.full_restart()
 
