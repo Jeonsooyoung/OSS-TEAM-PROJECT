@@ -40,7 +40,7 @@ label chapter2:
             "[player_name]" "훗 드디어 내가 나설 차례인가?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이었지(후후)"
             show sena_happy at left with dissolve
-            $ sena.increase_affection(1) # 호감도 상승
+            $ sena.increase_affection(5) # 호감도 상승
             s "ㅋㅋㅋㅋㅋ알겠어, 그러면 부탁해! 우리 팀의 희망은 너야!"
             s "(보기보다 허세가 많네ㅎㅎ)"
             p "[player_name]는 자신감을 내비치며 게임에 도전했다."
@@ -55,7 +55,7 @@ label chapter2:
 
         "ㅈㄴ 하기 싫은데 어떻게 하지;;":
             "[player_name]" "음… 네가 더 잘할 것 같은데? 내가 하면 팀 점수가 위험할 수도 있으니까..ㅎㅎ"
-            $ sena.decrease_affection(1)
+            $ sena.decrease_affection(5)
             s "야, 설마 나한테 미루는 거야? 한 번 보여줘 봐!!"
             "[player_name]" "(아니 하기 싫다는데 왜 자꾸 시킬려고 하는 거야)"
             "[player_name]" "(좋게 좋게 넘어가 보자)"
@@ -92,7 +92,7 @@ label chapter2:
             "[player_name]" "되게 예쁘던데요ㅎㅎ, 도와줄게요!"
             hide chanmi
             show chanmi_happy at left
-            $ chanmi.increase_affection(1)
+            $ chanmi.increase_affection(5)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
             hide chanmi_happy
@@ -111,7 +111,7 @@ label chapter2:
             p "(장난스러운 표정을 지으며 손을 휘저어 보인다.)"
             hide chanmi
             show chanmi_sad at right
-            $ chanmi.decrease_affection(1)
+            $ chanmi.decrease_affection(5)
             c "바비큐는 다 같이 준비해야 더 맛있다고!"
             c "정말 안 도와줄 거야~? 그럼 너무 서운한데..."
             "[player_name]" "(이거... 은근히 꼽주네)"
