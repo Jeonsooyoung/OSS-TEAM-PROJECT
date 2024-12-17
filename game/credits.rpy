@@ -8,7 +8,8 @@ init python:
     ]
 
     def credits_text():
-        text = "{color=#fff}{size=80}Credits\n\n"
+        text = "{image=images/logo.png}\n\n"  # 로고 이미지를 맨 위에 추가
+        text += "{color=#fff}{size=80}Credits\n\n"
         last_category = ""
         
         for category, name in credits_list:
@@ -17,21 +18,23 @@ init python:
             text += "{size=60}" + name + "\n"
             last_category = category
             
-        text += "\n{size=40}Made with\n{size=60}Ren'Py\n"
-        text += "\n{size=40}2024 두근두근 충북대 by 옥수수수염차 All rights reserved\n"
+        text += "\n\n\n\n{size=40}Made with\n{size=60}Ren'Py\n"
+        text += "\n\n\n\n{size=40}2024 두근두근 충북대 by 옥수수수염차 All rights reserved\n"
         return text
 
+
 init:
+    image credits_logo = "images/logo.png"
     image credits_roll = Text(credits_text(), text_align=0.5, color="#fff")
     image end_text = Text("{size=80}Thank you for playing!", text_align=0.5, color="#fff")
 
 label credits:
     scene black with dissolve
-    $ credits_speed = 15.0  # 여기서 속도 조절 (숫자가 클수록 느림)
+    $ credits_speed = 20.0  # 여기서 속도 조절 (숫자가 클수록 느림)
     $ renpy.pause(1.0)
-    
+
     # 크레딧 스크롤
-    show credits_roll at Move((0.5, 1.2), (0.5, -1.3), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="top")
+    show credits_roll at Move((0.5, 1.2), (0.5, -2.0), credits_speed, repeat=False, bounce=False, xanchor="center", yanchor="top")
     $ renpy.pause(credits_speed + 1.0, hard=False)
     
     # # 크레딧 숨기기
