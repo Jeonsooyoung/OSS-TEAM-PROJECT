@@ -19,7 +19,7 @@ label chapter3:
     "[player_name]" "하.. x발 벌써 중간고사네..."
     "[player_name]" "도서관가서 공부나 해야겠다."
 
-    narrator "{fast}도서관으로 이동 중...{slow=0.05}"
+    p "도서관으로 이동 중..."
 
     show library with fade
     "[player_name]" "사람들 공부 열심히들 하시네.. 근데 어디에 앉지.."
