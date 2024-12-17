@@ -81,7 +81,8 @@ label chapter3:
             c"너 너무한거 아니니!!"
             p "찬미는 화난 표정으로 자리로 돌아간다."
             hide chanmi_sad
-
+    
+    show ari at left with move
     p"[player_name]이(가) 조용히 공부하던 중 아리가 갑자기 어깨를 툭툭 친다"
 
     a"이 문제 좀 봐줄래..? 나 머리가 잘 안돌아가.."
@@ -90,9 +91,12 @@ label chapter3:
         a"이 문제 좀 봐줄래..? 나 머리가 잘 안돌아가..{fast}"
         "문제를 봐준다":
             p "아리 옆으로 다가가 문제를 도와준다"
+            hide ari
+            show ari_happy at right with dissolve
             a"와 너 덕분에 진짜 살았다.. 진짜 고마워!"
             $ ari.increase_affection(1)
             "[player_name]""별거 아니라구 ㅋ"
+            hide ari_happy
 
         "멍청아":
             "[player_name]""넌 머리가 안돌아가는게 아니라. 멍청한거야"
@@ -100,13 +104,18 @@ label chapter3:
             "[player_name]""장난이고 이미 과부화 걸린거야. 좀 쉬면서해"
             a"그래 너 정말 태평하다! ㅋㅋㅋㅋ"
             p "아리가 다시 자리로 돌아가 다시 문제를 고민한다"
+            hide ari with dissolve
 
         "다음에 알려줄게":
             "[player_name]""내 문제도 많이 밀려 있어서.. 나중에 알려줄게!"
             a"내일 모레 시험인데.. 알았어!!"
+            hide ari
+            show ari_sad at right with dissolve
             $ ari.decrease_affection(1)
             "아리는 다른 사람을 찾아 떠난다."
-    "[player_name]""다시 열심히 해볼까?"
+            hide ari_sad
+
+    "[player_name]""다시 열심히 공부해볼까?"
     #3hours later
     "[player_name]은(는) 공부를 열심히 하다 잠깐 쉬러 나왔다."
     "[player_name]""어, 세나야 안녕!!"
