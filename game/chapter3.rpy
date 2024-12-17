@@ -1,6 +1,7 @@
 #나레이션
 define p = Character(" ")
 
+image home = "background/home.jpg"
 image library = "background/library.jpg"
 image library2 = "background/library2.jpg"
 image cafe = "background/cafe.jpg"
@@ -15,6 +16,7 @@ label chapter3:
     $ sync_player_name()
 
     play music "audio/CR5_Love_Spell_FULL_End.ogg"
+    show home with fade
 
     "[player_name]" "하.. x발 벌써 중간고사네..."
     "[player_name]" "도서관 가서 공부나 해야겠다."

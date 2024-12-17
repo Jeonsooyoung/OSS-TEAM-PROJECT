@@ -364,7 +364,7 @@ screen main_menu():
         imagebutton:
             idle "main_button/images_start_idle.png"
             hover "main_button/images_start_hover.png"
-            action [SetField(persistent, "is_new_game", True), Start()]
+            action CheckNewGame()
             
     
         ## "돌아가기" 버튼
@@ -455,6 +455,37 @@ style main_menu_title:
 
 style main_menu_version:
     properties gui.text_properties("version")
+
+init python:
+    def CheckNewGame():
+        # 저장된 데이터가 있는지 확인
+        if  persistent.chanmi_affection != 20 or \
+            persistent.ari_affection != 20 or \
+            persistent.sena_affection != 20 or \
+            (hasattr(persistent, 'player_name') and persistent.player_name is not None):
+            return Show("confirm_new_game")
+        else:
+            return [SetField(persistent, "is_new_game", True), Start()]
+
+screen confirm_new_game():
+    modal True
+    zorder 200  # 다른 화면보다 위에 표시되도록 설정
+    
+    frame:
+        style_prefix "confirm"
+        xalign 0.5
+        yalign 0.5
+        vbox:
+            spacing 30
+            text "데이터가 존재합니다.\n새 게임을 시작하시겠습니까?\n모든 진행 상황이 초기화됩니다."
+            hbox:
+                spacing 100
+                textbutton "예":
+                    action [Function(reset_persistent_data), SetField(persistent, "is_new_game", True), Start()]
+                textbutton "아니오":
+                    action Hide("confirm_new_game")
+
+
 
 
 ## Game Menu 스크린 ###############################################################
@@ -1097,7 +1128,7 @@ screen game_help():
                         text "• 각 캐릭터와 상호작용하면서 호감도가 변화합니다." color "#ffffff"
                         text "• 호감도는 0에서 100 사이의 값을 가지며, 게임 시작 시 20으로 시작합니다." color "#ffffff"
                         text "• 특정 선택지는 호감도에 영향을 미칩니다." color "#ffffff"
-                        text "• 만약 특정 캐릭터의 호감도가 70이상일 시 그 캐릭터의 엔딩을 볼 수 있습니다."
+                        text "• 만약 특정 캐릭터의 호감도가 70이상일 시 그 캐릭터의 엔딩을 볼 수 있습니다." color "#ffffff"
                     
                     vbox:
                         spacing 10
