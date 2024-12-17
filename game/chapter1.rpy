@@ -44,13 +44,13 @@ label chapter1:
             hide chanmi
             show chanmi_happy at left
             c "고마워! 방학 동안 잘 지냈니?" 
-            $ chanmi.increase_affection(5) # 호감도 상승
+            $ chanmi.increase_affection(10) # 호감도 상승
             c "나도 나름대로 재밌게 지냈어! 다음 방학에 같이 어디 놀러 가지 않을래?" 
             "[player_name]" "나야 좋지. 다음에 같이 놀러 가자!"
             hide chanmi_happy
         "인사를 받아주지 않는다":
             "[player_name]" "여기 자리 있어서.."
-            $ chanmi.decrease_affection(5) # 호감도 하락
+            $ chanmi.decrease_affection(10) # 호감도 하락
             hide chanmi
             show chanmi_sad at left
             c "아, 그래... 알겠어." 
@@ -176,7 +176,7 @@ label continue_story:
                 window hide
                 $ phone_dialogue.append(Dialogue("[player_name]", "알겠어. 내가 도와줄게. 어떤 자료 찾으면 될까?",current=True))
                 $ phone_dialogue.append(Dialogue("아리","우와 정말 고마워!",current=True))
-                $ ari.increase_affection(5) # 호감도 상승
+                $ ari.increase_affection(10) # 호감도 상승
                 $ phone_dialogue.append(Dialogue ("아리","우리 팀 주제가 [final_topic]이니까 개발 동기, 과제 수행 방법, 예측되는 문제점을 찾아줄 수 있을까?",current=True))
                 $ phone_dialogue.append(Dialogue ("[player_name]", "혼자 자료조사 하기 힘들었겠다ㅠㅠ 최대한 빨리 찾아서 너한테 보내줄게",current=True))
                 $ phone_dialogue.append(Dialogue ("아리","응! 덕분에 한결 마음이 편해진다 도와줘서 고마워!",current=True))
@@ -186,7 +186,7 @@ label continue_story:
             "도와주지 않는다":
                 window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "미안해... 지금은 좀 바빠서 도와주기 어려울 것 같아. 다음엔 꼭 도와줄게!",current=True))
-                $ ari.decrease_affection(5) # 호감도 하락
+                $ ari.decrease_affection(10) # 호감도 하락
                 $ phone_dialogue.append(Dialogue ("아리","아, 알겠어...어쩔 수 없지, 그래도 답장해줘서 고마워",current=True))
                 
         # PhoneDialogue 화면을 호출
@@ -221,7 +221,7 @@ label continue_story:
             "적극적으로 반응한다":
                 window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "물론이지! 내가 한번 볼게. 세나라면 분명 잘 만들었을 것 같은데?",current=True))
-                $ sena.increase_affection(5) # 호감도 상승
+                $ sena.increase_affection(10) # 호감도 상승
                 $ phone_dialogue.append(Dialogue ("세나","고마워! 사실 표지에 이 색 조합 쓰는 게 어떨까 싶었어. 좀 단순한 느낌일까?",current=True))
                 $ phone_dialogue.append(Dialogue ("[player_name]", "아니야, 색 조합 괜찮아! 근데 조금 더 강조하고 싶으면 글자 테두리를 추가해보는 것도 좋을 것 같아.",current=True))
                 $ phone_dialogue.append(Dialogue ("세나","오! 좋은 생각이야. 바로 적용해볼게!",current=True))
@@ -234,7 +234,7 @@ label continue_story:
                 window hide
                 "[player_name]" "읽기 귀찮은데.."
                 "[player_name]""(세나가 보낸 메시지를 읽어보지만, 답장은 하지 않기로 한다.)"
-                $ sena.decrease_affection(5) # 호감도 하락
+                $ sena.decrease_affection(10) # 호감도 하락
                 p "세나가 보낸 메시지는 그대로 방치되었고, [player_name]는(은) 신경을 쓰지 않았다."
                 s "(음... 아무래도 답장이 없네. 괜히 물어본 걸까?)"
                 p "세나는 살짝 실망한 듯 보였다."
@@ -269,7 +269,7 @@ label continue_story:
             "좋아요! 제가 나머지 부분 맡을게요!":
                 window hide
                 $ phone_dialogue.append(Dialogue ("[player_name]", "좋아요! 나머지 부분은 제가 맡을게요.",current=True))
-                $ chanmi.increase_affection(5) # 호감도 상승
+                $ chanmi.increase_affection(10) # 호감도 상승
                 $ phone_dialogue.append(Dialogue ("찬미","고마워! 함께 잘 준비하자!",current=True))
                 "[player_name]" "누나는 내가 맡은 부분을 맡아줘서 고마운 듯 보였다."
                 p "발표 준비는 놀라울 정도로 수월했고, 우리는 점점 더 서로에게 의지하게 되는 것 같았다."
@@ -277,7 +277,7 @@ label continue_story:
             "이 부분하기 싫은데...":
                 window hide
                 "[player_name]" "음... 저도 사실 누나랑 같은 부분 하고 싶어요."
-                $ chanmi.decrease_affection(5)  # 호감도 하락
+                $ chanmi.decrease_affection(10)  # 호감도 하락
                 $ phone_dialogue.append(Dialogue ("찬미", "아, 그래? 그럼 다른 방식으로 나누자. 괜찮아.",current=True))
                 p "찬미는 살짝 아쉬워하는 듯했지만, 그래도 다른 방법을 찾기로 했다."
                 $ phone_dialogue.append(Dialogue ("찬미", "어느 부분 맡고 싶은데?",current=True))

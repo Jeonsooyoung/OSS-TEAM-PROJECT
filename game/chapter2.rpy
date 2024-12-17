@@ -42,7 +42,7 @@ label chapter2:
             "[player_name]" "훗 드디어 내가 나설 차례인가?"
             "[player_name]" "내가 오송고의 신발 던지기 전설이었지(후후)"
             show sena_happy at left with dissolve
-            $ sena.increase_affection(5) # 호감도 상승
+            $ sena.increase_affection(10) # 호감도 상승
             s "ㅋㅋㅋㅋㅋ알겠어, 그러면 부탁해! 우리 팀의 희망은 너야!"
             s "(보기보다 허세가 많네ㅎㅎ)"
             p "[player_name]는 자신감을 내비치며 게임에 도전했다."
@@ -57,7 +57,7 @@ label chapter2:
 
         "ㅈㄴ 하기 싫은데 어떻게 하지;;":
             "[player_name]" "음… 네가 더 잘할 것 같은데? 내가 하면 팀 점수가 위험할 수도 있으니까..ㅎㅎ"
-            $ sena.decrease_affection(5)
+            $ sena.decrease_affection(10)
             s "야, 설마 나한테 미루는 거야? 한 번 보여줘 봐!!"
             "[player_name]" "(아니 하기 싫다는데 왜 자꾸 시킬려고 하는 거야)"
             "[player_name]" "(좋게 좋게 넘어가 보자)"
@@ -94,7 +94,7 @@ label chapter2:
             "[player_name]" "되게 예쁘던데요ㅎㅎ, 도와줄게요!"
             hide chanmi
             show chanmi_happy at left
-            $ chanmi.increase_affection(5)
+            $ chanmi.increase_affection(10)
             c "뭐? 갑자기 그렇게 말하면 좀 부끄럽잖아!"
             p "(찬미는 잠시 머뭇거리며 웃음을 터트린다.)"
             hide chanmi_happy
@@ -113,7 +113,7 @@ label chapter2:
             p "(장난스러운 표정을 지으며 손을 휘저어 보인다.)"
             hide chanmi
             show chanmi_sad at right
-            $ chanmi.decrease_affection(5)
+            $ chanmi.decrease_affection(10)
             c "바비큐는 다 같이 준비해야 더 맛있다고!"
             c "정말 안 도와줄 거야~? 그럼 너무 서운한데..."
             "[player_name]" "(이거... 은근히 꼽주네)"
@@ -142,7 +142,7 @@ label chapter2:
         "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어~!":
             "[player_name]" "아리가 싸준 세상에 하나뿐인 쌈이라니... 이거 아까워서 어떻게 먹어ㅠㅠ"
             a "ㅋㅋㅋ 너무 빨진 말고"
-            $ ari.increase_affection(5)
+            $ ari.increase_affection(10)
             "[player_name]"  "(눈 감으면서 천천히 음미중)"
             "[player_name]"  "아니 뭐야? 아리가 싸줘서 그런건가?"
             "[player_name]"  "나 진짜 거짓말 안치고 살면서 먹었던 쌈중 TOP3 안에 들어"
@@ -161,7 +161,7 @@ label chapter2:
             "[player_name]"  "좀 부담스러워서..ㅎㅎ"
             hide ari
             show ari_sad at left
-            $ ari.decrease_affection(5)
+            $ ari.decrease_affection(10)
             a "우리 어느 정도 친해진 거 아니었어? 나만 그렇게 생각한 건가.."
             a "부담스러웠다면 미안해.."
             "[player_name]"  "(살짝 얼굴이 붉어지며) 아, 그런 뜻은 아니고... 그냥 내가 부끄러워서.."
