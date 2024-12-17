@@ -29,7 +29,7 @@ define gui.accent_color = '#F77891'
 
 ## 텍스트 버튼(text button)이 선택(selected)됐거나 커서를 올리지(hovered) 않았을
 ## 때 사용됩니다.
-define gui.idle_color = '#888888'
+define gui.idle_color = '#616161'
 
 ## 작은(small) 색상은 같은 효과를 내기 위해 더 밝거나 어두워야 하는 작은 글자에
 ## 사용됩니다.
@@ -44,7 +44,7 @@ define gui.hover_color = '#F77891'
 define gui.selected_color = '#Fcc0cF'
 
 ## 텍스트 버튼(text button)이 선택되지(selected) 않았을 때 사용됩니다.
-define gui.insensitive_color = '#8888887f'
+define gui.insensitive_color = '#6d6d6d7f'
 
 ## 채워지지 않은 빈 막대(bar)에 사용됩니다. 이것은 바로 사용되지 않지만, 막대
 ## (bar) 이미지 파일이 재생성됐을 때 사용됩니다.
