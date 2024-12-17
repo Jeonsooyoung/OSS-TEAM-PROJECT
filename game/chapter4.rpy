@@ -169,6 +169,7 @@ label chapter4:
     hide ari
             
     p"혼자 축제를 둘러보던 중.."
+    show sena at right
     "[player_name]""오!! 세나야 안녕 방가방가"
     s"어!!!! 여기서 만나네"
     s"나 마침 하고 싶은 거 있는데 같이할래??"
@@ -177,21 +178,30 @@ label chapter4:
     menu:
         s"같이 회전목마 타러 갈래? 축제 오면 이런 건 꼭 해야지!{fast}"
         "좋아":
-            $ sena.increase_affection(10)
             "[player_name]" "그래, 회전목마 국룰이지~~"
+            hide sena
+            show sena_happy at right with dissolve
+            $ sena.increase_affection(10)
             s"그치 그치! 뭘 아는군~! 나랑 타면 더 재밌어질걸?"
             show festival_merrygoround with fade
+            show sena at right
             menu:
+                s"그치 그치! 뭘 아는군~! 나랑 타면 더 재밌어질걸?{fast}"
+                
                 "너랑 타니까 더 즐거워.":
-                    $ sena.increase_affection(15)
                     "[player_name]""응, 너랑 타니까 더 즐거워."
+                    hide sena
+                    show sena_happy at right
+                    $ sena.increase_affection(15)
                     s "진짜? 헤헤 갑자기 기분이 좋아지는구먼~~!"
                 "조금 어색하지만 네 덕분에 괜찮아.":
                     "[player_name]" "좀 어색하지만 네가 리드해주니까 괜찮아."
                     s "역시 내가 다 이끌어줘야지! 앞으로도 따라와~"
         "괜찮아":
-            $ sena.decrease_affection(10)
             "[player_name]" "노노노노, 네가 다른 친구랑 타는 게 더 좋을 것 같아."
+            hide sena
+            show sena_sad at left with dissolve
+            $ sena.decrease_affection(10)
             s "ㅋㅋㅋㅋ 나도 너랑 타기 싫었어 ㅅㄱ~"
 
     p"[player_name]은(는) 이후 쓸쓸하게 걸어 다니며 연애하고 싶다고 생각하고 있었다."
