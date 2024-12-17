@@ -221,5 +221,7 @@ label solo_ending:
     return
 
 label chapter4_end:
+    window hide
+    $ quick_menu = False
     call credits
     return
