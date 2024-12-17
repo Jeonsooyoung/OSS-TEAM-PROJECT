@@ -44,13 +44,13 @@ label chapter1:
             hide chanmi
             show chanmi_happy at left
             c "고마워! 방학 동안 잘 지냈니?" 
-            $ chanmi.increase_affection(1) # 호감도 상승
+            $ chanmi.increase_affection(5) # 호감도 상승
             c "나도 나름대로 재밌게 지냈어! 다음 방학에 같이 어디 놀러 가지 않을래?" 
             "[player_name]" "나야 좋지. 다음에 같이 놀러 가자!"
             hide chanmi_happy
         "인사를 받아주지 않는다":
             "[player_name]" "여기 자리 있어서.."
-            $ chanmi.decrease_affection(1) # 호감도 하락
+            $ chanmi.decrease_affection(5) # 호감도 하락
             hide chanmi
             show chanmi_sad at left
             c "아, 그래... 알겠어." 
