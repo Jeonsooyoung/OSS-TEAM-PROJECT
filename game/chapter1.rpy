@@ -216,7 +216,7 @@ label continue_story:
 
         window show
         menu:
-            a "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?{fast}"
+            s "내가 골라본 색 조합이 괜찮은지 모르겠어. 혹시 한 번 봐줄 수 있을까?{fast}"
 
             "적극적으로 반응한다":
                 window hide
