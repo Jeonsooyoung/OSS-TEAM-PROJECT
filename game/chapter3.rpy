@@ -106,37 +106,37 @@ label chapter3:
             hide ari_happy
 
         "멍청아":
-            "[player_name]""넌 머리가 안돌아가는게 아니라. 멍청한거야"
+            "[player_name]""넌 머리가 안 돌아가는 게 아니라. 멍청한 거야"
             a"머..뭐라고..?"
-            "[player_name]""장난이고 이미 과부화 걸린거야. 좀 쉬면서해"
+            "[player_name]""장난이고 이미 과부하 걸린 거야. 좀 쉬면서 해"
             a"그래 너 정말 태평하다! ㅋㅋㅋㅋ"
             p "아리가 다시 자리로 돌아가 다시 문제를 고민한다"
             hide ari with dissolve
 
         "다음에 알려줄게":
             "[player_name]""내 문제도 많이 밀려 있어서.. 나중에 알려줄게!"
-            a"내일 모레 시험인데.. 알았어!!"
+            a"내일모레 시험인데.. 알았어!!"
             hide ari
             show ari_sad at right with dissolve
             $ ari.decrease_affection(10)
-            "아리는 다른 사람을 찾아 떠난다."
+            p "아리는 다른 사람을 찾아 떠난다."
             hide ari_sad
 
-    "[player_name]""다시 열심히 공부해볼까?"
+    "[player_name]""다시 열심히 공부해 볼까?"
     #3hours later
     "[player_name]은(는) 공부를 열심히 하다 잠깐 쉬러 나왔다."
     show sena at right
     "[player_name]""어, 세나야 안녕!!"
     p "세나가 인사를 하며 다가왔다."
-    s"공부 많이했어?"
-    "[player_name]""어.. 나 오늘 하루종일 도서관에 있었다.."
+    s"공부 많이 했어?"
+    "[player_name]""어.. 나 오늘 하루 종일 도서관에 있었다.."
     "[player_name]""지금 잠깐 쉬러 나왔어"
-    s "너무 열심히 하는 거 아니야? 좀 쉬면서해~~ 커피 한 잔 사줄게."
+    s "너무 열심히 하는 거 아니야? 좀 쉬면서 해~~ 커피 한 잔 사줄게."
     
     menu:
-        s "너무 열심히 하는 거 아니야? 좀 쉬면서해~~ 커피 한 잔 사줄게.{fast}"
+        s "너무 열심히 하는 거 아니야? 좀 쉬면서 해~~ 커피 한 잔 사줄게.{fast}"
         "좋은데?":
-            "[player_name]""어어 너무 좋다. 가자가자"
+            "[player_name]""어어 너무 좋다. 가자 가자"
             s "좋아, 잠깐 머리 식히는 것도 필요하잖아."
             show coffee_machine with fade
             show sena at right
@@ -157,12 +157,12 @@ label chapter3:
                             $ sena.increase_affection(10)
                             hide sena_happy with dissolve
                         "진지하게 관심을 보인다":
-                            "[player_name]" "생각해볼게. 근데 어디로 가려고?"
+                            "[player_name]" "생각해 볼게. 근데 어디로 가려고?"
                             hide sena
                             show sena_happy at right with dissolve
                             $ sena.increase_affection(10)
                             s "제주도로 갈 생각이었어."
-                            "[player_name]""와 나도 제주도 가고싶었는데!! 내가 한번 계획짜볼게!"  
+                            "[player_name]""와 나도 제주도 가고 싶었는데!! 내가 한번 계획 짜볼게!"  
                             "[player_name]" "세나의 열정을 보며 나도 설렜다."
                             hide sena_happy with dissolve
 
@@ -187,7 +187,7 @@ label chapter3:
                             s "우린 멋지게 쓰러질 것 같아 하하하하하~"
                             hide sena_happy with dissolve
                         "아닌데? ㅋ" :
-                            "[player_name]""난 시험 끝나고도 계속 공부 할건데?"
+                            "[player_name]""난 시험 끝나고도 계속 공부할 건데?"
                             hide sena
                             show sena_sad at left with dissolve
                             $ sena.decrease_affection(10)
