@@ -221,7 +221,11 @@ label solo_ending:
     return
 
 label chapter4_end:
+<<<<<<< HEAD
     "플레이 해주셔서 감사합니다!!"
     stop music fadeout 5.0
     
+=======
+    call credits
+>>>>>>> 7e9e86b5a9d1802c70d2740566f86ce4e5930854
     return
