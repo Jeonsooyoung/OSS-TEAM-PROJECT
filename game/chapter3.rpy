@@ -3,6 +3,8 @@ define p = Character(" ")
 
 image library = "background/library.jpg"
 image library2 = "background/library2.jpg"
+image cafe = "background/cafe.jpg"
+image coffee_machine = "background/coffee_machine.jpg"
 
 label chapter3:
 
@@ -118,20 +120,22 @@ label chapter3:
     "[player_name]""다시 열심히 공부해볼까?"
     #3hours later
     "[player_name]은(는) 공부를 열심히 하다 잠깐 쉬러 나왔다."
+    show sena at right
     "[player_name]""어, 세나야 안녕!!"
     p "세나가 인사를 하며 다가왔다."
     s"공부 많이했어?"
     "[player_name]""어.. 나 오늘 하루종일 도서관에 있었다.."
     "[player_name]""지금 잠깐 쉬러 나왔어"
-    s "너무 열심히 하는 거 아니야? 좀 쉬면서헤~~ 커피 한 잔 사줄게."
+    s "너무 열심히 하는 거 아니야? 좀 쉬면서해~~ 커피 한 잔 사줄게."
     
     menu:
-        s "너무 열심히 하는 거 아니야? 좀 쉬면서헤~~ 커피 한 잔 사줄게.{fast}"
+        s "너무 열심히 하는 거 아니야? 좀 쉬면서해~~ 커피 한 잔 사줄게.{fast}"
         "좋은데?":
             "[player_name]""어어 너무 좋다. 가자가자"
             s "좋아, 잠깐 머리 식히는 것도 필요하잖아."
+            show coffee_machine with fade
+            show sena at right
             p "둘은 커피 자판기로 이동하며 대화를 나눈다."
-            
             menu:
                 p "둘은 커피 자판기로 이동하며 대화를 나눈다.{fast}"
                 "시험 이후 계획에 대해 묻는다":
@@ -141,15 +145,21 @@ label chapter3:
                     menu:
                         s "나는 무조건 여행 갈 거야. 너도 같이 갈래?{fast}"
                         "농담으로 응답한다":
-                            $ sena.increase_affection(1)
                             "[player_name]" "네가 다 계획했구나. 난 네가 운전만 해주면 따라갈게."
+                            hide sena
+                            show sena_happy at right with dissolve
                             s "좋아, 넌 그냥 옆에서 초콜릿만 먹고 있어."
+                            $ sena.increase_affection(1)
+                            hide sena_happy with dissolve
                         "진지하게 관심을 보인다":
-                            $ sena.increase_affection(2)
                             "[player_name]" "생각해볼게. 근데 어디로 가려고?"
-                            s "제주도로 갈 생각이었아."
+                            hide sena
+                            show sena_happy at right with dissolve
+                            $ sena.increase_affection(2)
+                            s "제주도로 갈 생각이었어."
                             "[player_name]""와 나도 제주도 가고싶었는데!! 내가 한번 계획짜볼게!"  
                             "[player_name]" "세나의 열정을 보며 나도 설렜다."
+                            hide sena_happy with dissolve
 
                 "최근 스트레스에 대해 이야기한다":
                     "[player_name]" "하.. 요즘 스트레스 너무 많다."
@@ -158,30 +168,46 @@ label chapter3:
                     menu:
                         s "나도 그래. 이번 시험이 끝나면 진짜 쉬고 싶어..{fast}"
                         "고마워하며 말을 꺼낸다":
-                            $ sena.increase_affection(1)
                             "[player_name]""너도 힘든데 이렇게 챙겨줘서 고마워."
+                            hide sena
+                            show sena_happy at right with dissolve
+                            $ sena.increase_affection(2)
                             s "네가 이렇게 말해주니까 더 힘내야겠다는 생각이 든다.. ㅎㅎ"
+                            hide sena_happy with dissolve
                         "농담으로 분위기를 바꾼다":
-                            $ sena.increase_affection(1)
                             "[player_name]" "시험 끝나면 우리 둘 다 바로 지쳐 쓰러지겠지?"
+                            hide sena
+                            show sena_happy at right with dissolve
+                            $ sena.increase_affection(1)
                             s "우린 멋지게 쓰러질 것 같아 하하하하하~"
+                            hide sena_happy with dissolve
                         "아닌데? ㅋ" :
                             "[player_name]""난 시험 끝나고도 계속 공부 할건데?"
+                            hide sena
+                            show sena_sad at left with dissolve
                             $ sena.decrease_affection(1)
-                            s"아.. 그래 그러던가;;" 
+                            s"아.. 그래 그러던가;;"
+                            hide sena_sad with dissolve 
         
         "괜찮아 ㅎㅎ":
-            $ sena.decrease_affection(1)
             p "지금은 좀 힘들어. 나 다시 바로 공부하러 가야하거든..."
+            hide sena
+            show sena_sad at right with dissolve
+            $ sena.decrease_affection(1)
             s "그래..? 다른 사람이랑 가야겠네.."
+            hide sena_sad
 
         "커피를 사 주겠다고 한다":
-            $ sena.increase_affection(3)
             "[player_name]" "내가 살게! 나도 커피가 땡기던 참이었어."
+            hide sena
+            show sena_happy at right with dissolve
+            $ sena.increase_affection(3)
             "[player_name]""쿠비앤용으로 가자!"
             s "역시 넌 너무 착해. 넌 너무 빛이나.."
+            hide sena_happy
+            show cafe with fade
+            show sena at right with dissolve
             p "둘은 커피를 마시며 가볍게 이야기를 나눴다."
-
             s "근데 너 우리과 중에서 제일 친하다고 생각하는 사람 있어?"
             
             menu:
