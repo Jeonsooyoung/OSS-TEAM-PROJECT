@@ -4,6 +4,10 @@ image festival_ready = "background/festival_ready.jpg"
 image festival_enjoy = "background/festival_enjoy.jpg"
 image festival_merrygoround = "background/festival_merrygoround.jpg"
 image festival_concert = "background/festival_concert.jpg"
+image select_chanmi = "background/select_chanmi.png"
+image select_ari = "background/select_ari.png"
+image select_sena = "background/select_sena.png"
+
 
 label chapter4:
     $ load_game_state()
