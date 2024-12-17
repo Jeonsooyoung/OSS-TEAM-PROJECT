@@ -219,6 +219,5 @@ label solo_ending:
     return
 
 label chapter4_end:
-    "플레이 해주셔서 감사합니다!!"
-    
+    call credits
     return
