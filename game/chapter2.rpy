@@ -14,6 +14,8 @@ label chapter2:
     scene bg_beach_day
     with dissolve
 
+    play music "audio/CR5_Under_the_Spotlight_FULL_End.ogg" fadein 5.0
+
     p "새 학기가 시작된 지도 어느덧 한 달. 설렘 가득한 마음으로 컴퓨터공학과 학생들은 MT를 떠나 대천해수욕장에 도착했다."
     p "버스에서 내리자마자, 다들 설렘이 가득한 얼굴로 짐을 정리하고는 하나둘 해수욕장으로 모여들었다."
     p "반짝이는 바다와 시원한 바람이 불고, 모두가 들뜬 목소리로 여기저기서 이야기꽃을 피운다." 
@@ -240,6 +242,8 @@ label chapter2:
     p "[player_name](은)는 서로 장난치며 웃고 떠드는 친구들 사이에서, 특별한 감정을 느끼며 이 순간을 만끽했다."
     "[player_name]" "(이런 순간이야말로 오래도록 기억에 남겠지… 진짜 MT 오길 잘한 것 같아.)"
     p "그리고 그렇게, 깊은 새벽까지 이어진 그들의 시간은 잊을 수 없는 추억으로 남게 되었다."
+
+    stop music fadeout 5.0
 
 
 label chapter2_end:
