@@ -26,6 +26,8 @@ label chapter1:
     "[player_name]" "으악! 지각이다!"
     p "2학기, [player_name](이)의 새로운 이야기 막이 오른다."
 
+    call credits
+
     play music "audio/normal.ogg" 
     # 강의실에 들어서며 시나리오 시작
     scene classroom with fade
