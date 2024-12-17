@@ -189,7 +189,6 @@ label chapter4:
                 s"그치 그치! 뭘 아는군~! 나랑 타면 더 재밌어질걸?{fast}"
                 "너랑 타니까 더 즐거워.":
                     "[player_name]""응, 너랑 타니까 더 즐거워."
-                    hide sena
                     show sena_happy at right with dissolve
                     $ sena.increase_affection(15)
                     s "진짜? 헤헤 갑자기 기분이 좋아지는구먼~~!"
