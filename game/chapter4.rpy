@@ -187,11 +187,10 @@ label chapter4:
             show sena at right
             menu:
                 s"그치 그치! 뭘 아는군~! 나랑 타면 더 재밌어질걸?{fast}"
-                
                 "너랑 타니까 더 즐거워.":
                     "[player_name]""응, 너랑 타니까 더 즐거워."
                     hide sena
-                    show sena_happy at right
+                    show sena_happy at right with dissolve
                     $ sena.increase_affection(15)
                     s "진짜? 헤헤 갑자기 기분이 좋아지는구먼~~!"
                 "조금 어색하지만 네 덕분에 괜찮아.":
@@ -226,7 +225,7 @@ label concert_decision:
             jump solo_ending
 
 label concert_with_chanmi:
-    show festival_concert with fade
+    show select_chanmi with fade
     c "와, 진짜 왔구나! 역시 너는 내가 믿는 대로야!"
     c "이 콘서트, 정말 엄청난 거 알아? 오늘을 얼마나 기다렸는지 몰라. 내가 너랑 함께 오고 싶어서 얼마나 고민했는지 알아?"
     "[player_name]" "찬미는 항상 밝고 활기찬 모습이지만, 지금은 그 어느 때보다 더 기뻐 보인다."
@@ -238,7 +237,7 @@ label concert_with_chanmi:
     jump chapter4_end
 
 label concert_with_sena:
-    show festival_concert with fade
+    show select_sena with fade
     s "이렇게 와줘서 정말 고마워. 사실 나 혼자 오기에는 조금 두려웠거든."
     s "이 콘서트, 노래 하나하나가 정말 감동적일 거라고 들었어. 하지만 그 감동을 혼자 느끼는 건 싫더라고."
     "[player_name]" "세나는 조용한 목소리로 말하면서도 눈에는 설렘이 가득 담겨 있었다."
@@ -252,7 +251,7 @@ label concert_with_sena:
     jump chapter4_end
 
 label concert_with_ari:
-    show festival_concert with fade
+    show select_ari with fade
     a "음, 생각보다 시끄럽지는 않네. 나쁘지 않아."
     "[player_name]" "아리는 평소와 같은 차분한 목소리였지만, 약간 긴장한 듯 보였다."
     a "솔직히 말해서, 나는 이런 축제에 큰 기대를 하지 않았어. 하지만 너랑 있다면 좀 다르겠지, 싶었어."
